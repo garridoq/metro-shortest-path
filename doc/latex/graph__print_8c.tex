@@ -1,0 +1,286 @@
+\section{RÃ©fÃ©rence du fichier graph\-\_\-print.\-c}
+\label{graph__print_8c}\index{graph\-\_\-print.\-c@{graph\-\_\-print.\-c}}
+
+
+fonctions pour l'affichage et l'impression de graphes  
+
+
+{\ttfamily \#include \char`\"{}graphaux.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}graphes.\-h\char`\"{}}\\*
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf Affiche\-Ensemble} (boolean $\ast$s, int n)
+\begin{DoxyCompactList}\small\item\em affiche à l'écran l'ensemble representé par le tableau de booléens s. \end{DoxyCompactList}\item 
+void {\bf Affiche\-Liste} ({\bf pcell} p)
+\begin{DoxyCompactList}\small\item\em affiche le contenu de la liste p. \end{DoxyCompactList}\item 
+void {\bf Affiche\-Successeurs} ({\bf graphe} $\ast$g)
+\begin{DoxyCompactList}\small\item\em affiche le graphe dans sa représentation \char`\"{}listes de successeurs\char`\"{}. \end{DoxyCompactList}\item 
+void {\bf Affiche\-Arcs} ({\bf graphe} $\ast$g)
+\begin{DoxyCompactList}\small\item\em affiche le graphe dans sa représentation \char`\"{}listes d'arcs\char`\"{}. \end{DoxyCompactList}\item 
+void {\bf Affiche\-Valeurs\-Sommets} ({\bf graphe} $\ast$g)
+\begin{DoxyCompactList}\small\item\em affiche les valeurs associées aux sommets. \end{DoxyCompactList}\item 
+void {\bf P\-S\-Graphe} ({\bf graphe} $\ast$g, char $\ast$filename, double r, double t, double marge)
+\begin{DoxyCompactList}\small\item\em génère une figure Post\-Script d'après la représentation \char`\"{}successeurs\char`\"{} du graphe g. \end{DoxyCompactList}\item 
+void {\bf E\-P\-S\-Graphe} ({\bf graphe} $\ast$g, char $\ast$filename, double r, double t, double marge, int noms\-\_\-sommets, int v\-\_\-sommets, int col\-\_\-sommets, int v\-\_\-arcs)
+\begin{DoxyCompactList}\small\item\em génère une figure Post\-Script d'après la représentation \char`\"{}successeurs\char`\"{} du graphe g. \end{DoxyCompactList}\item 
+void {\bf Auto\-Noms\-Sommets} ({\bf graphe} $\ast$g, int mode)
+\begin{DoxyCompactList}\small\item\em génère automatiquement des noms pour les sommets du graphe g. \end{DoxyCompactList}\item 
+void {\bf Plongement\-Circulaire} ({\bf graphe} $\ast$g, double r)
+\begin{DoxyCompactList}\small\item\em affecte à chaque sommet des coordonnées (x,y) régulierement réparties sur un cercle. \end{DoxyCompactList}\item 
+void {\bf Plongement\-Radial} ({\bf graphe} $\ast$g, int c)
+\begin{DoxyCompactList}\small\item\em répartit les sommets de g sur des cercles concentriques en fonction de leur rang, avec le sommet c au centre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description dÃ©taillÃ©e}
+fonctions pour l'affichage et l'impression de graphes 
+
+\subsection{Documentation des fonctions}
+\index{graph\-\_\-print.\-c@{graph\-\_\-print.\-c}!Affiche\-Arcs@{Affiche\-Arcs}}
+\index{Affiche\-Arcs@{Affiche\-Arcs}!graph_print.c@{graph\-\_\-print.\-c}}
+\subsubsection[{Affiche\-Arcs}]{\setlength{\rightskip}{0pt plus 5cm}void Affiche\-Arcs (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g}
+\end{DoxyParamCaption}
+)}\label{graph__print_8c_a6e036fb3ab8c0915e26216c7b818192d}
+
+
+affiche le graphe dans sa représentation \char`\"{}listes d'arcs\char`\"{}. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée) \-: un graphe. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences graphe\-::narc, graphe\-::queue, graphe\-::tete, et graphe\-::v\-\_\-arcs.
+
+\index{graph\-\_\-print.\-c@{graph\-\_\-print.\-c}!Affiche\-Ensemble@{Affiche\-Ensemble}}
+\index{Affiche\-Ensemble@{Affiche\-Ensemble}!graph_print.c@{graph\-\_\-print.\-c}}
+\subsubsection[{Affiche\-Ensemble}]{\setlength{\rightskip}{0pt plus 5cm}void Affiche\-Ensemble (
+\begin{DoxyParamCaption}
+\item[{boolean $\ast$}]{s, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{graph__print_8c_a0df101cc17e6e374ee7863a3cdfaaf43}
+
+
+affiche à l'écran l'ensemble representé par le tableau de booléens s. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em s} & (entrée) \-: un tableau de valeurs booléennes. \\
+\hline
+{\em n} & (entrée) \-: la taille du tableau. \\
+\hline
+\end{DoxyParams}
+\index{graph\-\_\-print.\-c@{graph\-\_\-print.\-c}!Affiche\-Liste@{Affiche\-Liste}}
+\index{Affiche\-Liste@{Affiche\-Liste}!graph_print.c@{graph\-\_\-print.\-c}}
+\subsubsection[{Affiche\-Liste}]{\setlength{\rightskip}{0pt plus 5cm}void Affiche\-Liste (
+\begin{DoxyParamCaption}
+\item[{{\bf pcell}}]{p}
+\end{DoxyParamCaption}
+)}\label{graph__print_8c_a06806cdd432a009c0b0a661f9dc9648a}
+
+
+affiche le contenu de la liste p. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em p} & (entrée) \-: une liste chaînee de successeurs. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences cell\-::next, et cell\-::som.
+
+
+
+RÃ©fÃ©rencÃ© par Affiche\-Successeurs().
+
+\index{graph\-\_\-print.\-c@{graph\-\_\-print.\-c}!Affiche\-Successeurs@{Affiche\-Successeurs}}
+\index{Affiche\-Successeurs@{Affiche\-Successeurs}!graph_print.c@{graph\-\_\-print.\-c}}
+\subsubsection[{Affiche\-Successeurs}]{\setlength{\rightskip}{0pt plus 5cm}void Affiche\-Successeurs (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g}
+\end{DoxyParamCaption}
+)}\label{graph__print_8c_a2027b6e939f212769dcaf2a064ffb327}
+
+
+affiche le graphe dans sa représentation \char`\"{}listes de successeurs\char`\"{}. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée) \-: un graphe. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences Affiche\-Liste(), graphe\-::gamma, et graphe\-::nsom.
+
+\index{graph\-\_\-print.\-c@{graph\-\_\-print.\-c}!Affiche\-Valeurs\-Sommets@{Affiche\-Valeurs\-Sommets}}
+\index{Affiche\-Valeurs\-Sommets@{Affiche\-Valeurs\-Sommets}!graph_print.c@{graph\-\_\-print.\-c}}
+\subsubsection[{Affiche\-Valeurs\-Sommets}]{\setlength{\rightskip}{0pt plus 5cm}void Affiche\-Valeurs\-Sommets (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g}
+\end{DoxyParamCaption}
+)}\label{graph__print_8c_ac605c2c2285dae810e6614179fb3dfd3}
+
+
+affiche les valeurs associées aux sommets. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée) \-: un graphe. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences graphe\-::nsom, et graphe\-::v\-\_\-sommets.
+
+\index{graph\-\_\-print.\-c@{graph\-\_\-print.\-c}!Auto\-Noms\-Sommets@{Auto\-Noms\-Sommets}}
+\index{Auto\-Noms\-Sommets@{Auto\-Noms\-Sommets}!graph_print.c@{graph\-\_\-print.\-c}}
+\subsubsection[{Auto\-Noms\-Sommets}]{\setlength{\rightskip}{0pt plus 5cm}void Auto\-Noms\-Sommets (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g, }
+\item[{int}]{mode}
+\end{DoxyParamCaption}
+)}\label{graph__print_8c_aeabb3f14b04ec9dd4f2631c38b0e1cf7}
+
+
+génère automatiquement des noms pour les sommets du graphe g. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée) \-: un graphe. \\
+\hline
+{\em mode} & (entrée) \-: 1 pour que les noms soient les indices des sommets, 2 pour que les noms soient les valeurs associées aux sommets, 3 pour des noms composes de l'indice et de la valeur. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences graphe\-::nomsommet, graphe\-::nsom, et graphe\-::v\-\_\-sommets.
+
+\index{graph\-\_\-print.\-c@{graph\-\_\-print.\-c}!E\-P\-S\-Graphe@{E\-P\-S\-Graphe}}
+\index{E\-P\-S\-Graphe@{E\-P\-S\-Graphe}!graph_print.c@{graph\-\_\-print.\-c}}
+\subsubsection[{E\-P\-S\-Graphe}]{\setlength{\rightskip}{0pt plus 5cm}void E\-P\-S\-Graphe (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g, }
+\item[{char $\ast$}]{filename, }
+\item[{double}]{r, }
+\item[{double}]{t, }
+\item[{double}]{marge, }
+\item[{int}]{noms\-\_\-sommets, }
+\item[{int}]{v\-\_\-sommets, }
+\item[{int}]{col\-\_\-sommets, }
+\item[{int}]{v\-\_\-arcs}
+\end{DoxyParamCaption}
+)}\label{graph__print_8c_a6b6637e3a889de0e9bb647b9eb5e723d}
+
+
+génère une figure Post\-Script d'après la représentation \char`\"{}successeurs\char`\"{} du graphe g. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée) \-: un graphe. \\
+\hline
+{\em filename} & (entrée) \-: nom du fichier postscript à générer. \\
+\hline
+{\em r} & (entrée) \-: rayon des cercles qui représentent les sommets (0 pour ne pas les dessiner). \\
+\hline
+{\em t} & (entrée) \-: taille (demi-\/longueur) des flèches pour les arcs (0 pour ne pas les dessiner). \\
+\hline
+{\em marge} & (entrée) \-: marge en x et en y. \\
+\hline
+{\em noms\-\_\-sommets} & (entrée) \-: booléen indiquant s'il faut écrire les noms des sommets. \\
+\hline
+{\em v\-\_\-sommets} & (entrée) \-: booléen indiquant s'il faut écrire les valeurs des sommets. \\
+\hline
+{\em col\-\_\-sommets} & (entrée) \-: booléen indiquant s'il faut colorier les sommets dont la valeur est non nulle. \\
+\hline
+{\em v\-\_\-arcs} & (entrée) \-: booléen indiquant s'il faut écrire les valeurs des arcs. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences graphe\-::gamma, cell\-::next, graphe\-::nomsommet, graphe\-::nsom, cell\-::som, cell\-::v\-\_\-arc, graphe\-::v\-\_\-sommets, graphe\-::x, et graphe\-::y.
+
+\index{graph\-\_\-print.\-c@{graph\-\_\-print.\-c}!Plongement\-Circulaire@{Plongement\-Circulaire}}
+\index{Plongement\-Circulaire@{Plongement\-Circulaire}!graph_print.c@{graph\-\_\-print.\-c}}
+\subsubsection[{Plongement\-Circulaire}]{\setlength{\rightskip}{0pt plus 5cm}void Plongement\-Circulaire (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g, }
+\item[{double}]{r}
+\end{DoxyParamCaption}
+)}\label{graph__print_8c_a4a1187a88985c8ec5980493247c055d5}
+
+
+affecte à chaque sommet des coordonnées (x,y) régulierement réparties sur un cercle. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée/sortie) \-: un graphe. \\
+\hline
+{\em r} & (entrée) \-: le rayon du cercle. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences graphe\-::nsom, graphe\-::x, et graphe\-::y.
+
+\index{graph\-\_\-print.\-c@{graph\-\_\-print.\-c}!Plongement\-Radial@{Plongement\-Radial}}
+\index{Plongement\-Radial@{Plongement\-Radial}!graph_print.c@{graph\-\_\-print.\-c}}
+\subsubsection[{Plongement\-Radial}]{\setlength{\rightskip}{0pt plus 5cm}void Plongement\-Radial (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g, }
+\item[{int}]{c}
+\end{DoxyParamCaption}
+)}\label{graph__print_8c_a6f41165adc2a27d6f5a8c177e70cc532}
+
+
+répartit les sommets de g sur des cercles concentriques en fonction de leur rang, avec le sommet c au centre. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée/sortie) \-: un graphe. \\
+\hline
+{\em c} & (entrée) \-: le sommet à placer au centre. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences graphe\-::gamma, cell\-::next, graphe\-::nsom, cell\-::som, graphe\-::x, et graphe\-::y.
+
+\index{graph\-\_\-print.\-c@{graph\-\_\-print.\-c}!P\-S\-Graphe@{P\-S\-Graphe}}
+\index{P\-S\-Graphe@{P\-S\-Graphe}!graph_print.c@{graph\-\_\-print.\-c}}
+\subsubsection[{P\-S\-Graphe}]{\setlength{\rightskip}{0pt plus 5cm}void P\-S\-Graphe (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g, }
+\item[{char $\ast$}]{filename, }
+\item[{double}]{r, }
+\item[{double}]{t, }
+\item[{double}]{marge}
+\end{DoxyParamCaption}
+)}\label{graph__print_8c_afc984605d374a6bc081c8470068fc2dd}
+
+
+génère une figure Post\-Script d'après la représentation \char`\"{}successeurs\char`\"{} du graphe g. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée) \-: un graphe. \\
+\hline
+{\em filename} & (entrée) \-: nom du fichier postscript à générer. \\
+\hline
+{\em r} & (entrée) \-: rayon des cercles qui représentent les sommets (0 pour ne pas les dessiner). \\
+\hline
+{\em t} & (entrée) \-: taille (demi-\/longueur) des flèches pour les arcs (0 pour ne pas les dessiner). \\
+\hline
+{\em marge} & (entrée) \-: marge en x et en y. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences graphe\-::gamma, cell\-::next, graphe\-::nomsommet, graphe\-::nsom, cell\-::som, graphe\-::x, et graphe\-::y.
+

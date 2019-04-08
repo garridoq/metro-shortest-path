@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Graphes: RÃ©fÃ©rence du fichier graphaux.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Graphes
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.8.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">RÃ©fÃ©rence du fichier graphaux.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>fonctions auxiliaires  
+<a href="#details">Plus de dÃ©tails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="graphaux_8h_source.html">graphaux.h</a>&quot;</code><br/>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a1be8fbc5499e73a7bc6fd3be8a03b351"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLifo.html">Lifo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#a1be8fbc5499e73a7bc6fd3be8a03b351">CreeLifoVide</a> (int taillemax)</td></tr>
+<tr class="memdesc:a1be8fbc5499e73a7bc6fd3be8a03b351"><td class="mdescLeft">&#160;</td><td class="mdescRight">alloue une liste vide.  <a href="#a1be8fbc5499e73a7bc6fd3be8a03b351">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a1be8fbc5499e73a7bc6fd3be8a03b351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a754f7c8e5d4346779f4c9ae142cb27e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#a754f7c8e5d4346779f4c9ae142cb27e3">LifoFlush</a> (<a class="el" href="structLifo.html">Lifo</a> *L)</td></tr>
+<tr class="memdesc:a754f7c8e5d4346779f4c9ae142cb27e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">ré-initialise L (tous les éléments présents sont retirés).  <a href="#a754f7c8e5d4346779f4c9ae142cb27e3">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a754f7c8e5d4346779f4c9ae142cb27e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac84f5beb3bebee3bc1fb515b255d2326"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#ac84f5beb3bebee3bc1fb515b255d2326">LifoVide</a> (<a class="el" href="structLifo.html">Lifo</a> *L)</td></tr>
+<tr class="memdesc:ac84f5beb3bebee3bc1fb515b255d2326"><td class="mdescLeft">&#160;</td><td class="mdescRight">teste si la liste <b>est</b> vide.  <a href="#ac84f5beb3bebee3bc1fb515b255d2326">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:ac84f5beb3bebee3bc1fb515b255d2326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07205206ad48e803c517d1950c96f82f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#a07205206ad48e803c517d1950c96f82f">LifoPop</a> (<a class="el" href="structLifo.html">Lifo</a> *L)</td></tr>
+<tr class="memdesc:a07205206ad48e803c517d1950c96f82f"><td class="mdescLeft">&#160;</td><td class="mdescRight">retire de la liste <b>L</b> la valeur se trouvant au début, et retourne cette valeur.  <a href="#a07205206ad48e803c517d1950c96f82f">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a07205206ad48e803c517d1950c96f82f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bd11f6c1d3585c6322139421f48cd43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#a8bd11f6c1d3585c6322139421f48cd43">LifoPush</a> (<a class="el" href="structLifo.html">Lifo</a> *L, int V)</td></tr>
+<tr class="memdesc:a8bd11f6c1d3585c6322139421f48cd43"><td class="mdescLeft">&#160;</td><td class="mdescRight">insère au début de la liste <b>L</b> la valeur <b>V</b>  <a href="#a8bd11f6c1d3585c6322139421f48cd43">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a8bd11f6c1d3585c6322139421f48cd43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f01ccde5db31004a4b0f4aaddcd05ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#a6f01ccde5db31004a4b0f4aaddcd05ac">LifoPrint</a> (<a class="el" href="structLifo.html">Lifo</a> *L)</td></tr>
+<tr class="memdesc:a6f01ccde5db31004a4b0f4aaddcd05ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche le contenu de la liste <b>L</b>.  <a href="#a6f01ccde5db31004a4b0f4aaddcd05ac">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a6f01ccde5db31004a4b0f4aaddcd05ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19d5267b26b98d4c5e77ca754c4ca680"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#a19d5267b26b98d4c5e77ca754c4ca680">LifoPrintLine</a> (<a class="el" href="structLifo.html">Lifo</a> *L)</td></tr>
+<tr class="memdesc:a19d5267b26b98d4c5e77ca754c4ca680"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche le contenu de la liste <b>L</b>, suivi d'un retour ligne.  <a href="#a19d5267b26b98d4c5e77ca754c4ca680">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a19d5267b26b98d4c5e77ca754c4ca680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3e1fc1ffe735864f9d8f28edb57bdd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#ad3e1fc1ffe735864f9d8f28edb57bdd7">LifoTermine</a> (<a class="el" href="structLifo.html">Lifo</a> *L)</td></tr>
+<tr class="memdesc:ad3e1fc1ffe735864f9d8f28edb57bdd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">récupère l'espace mémoire occupé par la liste <b>L</b>.  <a href="#ad3e1fc1ffe735864f9d8f28edb57bdd7">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:ad3e1fc1ffe735864f9d8f28edb57bdd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add230566a804d8cf979eecd04528dc25"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add230566a804d8cf979eecd04528dc25"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Partitionner</b> (int *A, TypeCle *T, int p, int r)</td></tr>
+<tr class="separator:add230566a804d8cf979eecd04528dc25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d467fc0d9b6700e6a1ad49f16776a42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d467fc0d9b6700e6a1ad49f16776a42"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PartitionStochastique</b> (int *A, TypeCle *T, int p, int r)</td></tr>
+<tr class="separator:a1d467fc0d9b6700e6a1ad49f16776a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a144bc0607e030c4981e9800e20947bfa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#a144bc0607e030c4981e9800e20947bfa">TriRapideStochastique</a> (int *A, TypeCle *T, int p, int r)</td></tr>
+<tr class="memdesc:a144bc0607e030c4981e9800e20947bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">tri par ordre croissant des valeurs du tableau <b>T</b>. Le tri s'effectue sur un tableau <b>A</b> contenant les index des elements de <b>T</b>, l'indice <b>p</b> (compris) a l'indice <b>r</b> (compris).  <a href="#a144bc0607e030c4981e9800e20947bfa">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a144bc0607e030c4981e9800e20947bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0575887e627821f85201f80952382d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#ac0575887e627821f85201f80952382d0">start_chrono</a> (<a class="el" href="graphaux_8h.html#a6f419557366733e54a089e429137f734">chrono</a> *tp)</td></tr>
+<tr class="memdesc:ac0575887e627821f85201f80952382d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">démarre le chronométrage  <a href="#ac0575887e627821f85201f80952382d0">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:ac0575887e627821f85201f80952382d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad91e383a1998c46a6abfaf0da6efeb97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#ad91e383a1998c46a6abfaf0da6efeb97">read_chrono</a> (<a class="el" href="graphaux_8h.html#a6f419557366733e54a089e429137f734">chrono</a> *tp)</td></tr>
+<tr class="memdesc:ad91e383a1998c46a6abfaf0da6efeb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">lecture du chronomètre  <a href="#ad91e383a1998c46a6abfaf0da6efeb97">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:ad91e383a1998c46a6abfaf0da6efeb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5d19aadbaeb415f3ca7307e674a8fba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5d19aadbaeb415f3ca7307e674a8fba"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>EPSHeader</b> (FILE *fd, double figure_width, double figure_height, double line_width, int font_size)</td></tr>
+<tr class="separator:ae5d19aadbaeb415f3ca7307e674a8fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbb85415edf96dbaf9d54b87993d28b8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adbb85415edf96dbaf9d54b87993d28b8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PSHeader</b> (FILE *fd, double figure_width, double figure_height, double line_width, int font_size)</td></tr>
+<tr class="separator:adbb85415edf96dbaf9d54b87993d28b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05e6c20ecd4e0e7faf22019e10b00a32"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05e6c20ecd4e0e7faf22019e10b00a32"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PSMove</b> (FILE *fd, double x, double y)</td></tr>
+<tr class="separator:a05e6c20ecd4e0e7faf22019e10b00a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a69bc6cb7191bca9652006bea16b100"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a69bc6cb7191bca9652006bea16b100"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PSDraw</b> (FILE *fd, double x, double y)</td></tr>
+<tr class="separator:a1a69bc6cb7191bca9652006bea16b100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30cc386213b9fa21e7f05da92272234b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30cc386213b9fa21e7f05da92272234b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PSLine</b> (FILE *fd, double xd, double yd, double xf, double yf)</td></tr>
+<tr class="separator:a30cc386213b9fa21e7f05da92272234b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdad42035aa96edf80017e557d62b184"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdad42035aa96edf80017e557d62b184"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PSDrawcircle</b> (FILE *fd, double x, double y, double r)</td></tr>
+<tr class="separator:afdad42035aa96edf80017e557d62b184"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1a4288e8518574d4d0987e604b299a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1a4288e8518574d4d0987e604b299a1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PSDrawdisc</b> (FILE *fd, double x, double y, double r)</td></tr>
+<tr class="separator:af1a4288e8518574d4d0987e604b299a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addeb324f5d97db8d0a5d7e7492b27c64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="addeb324f5d97db8d0a5d7e7492b27c64"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PSString</b> (FILE *fd, double x, double y, char *s)</td></tr>
+<tr class="separator:addeb324f5d97db8d0a5d7e7492b27c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad33c4353b9a1deaf524de4b3f3c9cfe5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad33c4353b9a1deaf524de4b3f3c9cfe5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PSFooter</b> (FILE *fd)</td></tr>
+<tr class="separator:ad33c4353b9a1deaf524de4b3f3c9cfe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a453fc4a7761383d7b2fcb7212857c009"><td class="memItemLeft" align="right" valign="top">boolean *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphaux_8c.html#a453fc4a7761383d7b2fcb7212857c009">EnsembleVide</a> (int n)</td></tr>
+<tr class="memdesc:a453fc4a7761383d7b2fcb7212857c009"><td class="mdescLeft">&#160;</td><td class="mdescRight">alloue et initialise un tableau de <b>n</b> booléens, représentant l'ensemble vide.  <a href="#a453fc4a7761383d7b2fcb7212857c009">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a453fc4a7761383d7b2fcb7212857c009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description dÃ©taillÃ©e</h2>
+<div class="textblock"><p>fonctions auxiliaires </p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a1be8fbc5499e73a7bc6fd3be8a03b351"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structLifo.html">Lifo</a> * CreeLifoVide </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>taillemax</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>alloue une liste vide. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">taillemax</td><td>(entrée) : taille maxi de la liste. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>une liste <a class="el" href="structLifo.html" title="structure de pile (Last In, First Out). ">Lifo</a>. </dd></dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structLifo.html#ad2a10cdad08aa21e46f571e491433af8">Lifo::Max</a>, et <a class="el" href="structLifo.html#a267b4c2461672a4d6b90749e378cfc7b">Lifo::Sp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a453fc4a7761383d7b2fcb7212857c009"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean * EnsembleVide </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>alloue et initialise un tableau de <b>n</b> booléens, représentant l'ensemble vide. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>(entrée) : taille du tableau booléen. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un tableau de <b>n</b> booléens, tous égaux à FALSE. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a754f7c8e5d4346779f4c9ae142cb27e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LifoFlush </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLifo.html">Lifo</a> *&#160;</td>
+          <td class="paramname"><em>L</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ré-initialise L (tous les éléments présents sont retirés). </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">L</td><td>(entrée) : une liste <a class="el" href="structLifo.html" title="structure de pile (Last In, First Out). ">Lifo</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structLifo.html#a267b4c2461672a4d6b90749e378cfc7b">Lifo::Sp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a07205206ad48e803c517d1950c96f82f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LifoPop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLifo.html">Lifo</a> *&#160;</td>
+          <td class="paramname"><em>L</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retire de la liste <b>L</b> la valeur se trouvant au début, et retourne cette valeur. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">L</td><td>(entrée) : une liste <a class="el" href="structLifo.html" title="structure de pile (Last In, First Out). ">Lifo</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>la valeur se trouvant en début de liste. </dd></dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>si la liste <b>L</b> est vide, la fonction système <b>exit</b> est appelée. </dd></dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structLifo.html#ae69201834c6753381e5e7149ed632ae6">Lifo::Pts</a>, et <a class="el" href="structLifo.html#a267b4c2461672a4d6b90749e378cfc7b">Lifo::Sp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f01ccde5db31004a4b0f4aaddcd05ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LifoPrint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLifo.html">Lifo</a> *&#160;</td>
+          <td class="paramname"><em>L</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affiche le contenu de la liste <b>L</b>. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">L</td><td>(entrée) : une liste <a class="el" href="structLifo.html" title="structure de pile (Last In, First Out). ">Lifo</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="graphaux_8c.html#ac84f5beb3bebee3bc1fb515b255d2326">LifoVide()</a>, <a class="el" href="structLifo.html#ae69201834c6753381e5e7149ed632ae6">Lifo::Pts</a>, et <a class="el" href="structLifo.html#a267b4c2461672a4d6b90749e378cfc7b">Lifo::Sp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a19d5267b26b98d4c5e77ca754c4ca680"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LifoPrintLine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLifo.html">Lifo</a> *&#160;</td>
+          <td class="paramname"><em>L</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affiche le contenu de la liste <b>L</b>, suivi d'un retour ligne. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">L</td><td>(entrée) : une liste <a class="el" href="structLifo.html" title="structure de pile (Last In, First Out). ">Lifo</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="graphaux_8c.html#ac84f5beb3bebee3bc1fb515b255d2326">LifoVide()</a>, <a class="el" href="structLifo.html#ae69201834c6753381e5e7149ed632ae6">Lifo::Pts</a>, et <a class="el" href="structLifo.html#a267b4c2461672a4d6b90749e378cfc7b">Lifo::Sp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8bd11f6c1d3585c6322139421f48cd43"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LifoPush </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLifo.html">Lifo</a> *&#160;</td>
+          <td class="paramname"><em>L</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>V</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>insère au début de la liste <b>L</b> la valeur <b>V</b> </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">L</td><td>(entrée) : une liste <a class="el" href="structLifo.html" title="structure de pile (Last In, First Out). ">Lifo</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>si la liste <b>L</b> est pleine, la fonction système <b>exit</b> est appelée. </dd></dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structLifo.html#ad2a10cdad08aa21e46f571e491433af8">Lifo::Max</a>, <a class="el" href="structLifo.html#ae69201834c6753381e5e7149ed632ae6">Lifo::Pts</a>, et <a class="el" href="structLifo.html#a267b4c2461672a4d6b90749e378cfc7b">Lifo::Sp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3e1fc1ffe735864f9d8f28edb57bdd7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LifoTermine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLifo.html">Lifo</a> *&#160;</td>
+          <td class="paramname"><em>L</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>récupère l'espace mémoire occupé par la liste <b>L</b>. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">L</td><td>(entrée) : une liste <a class="el" href="structLifo.html" title="structure de pile (Last In, First Out). ">Lifo</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac84f5beb3bebee3bc1fb515b255d2326"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean LifoVide </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLifo.html">Lifo</a> *&#160;</td>
+          <td class="paramname"><em>L</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>teste si la liste <b>est</b> vide. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">L</td><td>(entrée) : une liste <a class="el" href="structLifo.html" title="structure de pile (Last In, First Out). ">Lifo</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>TRUE si la liste <b>L</b> est vide, FALSE sinon. </dd></dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structLifo.html#a267b4c2461672a4d6b90749e378cfc7b">Lifo::Sp</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphaux_8h.html#a6f01ccde5db31004a4b0f4aaddcd05ac">LifoPrint()</a>, et <a class="el" href="graphaux_8h.html#a19d5267b26b98d4c5e77ca754c4ca680">LifoPrintLine()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad91e383a1998c46a6abfaf0da6efeb97"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int read_chrono </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graphaux_8h.html#a6f419557366733e54a089e429137f734">chrono</a> *&#160;</td>
+          <td class="paramname"><em>tp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>lecture du chronomètre </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>(entrée) : date du début du chronométrage </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>nombre de microsecondes écoulées depuis le début </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac0575887e627821f85201f80952382d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void start_chrono </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graphaux_8h.html#a6f419557366733e54a089e429137f734">chrono</a> *&#160;</td>
+          <td class="paramname"><em>tp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>démarre le chronométrage </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>(sortie) : date du début du chronométrage </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a144bc0607e030c4981e9800e20947bfa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TriRapideStochastique </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TypeCle *&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>tri par ordre croissant des valeurs du tableau <b>T</b>. Le tri s'effectue sur un tableau <b>A</b> contenant les index des elements de <b>T</b>, l'indice <b>p</b> (compris) a l'indice <b>r</b> (compris). </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>(entrée/sortie) : un tableau d'entiers </td></tr>
+    <tr><td class="paramname">T</td><td>(entrée) : un tableau de valeurs de type TypeCle. </td></tr>
+    <tr><td class="paramname">p</td><td>(entrée) : indice du début de la zone à trier. </td></tr>
+    <tr><td class="paramname">r</td><td>(entrée) : indice de fin de la zone à trier. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="graphaux_8c.html#a144bc0607e030c4981e9800e20947bfa">TriRapideStochastique()</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphaux_8h.html#a144bc0607e030c4981e9800e20947bfa">TriRapideStochastique()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+GÃ©nÃ©rÃ© le Mercredi 26 Avril 2017 11:34:07 pour Graphes par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

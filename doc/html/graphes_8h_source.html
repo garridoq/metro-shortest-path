@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Graphes:  Fichier source de graphes.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Graphes
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.8.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">graphes.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="graphes_8h.html">Aller Ã  la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define TYP_VARC long</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TYP_VSOM long</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef HUGE</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define HUGE HUGE_VAL</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SHRT_MIN -32767 </span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SHRT_MAX +32767 </span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define USHRT_MAX 65535 </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define INT_MIN -32767 </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define INT_MAX +32767 </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define UINT_MAX 65535 </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LONG_MIN -2147483647 </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LONG_MAX +2147483647</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ULONG_MAX 4294967295</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define M_PI     3.14159265358979323846</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define max(X,Y) ((X)&gt;=(Y)?(X):(Y))</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define min(X,Y) ((X)&lt;=(Y)?(X):(Y))</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/* ================================================ */</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/* types publics */</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/* ================================================ */</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structcell.html">   34</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcell.html">cell</a> {</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structcell.html#ad90e3f26bbcaa7eadfd446448a9ce787">   36</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="structcell.html#ad90e3f26bbcaa7eadfd446448a9ce787">som</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structcell.html#af7a1cb961336e3ee2358b261511c03fe">   38</a></span>&#160;  TYP_VARC <a class="code" href="structcell.html#af7a1cb961336e3ee2358b261511c03fe">v_arc</a>; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">   40</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structcell.html">cell</a> * <a class="code" href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">next</a>; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;} <a class="code" href="structcell.html">cell</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">   46</a></span>&#160;<span class="keyword">typedef</span> <a class="code" href="structcell.html">cell</a> * <a class="code" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a>; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structgraphe.html">   52</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structgraphe.html">graphe</a> {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="comment">/* informations globales */</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">   57</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">nsom</a>;         </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structgraphe.html#acc91a9d1e36b356fbf1fef2743981021">   59</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="structgraphe.html#acc91a9d1e36b356fbf1fef2743981021">nmaxarc</a>;      </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structgraphe.html#a442aba1881dde703a8fafabffcf34ab6">   61</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="structgraphe.html#a442aba1881dde703a8fafabffcf34ab6">narc</a>;         </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">/* representation par listes chainees de successeurs (application gamma) */</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="structgraphe.html#adfcaacbf446eda605091714f5ef281f7">   66</a></span>&#160;  <a class="code" href="structcell.html">pcell</a> <a class="code" href="structgraphe.html#adfcaacbf446eda605091714f5ef281f7">reserve</a>;    </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="structgraphe.html#a0bb08cf408114b7af6da45b1c2805fb5">   68</a></span>&#160;  <a class="code" href="structcell.html">pcell</a> <a class="code" href="structgraphe.html#a0bb08cf408114b7af6da45b1c2805fb5">libre</a>;      </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">   70</a></span>&#160;  <a class="code" href="structcell.html">pcell</a> * <a class="code" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">gamma</a>;    </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">/* representation par liste d&#39;arcs </span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">     (vecteurs tete (sommet initial), queue (sommet final)) */</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="structgraphe.html#aa290d2bcdd766c2cf7257d013de6ffbe">   76</a></span>&#160;  <span class="keywordtype">int</span> *<a class="code" href="structgraphe.html#aa290d2bcdd766c2cf7257d013de6ffbe">tete</a>;        </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="structgraphe.html#a2ccd3a8ad2147ffcf9227ecf80ee61cd">   78</a></span>&#160;  <span class="keywordtype">int</span> *<a class="code" href="structgraphe.html#a2ccd3a8ad2147ffcf9227ecf80ee61cd">queue</a>;       </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="comment">/* informations additionelles ajoutees aux arcs */</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="structgraphe.html#ac91962a6b1b6d38091ca73d25c9648a6">   83</a></span>&#160;  TYP_VARC *<a class="code" href="structgraphe.html#ac91962a6b1b6d38091ca73d25c9648a6">v_arcs</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment">/* informations additionelles ajoutees aux sommets */</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="structgraphe.html#ab412d179e1f13120d9c7914f2812d785">   88</a></span>&#160;  TYP_VSOM *<a class="code" href="structgraphe.html#ab412d179e1f13120d9c7914f2812d785">v_sommets</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="structgraphe.html#a623b2899086945d40f8543b7717d2a06">   91</a></span>&#160;  <span class="keywordtype">double</span> *<a class="code" href="structgraphe.html#a623b2899086945d40f8543b7717d2a06">x</a>;        </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="structgraphe.html#afad97ec21aad980df295938d2eb02ae0">   93</a></span>&#160;  <span class="keywordtype">double</span> *<a class="code" href="structgraphe.html#afad97ec21aad980df295938d2eb02ae0">y</a>;        </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="structgraphe.html#a13210a3e7f1113a95bf70d1fdcf4dbed">   95</a></span>&#160;  <span class="keywordtype">char</span> **<a class="code" href="structgraphe.html#a13210a3e7f1113a95bf70d1fdcf4dbed">nomsommet</a>; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <a class="code" href="structgraphe.html">graphe</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">/* ================================================ */</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">/* prototypes */</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">/* ================================================ */</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#a0df101cc17e6e374ee7863a3cdfaaf43">AfficheEnsemble</a>(<span class="keywordtype">boolean</span> *s, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#a06806cdd432a009c0b0a661f9dc9648a">AfficheListe</a>(<a class="code" href="structcell.html">pcell</a> p);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#a2027b6e939f212769dcaf2a064ffb327">AfficheSuccesseurs</a>(<a class="code" href="structgraphe.html">graphe</a> * g) ;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#a6e036fb3ab8c0915e26216c7b818192d">AfficheArcs</a>(<a class="code" href="structgraphe.html">graphe</a> * g);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#ac605c2c2285dae810e6614179fb3dfd3">AfficheValeursSommets</a>(<a class="code" href="structgraphe.html">graphe</a> * g);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#afc984605d374a6bc081c8470068fc2dd">PSGraphe</a>(<a class="code" href="structgraphe.html">graphe</a> * g, <span class="keywordtype">char</span> *filename, <span class="keywordtype">double</span> r, <span class="keywordtype">double</span> t, <span class="keywordtype">double</span> marge);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#a6b6637e3a889de0e9bb647b9eb5e723d">EPSGraphe</a>(<a class="code" href="structgraphe.html">graphe</a> * g, <span class="keywordtype">char</span> *filename, <span class="keywordtype">double</span> r, <span class="keywordtype">double</span> t, <span class="keywordtype">double</span> marge, <span class="keywordtype">int</span> noms_sommets, <span class="keywordtype">int</span> v_sommets, <span class="keywordtype">int</span> col_sommets, <span class="keywordtype">int</span> v_arcs);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">/* FONCTIONS DE PLONGEMENT DE GRAPHES DANS LE PLAN */</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#aeabb3f14b04ec9dd4f2631c38b0e1cf7">AutoNomsSommets</a>(<a class="code" href="structgraphe.html">graphe</a> * g, <span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#a4a1187a88985c8ec5980493247c055d5">PlongementCirculaire</a>(<a class="code" href="structgraphe.html">graphe</a> * g, <span class="keywordtype">double</span> r);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#a6f41165adc2a27d6f5a8c177e70cc532">PlongementRadial</a>(<a class="code" href="structgraphe.html">graphe</a> * g, <span class="keywordtype">int</span> c);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">/* FONCTIONS SUR LES LISTES CHAINEES DE SOMMETS */</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">extern</span> <a class="code" href="structcell.html">pcell</a> <a class="code" href="graphes_8h.html#a415c74181c0ab890ba34221914d83c56">AlloueCell</a>(<a class="code" href="structcell.html">pcell</a> * plibre);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#a3cf3c1079b390e12f8a49b9f8d1106a1">LibereCell</a>(<a class="code" href="structcell.html">pcell</a> * plibre, <a class="code" href="structcell.html">pcell</a> p);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#aeefd01df94910dc47101c896d70091f2">RetireTete</a>(<a class="code" href="structcell.html">pcell</a> * plibre, <a class="code" href="structcell.html">pcell</a> * pliste);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#a4c9e2ce4aa6988793f9d2708491e6b8a">AjouteTete</a>(<a class="code" href="structcell.html">pcell</a> * plibre, <a class="code" href="structcell.html">pcell</a> * pliste, <span class="keywordtype">int</span> a, TYP_VARC v);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="graphes_8h.html#a5c038f370bd0436a250f59898976586d">EstDansListe</a>(<a class="code" href="structcell.html">pcell</a> p, <span class="keywordtype">int</span> a);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">/* FONCTIONS D&#39;ALLOCATION / LIBERATION POUR UN GRAPHE */</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keyword">extern</span> <a class="code" href="structgraphe.html">graphe</a> * <a class="code" href="graphes_8h.html#a02f0b0e9d279fb9cf696143134c80ac3">InitGraphe</a>(<span class="keywordtype">int</span> nsom, <span class="keywordtype">int</span> nmaxarc);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#ad3b77f1c084064fc16c3978b84652fd6">TermineGraphe</a>(<a class="code" href="structgraphe.html">graphe</a> * g);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keyword">extern</span> <a class="code" href="structgraphe.html">graphe</a> * <a class="code" href="graphes_8h.html#afb96540c40d3c727d55dfef10c376257">ReadGraphe</a>(<span class="keywordtype">char</span> * filename);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">/* FONCTIONS DE MANIPULATION DES ARCS (APPLICATION GAMMA UNIQUEMENT) */</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#aa725a0c0ac21a284740ec2e747ce4e78">AjouteArc</a>(<a class="code" href="structgraphe.html">graphe</a> * g, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#ac4ed4faf4dabe968c427d09b941144ff">AjouteArcValue</a>(<a class="code" href="structgraphe.html">graphe</a> * g, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> s, TYP_VARC v);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="graphes_8h.html#aaa05a785186861df7841cbedab5b0d68">RetireArc</a>(<a class="code" href="structgraphe.html">graphe</a> * g, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="graphes_8h.html#add88bab986e801ad28ab70bb889de499">PopSuccesseur</a>(<a class="code" href="structgraphe.html">graphe</a> *g, <span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="graphes_8h.html#ab34642fac9bcd82ce1cf89e51c5bd185">EstSuccesseur</a>(<a class="code" href="structgraphe.html">graphe</a> *g, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">/* FONCTIONS DE GENERATION DE GRAPHES */</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keyword">extern</span> <a class="code" href="structgraphe.html">graphe</a> * <a class="code" href="graphes_8h.html#a8080cb9ab5c9d6c599c4462ad1fc5662">GrapheAleatoire</a>(<span class="keywordtype">int</span> nsom, <span class="keywordtype">int</span> narc);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">/* OPERATEURS DE BASE SUR LES GRAPHES */</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">/* ====================================================================== */</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keyword">extern</span> <a class="code" href="structgraphe.html">graphe</a> * Symetrique(<a class="code" href="structgraphe.html">graphe</a> * g);</div>
+<div class="ttc" id="graphes_8h_html_ad3b77f1c084064fc16c3978b84652fd6"><div class="ttname"><a href="graphes_8h.html#ad3b77f1c084064fc16c3978b84652fd6">TermineGraphe</a></div><div class="ttdeci">void TermineGraphe(graphe *g)</div><div class="ttdoc">libère la memoire occupée par le graphe g. </div><div class="ttdef"><b>Definition:</b> graph_basic.c:183</div></div>
+<div class="ttc" id="structgraphe_html_a0bb08cf408114b7af6da45b1c2805fb5"><div class="ttname"><a href="structgraphe.html#a0bb08cf408114b7af6da45b1c2805fb5">graphe::libre</a></div><div class="ttdeci">pcell libre</div><div class="ttdoc">liste des cellules libres gérée en pile lifo </div><div class="ttdef"><b>Definition:</b> graphes.h:68</div></div>
+<div class="ttc" id="structgraphe_html_afad97ec21aad980df295938d2eb02ae0"><div class="ttname"><a href="structgraphe.html#afad97ec21aad980df295938d2eb02ae0">graphe::y</a></div><div class="ttdeci">double * y</div><div class="ttdoc">ordonnees des sommets </div><div class="ttdef"><b>Definition:</b> graphes.h:93</div></div>
+<div class="ttc" id="graphes_8h_html_aeabb3f14b04ec9dd4f2631c38b0e1cf7"><div class="ttname"><a href="graphes_8h.html#aeabb3f14b04ec9dd4f2631c38b0e1cf7">AutoNomsSommets</a></div><div class="ttdeci">void AutoNomsSommets(graphe *g, int mode)</div><div class="ttdoc">génère automatiquement des noms pour les sommets du graphe g. </div><div class="ttdef"><b>Definition:</b> graph_print.c:335</div></div>
+<div class="ttc" id="structgraphe_html_ac91962a6b1b6d38091ca73d25c9648a6"><div class="ttname"><a href="structgraphe.html#ac91962a6b1b6d38091ca73d25c9648a6">graphe::v_arcs</a></div><div class="ttdeci">TYP_VARC * v_arcs</div><div class="ttdoc">tableau des valeurs associées aux arcs </div><div class="ttdef"><b>Definition:</b> graphes.h:83</div></div>
+<div class="ttc" id="structgraphe_html_ab412d179e1f13120d9c7914f2812d785"><div class="ttname"><a href="structgraphe.html#ab412d179e1f13120d9c7914f2812d785">graphe::v_sommets</a></div><div class="ttdeci">TYP_VSOM * v_sommets</div><div class="ttdoc">tableau des valeurs associées aux sommets </div><div class="ttdef"><b>Definition:</b> graphes.h:88</div></div>
+<div class="ttc" id="graphes_8h_html_a415c74181c0ab890ba34221914d83c56"><div class="ttname"><a href="graphes_8h.html#a415c74181c0ab890ba34221914d83c56">AlloueCell</a></div><div class="ttdeci">pcell AlloueCell(pcell *plibre)</div><div class="ttdoc">retire la premiere cellule de la liste pointée par plibre et retourne un pointeur sur cette cellule...</div><div class="ttdef"><b>Definition:</b> graph_basic.c:22</div></div>
+<div class="ttc" id="structcell_html_af7a1cb961336e3ee2358b261511c03fe"><div class="ttname"><a href="structcell.html#af7a1cb961336e3ee2358b261511c03fe">cell::v_arc</a></div><div class="ttdeci">TYP_VARC v_arc</div><div class="ttdoc">poids de l&#39;arc pour les graphes pondérés </div><div class="ttdef"><b>Definition:</b> graphes.h:38</div></div>
+<div class="ttc" id="structgraphe_html_a623b2899086945d40f8543b7717d2a06"><div class="ttname"><a href="structgraphe.html#a623b2899086945d40f8543b7717d2a06">graphe::x</a></div><div class="ttdeci">double * x</div><div class="ttdoc">abcisses des sommets </div><div class="ttdef"><b>Definition:</b> graphes.h:91</div></div>
+<div class="ttc" id="graphes_8h_html_a0df101cc17e6e374ee7863a3cdfaaf43"><div class="ttname"><a href="graphes_8h.html#a0df101cc17e6e374ee7863a3cdfaaf43">AfficheEnsemble</a></div><div class="ttdeci">void AfficheEnsemble(boolean *s, int n)</div><div class="ttdoc">affiche à l&#39;écran l&#39;ensemble representé par le tableau de booléens s. </div><div class="ttdef"><b>Definition:</b> graph_print.c:22</div></div>
+<div class="ttc" id="structgraphe_html_a13210a3e7f1113a95bf70d1fdcf4dbed"><div class="ttname"><a href="structgraphe.html#a13210a3e7f1113a95bf70d1fdcf4dbed">graphe::nomsommet</a></div><div class="ttdeci">char ** nomsommet</div><div class="ttdoc">noms des sommets </div><div class="ttdef"><b>Definition:</b> graphes.h:95</div></div>
+<div class="ttc" id="structcell_html_a2f9c7a2efcdc3d026190df2056c614f3"><div class="ttname"><a href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">cell::next</a></div><div class="ttdeci">struct cell * next</div><div class="ttdoc">suite de la liste ou pointeur NULL </div><div class="ttdef"><b>Definition:</b> graphes.h:40</div></div>
+<div class="ttc" id="structgraphe_html_a2ccd3a8ad2147ffcf9227ecf80ee61cd"><div class="ttname"><a href="structgraphe.html#a2ccd3a8ad2147ffcf9227ecf80ee61cd">graphe::queue</a></div><div class="ttdeci">int * queue</div><div class="ttdoc">tableau des extremités finales d&#39;arcs </div><div class="ttdef"><b>Definition:</b> graphes.h:78</div></div>
+<div class="ttc" id="graphes_8h_html_a2027b6e939f212769dcaf2a064ffb327"><div class="ttname"><a href="graphes_8h.html#a2027b6e939f212769dcaf2a064ffb327">AfficheSuccesseurs</a></div><div class="ttdeci">void AfficheSuccesseurs(graphe *g)</div><div class="ttdoc">affiche le graphe dans sa représentation &quot;listes de successeurs&quot;. </div><div class="ttdef"><b>Definition:</b> graph_print.c:46</div></div>
+<div class="ttc" id="structgraphe_html"><div class="ttname"><a href="structgraphe.html">graphe</a></div><div class="ttdoc">structure pour la representation des graphes </div><div class="ttdef"><b>Definition:</b> graphes.h:52</div></div>
+<div class="ttc" id="graphes_8h_html_a6e036fb3ab8c0915e26216c7b818192d"><div class="ttname"><a href="graphes_8h.html#a6e036fb3ab8c0915e26216c7b818192d">AfficheArcs</a></div><div class="ttdeci">void AfficheArcs(graphe *g)</div><div class="ttdoc">affiche le graphe dans sa représentation &quot;listes d&#39;arcs&quot;. </div><div class="ttdef"><b>Definition:</b> graph_print.c:68</div></div>
+<div class="ttc" id="graphes_8h_html_aa725a0c0ac21a284740ec2e747ce4e78"><div class="ttname"><a href="graphes_8h.html#aa725a0c0ac21a284740ec2e747ce4e78">AjouteArc</a></div><div class="ttdeci">void AjouteArc(graphe *g, int i, int s)</div><div class="ttdoc">ajoute l&#39;arc (i,s) au graphe g (application gamma seulement). </div><div class="ttdef"><b>Definition:</b> graph_basic.c:300</div></div>
+<div class="ttc" id="graphes_8h_html_a6f41165adc2a27d6f5a8c177e70cc532"><div class="ttname"><a href="graphes_8h.html#a6f41165adc2a27d6f5a8c177e70cc532">PlongementRadial</a></div><div class="ttdeci">void PlongementRadial(graphe *g, int c)</div><div class="ttdoc">répartit les sommets de g sur des cercles concentriques en fonction de leur rang, avec le sommet c au c...</div><div class="ttdef"><b>Definition:</b> graph_print.c:400</div></div>
+<div class="ttc" id="structgraphe_html_adfcaacbf446eda605091714f5ef281f7"><div class="ttname"><a href="structgraphe.html#adfcaacbf446eda605091714f5ef281f7">graphe::reserve</a></div><div class="ttdeci">pcell reserve</div><div class="ttdoc">tableau des cellules en réserve </div><div class="ttdef"><b>Definition:</b> graphes.h:66</div></div>
+<div class="ttc" id="graphes_8h_html_a6b6637e3a889de0e9bb647b9eb5e723d"><div class="ttname"><a href="graphes_8h.html#a6b6637e3a889de0e9bb647b9eb5e723d">EPSGraphe</a></div><div class="ttdeci">void EPSGraphe(graphe *g, char *filename, double r, double t, double marge, int noms_sommets, int v_sommets, int col_sommets, int v_arcs)</div><div class="ttdoc">génère une figure PostScript d&#39;après la représentation &quot;successeurs&quot; du graphe g. </div><div class="ttdef"><b>Definition:</b> graph_print.c:217</div></div>
+<div class="ttc" id="structgraphe_html_acc91a9d1e36b356fbf1fef2743981021"><div class="ttname"><a href="structgraphe.html#acc91a9d1e36b356fbf1fef2743981021">graphe::nmaxarc</a></div><div class="ttdeci">int nmaxarc</div><div class="ttdoc">nombre maximum d&#39;arcs </div><div class="ttdef"><b>Definition:</b> graphes.h:59</div></div>
+<div class="ttc" id="graphes_8h_html_a02f0b0e9d279fb9cf696143134c80ac3"><div class="ttname"><a href="graphes_8h.html#a02f0b0e9d279fb9cf696143134c80ac3">InitGraphe</a></div><div class="ttdeci">graphe * InitGraphe(int nsom, int nmaxarc)</div><div class="ttdoc">alloue la memoire nécessaire pour représenter un graphe a &#39;nsom&#39; sommets, possédant au maximum &#39;nmaxarc&#39; ar...</div><div class="ttdef"><b>Definition:</b> graph_basic.c:113</div></div>
+<div class="ttc" id="graphes_8h_html_a3cf3c1079b390e12f8a49b9f8d1106a1"><div class="ttname"><a href="graphes_8h.html#a3cf3c1079b390e12f8a49b9f8d1106a1">LibereCell</a></div><div class="ttdeci">void LibereCell(pcell *plibre, pcell p)</div><div class="ttdoc">insère la cellule p au début de la liste pointée par &#39;plibre&#39;. </div><div class="ttdef"><b>Definition:</b> graph_basic.c:42</div></div>
+<div class="ttc" id="graphes_8h_html_a4c9e2ce4aa6988793f9d2708491e6b8a"><div class="ttname"><a href="graphes_8h.html#a4c9e2ce4aa6988793f9d2708491e6b8a">AjouteTete</a></div><div class="ttdeci">void AjouteTete(pcell *plibre, pcell *pliste, int a, TYP_VARC v)</div><div class="ttdoc">ajoute une cellule contenant le sommet &#39;a&#39; et la valeur &#39;v&#39; en tête de la liste &#39;pliste&#39;. La cellule est prise dans la liste &#39;plibre&#39;. </div><div class="ttdef"><b>Definition:</b> graph_basic.c:72</div></div>
+<div class="ttc" id="graphes_8h_html_ac4ed4faf4dabe968c427d09b941144ff"><div class="ttname"><a href="graphes_8h.html#ac4ed4faf4dabe968c427d09b941144ff">AjouteArcValue</a></div><div class="ttdeci">void AjouteArcValue(graphe *g, int i, int s, TYP_VARC v)</div><div class="ttdoc">ajoute l&#39;arc (i,s) au graphe g (application gamma seulement). </div><div class="ttdef"><b>Definition:</b> graph_basic.c:315</div></div>
+<div class="ttc" id="structgraphe_html_a4a9c4bf60f5ca3c66beb7eddc2476fcd"><div class="ttname"><a href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a></div><div class="ttdeci">pcell * gamma</div><div class="ttdoc">tableau des listes de successeurs indexé par les sommets </div><div class="ttdef"><b>Definition:</b> graphes.h:70</div></div>
+<div class="ttc" id="structcell_html"><div class="ttname"><a href="structcell.html">cell</a></div><div class="ttdoc">structure de cellule pour les listes chaînees de successeurs. </div><div class="ttdef"><b>Definition:</b> graphes.h:34</div></div>
+<div class="ttc" id="graphes_8h_html_add88bab986e801ad28ab70bb889de499"><div class="ttname"><a href="graphes_8h.html#add88bab986e801ad28ab70bb889de499">PopSuccesseur</a></div><div class="ttdeci">int PopSuccesseur(graphe *g, int i)</div><div class="ttdoc">retire un arc (i,s) du graphe g (application gamma seulement), et retourne le sommet s ...</div><div class="ttdef"><b>Definition:</b> graph_basic.c:349</div></div>
+<div class="ttc" id="graphes_8h_html_a8080cb9ab5c9d6c599c4462ad1fc5662"><div class="ttname"><a href="graphes_8h.html#a8080cb9ab5c9d6c599c4462ad1fc5662">GrapheAleatoire</a></div><div class="ttdeci">graphe * GrapheAleatoire(int nsom, int narc)</div><div class="ttdoc">retourne un graphe aléatoire à &#39;nsom&#39; sommets et &#39;narc&#39; arcs. Le graphe est antisymétrique et sans bouc...</div><div class="ttdef"><b>Definition:</b> graph_basic.c:389</div></div>
+<div class="ttc" id="structgraphe_html_aa290d2bcdd766c2cf7257d013de6ffbe"><div class="ttname"><a href="structgraphe.html#aa290d2bcdd766c2cf7257d013de6ffbe">graphe::tete</a></div><div class="ttdeci">int * tete</div><div class="ttdoc">tableau des extremités initiales d&#39;arcs </div><div class="ttdef"><b>Definition:</b> graphes.h:76</div></div>
+<div class="ttc" id="graphes_8h_html_a96c147e49dab6490bd3d8b0d84adc127"><div class="ttname"><a href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a></div><div class="ttdeci">cell * pcell</div><div class="ttdoc">pointeur sur une cellule </div><div class="ttdef"><b>Definition:</b> graphes.h:46</div></div>
+<div class="ttc" id="graphes_8h_html_a4a1187a88985c8ec5980493247c055d5"><div class="ttname"><a href="graphes_8h.html#a4a1187a88985c8ec5980493247c055d5">PlongementCirculaire</a></div><div class="ttdeci">void PlongementCirculaire(graphe *g, double r)</div><div class="ttdoc">affecte à chaque sommet des coordonnées (x,y) régulierement réparties sur un cercle. </div><div class="ttdef"><b>Definition:</b> graph_print.c:376</div></div>
+<div class="ttc" id="graphes_8h_html_afc984605d374a6bc081c8470068fc2dd"><div class="ttname"><a href="graphes_8h.html#afc984605d374a6bc081c8470068fc2dd">PSGraphe</a></div><div class="ttdeci">void PSGraphe(graphe *g, char *filename, double r, double t, double marge)</div><div class="ttdoc">génère une figure PostScript d&#39;après la représentation &quot;successeurs&quot; du graphe g. </div><div class="ttdef"><b>Definition:</b> graph_print.c:116</div></div>
+<div class="ttc" id="structgraphe_html_ad440c787de4c14e8dde771a4cf4f2b1a"><div class="ttname"><a href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">graphe::nsom</a></div><div class="ttdeci">int nsom</div><div class="ttdoc">nombre de sommets </div><div class="ttdef"><b>Definition:</b> graphes.h:57</div></div>
+<div class="ttc" id="graphes_8h_html_afb96540c40d3c727d55dfef10c376257"><div class="ttname"><a href="graphes_8h.html#afb96540c40d3c727d55dfef10c376257">ReadGraphe</a></div><div class="ttdeci">graphe * ReadGraphe(char *filename)</div><div class="ttdoc">Lit les données d&#39;un graphe dans le fichier filename, retourne un pointeur sur la structure graphe cons...</div><div class="ttdef"><b>Definition:</b> graph_basic.c:213</div></div>
+<div class="ttc" id="structgraphe_html_a442aba1881dde703a8fafabffcf34ab6"><div class="ttname"><a href="structgraphe.html#a442aba1881dde703a8fafabffcf34ab6">graphe::narc</a></div><div class="ttdeci">int narc</div><div class="ttdoc">nombre d&#39;arcs </div><div class="ttdef"><b>Definition:</b> graphes.h:61</div></div>
+<div class="ttc" id="structcell_html_ad90e3f26bbcaa7eadfd446448a9ce787"><div class="ttname"><a href="structcell.html#ad90e3f26bbcaa7eadfd446448a9ce787">cell::som</a></div><div class="ttdeci">int som</div><div class="ttdoc">index du sommet </div><div class="ttdef"><b>Definition:</b> graphes.h:36</div></div>
+<div class="ttc" id="graphes_8h_html_a06806cdd432a009c0b0a661f9dc9648a"><div class="ttname"><a href="graphes_8h.html#a06806cdd432a009c0b0a661f9dc9648a">AfficheListe</a></div><div class="ttdeci">void AfficheListe(pcell p)</div><div class="ttdoc">affiche le contenu de la liste p. </div><div class="ttdef"><b>Definition:</b> graph_print.c:34</div></div>
+<div class="ttc" id="graphes_8h_html_aeefd01df94910dc47101c896d70091f2"><div class="ttname"><a href="graphes_8h.html#aeefd01df94910dc47101c896d70091f2">RetireTete</a></div><div class="ttdeci">void RetireTete(pcell *plibre, pcell *pliste)</div><div class="ttdoc">retire la première cellule de la liste &#39;pliste&#39;. La cellule est chaînee à la liste &#39;plibre&#39;. </div><div class="ttdef"><b>Definition:</b> graph_basic.c:55</div></div>
+<div class="ttc" id="graphes_8h_html_aaa05a785186861df7841cbedab5b0d68"><div class="ttname"><a href="graphes_8h.html#aaa05a785186861df7841cbedab5b0d68">RetireArc</a></div><div class="ttdeci">void RetireArc(graphe *g, int i, int s)</div><div class="ttdoc">retire l&#39;arc (i,s) du graphe g (application gamma seulement), si celui-ci etait présent. Sinon, pas d&#39;action. </div><div class="ttdef"><b>Definition:</b> graph_basic.c:330</div></div>
+<div class="ttc" id="graphes_8h_html_a5c038f370bd0436a250f59898976586d"><div class="ttname"><a href="graphes_8h.html#a5c038f370bd0436a250f59898976586d">EstDansListe</a></div><div class="ttdeci">int EstDansListe(pcell p, int a)</div><div class="ttdoc">retourne 1 si le sommet &#39;a&#39; se trouve dans la liste &#39;p&#39;, 0 sinon. </div><div class="ttdef"><b>Definition:</b> graph_basic.c:90</div></div>
+<div class="ttc" id="graphes_8h_html_ac605c2c2285dae810e6614179fb3dfd3"><div class="ttname"><a href="graphes_8h.html#ac605c2c2285dae810e6614179fb3dfd3">AfficheValeursSommets</a></div><div class="ttdeci">void AfficheValeursSommets(graphe *g)</div><div class="ttdoc">affiche les valeurs associées aux sommets. </div><div class="ttdef"><b>Definition:</b> graph_print.c:93</div></div>
+<div class="ttc" id="graphes_8h_html_ab34642fac9bcd82ce1cf89e51c5bd185"><div class="ttname"><a href="graphes_8h.html#ab34642fac9bcd82ce1cf89e51c5bd185">EstSuccesseur</a></div><div class="ttdeci">int EstSuccesseur(graphe *g, int i, int s)</div><div class="ttdoc">retourne 1 si le sommet &#39;s&#39; est un successeur du sommet &#39;i&#39;, 0 sinon. </div><div class="ttdef"><b>Definition:</b> graph_basic.c:365</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+GÃ©nÃ©rÃ© le Mercredi 26 Avril 2017 11:34:07 pour Graphes par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

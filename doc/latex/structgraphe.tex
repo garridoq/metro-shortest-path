@@ -1,0 +1,61 @@
+\section{RÃ©fÃ©rence de la structure graphe}
+\label{structgraphe}\index{graphe@{graphe}}
+
+
+structure pour la representation des graphes  
+
+
+
+
+{\ttfamily \#include $<$graphes.\-h$>$}
+
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf nsom}\label{structgraphe_ad440c787de4c14e8dde771a4cf4f2b1a}
+
+\begin{DoxyCompactList}\small\item\em nombre de sommets \end{DoxyCompactList}\item 
+int {\bf nmaxarc}\label{structgraphe_acc91a9d1e36b356fbf1fef2743981021}
+
+\begin{DoxyCompactList}\small\item\em nombre maximum d'arcs \end{DoxyCompactList}\item 
+int {\bf narc}\label{structgraphe_a442aba1881dde703a8fafabffcf34ab6}
+
+\begin{DoxyCompactList}\small\item\em nombre d'arcs \end{DoxyCompactList}\item 
+{\bf pcell} {\bf reserve}\label{structgraphe_adfcaacbf446eda605091714f5ef281f7}
+
+\begin{DoxyCompactList}\small\item\em tableau des cellules en réserve \end{DoxyCompactList}\item 
+{\bf pcell} {\bf libre}\label{structgraphe_a0bb08cf408114b7af6da45b1c2805fb5}
+
+\begin{DoxyCompactList}\small\item\em liste des cellules libres gérée en pile lifo \end{DoxyCompactList}\item 
+{\bf pcell} $\ast$ {\bf gamma}\label{structgraphe_a4a9c4bf60f5ca3c66beb7eddc2476fcd}
+
+\begin{DoxyCompactList}\small\item\em tableau des listes de successeurs indexé par les sommets \end{DoxyCompactList}\item 
+int $\ast$ {\bf tete}\label{structgraphe_aa290d2bcdd766c2cf7257d013de6ffbe}
+
+\begin{DoxyCompactList}\small\item\em tableau des extremités initiales d'arcs \end{DoxyCompactList}\item 
+int $\ast$ {\bf queue}\label{structgraphe_a2ccd3a8ad2147ffcf9227ecf80ee61cd}
+
+\begin{DoxyCompactList}\small\item\em tableau des extremités finales d'arcs \end{DoxyCompactList}\item 
+T\-Y\-P\-\_\-\-V\-A\-R\-C $\ast$ {\bf v\-\_\-arcs}\label{structgraphe_ac91962a6b1b6d38091ca73d25c9648a6}
+
+\begin{DoxyCompactList}\small\item\em tableau des valeurs associées aux arcs \end{DoxyCompactList}\item 
+T\-Y\-P\-\_\-\-V\-S\-O\-M $\ast$ {\bf v\-\_\-sommets}\label{structgraphe_ab412d179e1f13120d9c7914f2812d785}
+
+\begin{DoxyCompactList}\small\item\em tableau des valeurs associées aux sommets \end{DoxyCompactList}\item 
+double $\ast$ {\bf x}\label{structgraphe_a623b2899086945d40f8543b7717d2a06}
+
+\begin{DoxyCompactList}\small\item\em abcisses des sommets \end{DoxyCompactList}\item 
+double $\ast$ {\bf y}\label{structgraphe_afad97ec21aad980df295938d2eb02ae0}
+
+\begin{DoxyCompactList}\small\item\em ordonnees des sommets \end{DoxyCompactList}\item 
+char $\ast$$\ast$ {\bf nomsommet}\label{structgraphe_a13210a3e7f1113a95bf70d1fdcf4dbed}
+
+\begin{DoxyCompactList}\small\item\em noms des sommets \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description dÃ©taillÃ©e}
+structure pour la representation des graphes 
+
+La documentation de cette structure a Ã©tÃ© gÃ©nÃ©rÃ©e Ã  partir du fichier suivant \-:\begin{DoxyCompactItemize}
+\item 
+{\bf graphes.\-h}\end{DoxyCompactItemize}

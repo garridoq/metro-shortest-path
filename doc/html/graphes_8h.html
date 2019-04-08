@@ -1,0 +1,1181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Graphes: RÃ©fÃ©rence du fichier graphes.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Graphes
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.8.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">DÃ©finitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">RÃ©fÃ©rence du fichier graphes.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>structures de base pour la manipulation de graphes  
+<a href="#details">Plus de dÃ©tails...</a></p>
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &lt;string.h&gt;</code><br/>
+<code>#include &lt;math.h&gt;</code><br/>
+</div>
+<p><a href="graphes_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcell.html">cell</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure de cellule pour les listes chaînees de successeurs.  <a href="structcell.html#details">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphe.html">graphe</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure pour la representation des graphes  <a href="structgraphe.html#details">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1add9fd7e95a0311e0823b1d755307c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1add9fd7e95a0311e0823b1d755307c2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TYP_VARC</b>&#160;&#160;&#160;long</td></tr>
+<tr class="separator:a1add9fd7e95a0311e0823b1d755307c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26aebf21afca618ee2b09da27faeadea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26aebf21afca618ee2b09da27faeadea"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TYP_VSOM</b>&#160;&#160;&#160;long</td></tr>
+<tr class="separator:a26aebf21afca618ee2b09da27faeadea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f3d17bf39f78da3422ca52e475d7724"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f3d17bf39f78da3422ca52e475d7724"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HUGE</b>&#160;&#160;&#160;HUGE_VAL</td></tr>
+<tr class="separator:a5f3d17bf39f78da3422ca52e475d7724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae59de266aceffa1c258ac13f45fe0d18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae59de266aceffa1c258ac13f45fe0d18"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SHRT_MIN</b>&#160;&#160;&#160;-32767</td></tr>
+<tr class="separator:ae59de266aceffa1c258ac13f45fe0d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f758438cb1c7bcf55da2431f5e319e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f758438cb1c7bcf55da2431f5e319e6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SHRT_MAX</b>&#160;&#160;&#160;+32767</td></tr>
+<tr class="separator:a1f758438cb1c7bcf55da2431f5e319e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a689b119da994dece91d44b5aeac643ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a689b119da994dece91d44b5aeac643ed"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>USHRT_MAX</b>&#160;&#160;&#160;65535</td></tr>
+<tr class="separator:a689b119da994dece91d44b5aeac643ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21658776274b3d146c674318b635a334"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21658776274b3d146c674318b635a334"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>INT_MIN</b>&#160;&#160;&#160;-32767</td></tr>
+<tr class="separator:a21658776274b3d146c674318b635a334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ec306f36d50c7375e74f0d1c55a3a67"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ec306f36d50c7375e74f0d1c55a3a67"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>INT_MAX</b>&#160;&#160;&#160;+32767</td></tr>
+<tr class="separator:a9ec306f36d50c7375e74f0d1c55a3a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac998ea02fbd821fc123d60445ce76f38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac998ea02fbd821fc123d60445ce76f38"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UINT_MAX</b>&#160;&#160;&#160;65535</td></tr>
+<tr class="separator:ac998ea02fbd821fc123d60445ce76f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8a44c5a7436466221e0f3859d02420f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8a44c5a7436466221e0f3859d02420f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LONG_MIN</b>&#160;&#160;&#160;-2147483647</td></tr>
+<tr class="separator:ae8a44c5a7436466221e0f3859d02420f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50fece4db74f09568b2938db583c5655"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50fece4db74f09568b2938db583c5655"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LONG_MAX</b>&#160;&#160;&#160;+2147483647</td></tr>
+<tr class="separator:a50fece4db74f09568b2938db583c5655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41c51926a1997aab3503f9083935e06c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41c51926a1997aab3503f9083935e06c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ULONG_MAX</b>&#160;&#160;&#160;4294967295</td></tr>
+<tr class="separator:a41c51926a1997aab3503f9083935e06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae71449b1cc6e6250b91f539153a7a0d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae71449b1cc6e6250b91f539153a7a0d3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>M_PI</b>&#160;&#160;&#160;3.14159265358979323846</td></tr>
+<tr class="separator:ae71449b1cc6e6250b91f539153a7a0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab95f7757e11b270d27b95ec0d8e798b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab95f7757e11b270d27b95ec0d8e798b5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>max</b>(X, Y)&#160;&#160;&#160;((X)&gt;=(Y)?(X):(Y))</td></tr>
+<tr class="separator:ab95f7757e11b270d27b95ec0d8e798b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8195a86b6d75b9a3939505e8bb50021e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8195a86b6d75b9a3939505e8bb50021e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>min</b>(X, Y)&#160;&#160;&#160;((X)&lt;=(Y)?(X):(Y))</td></tr>
+<tr class="separator:a8195a86b6d75b9a3939505e8bb50021e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+DÃ©finitions de type</h2></td></tr>
+<tr class="memitem:a7d3e730b07d2c8df607a2e561d1911ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d3e730b07d2c8df607a2e561d1911ce"></a>
+typedef struct <a class="el" href="structcell.html">cell</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cell</b></td></tr>
+<tr class="separator:a7d3e730b07d2c8df607a2e561d1911ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96c147e49dab6490bd3d8b0d84adc127"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96c147e49dab6490bd3d8b0d84adc127"></a>
+typedef <a class="el" href="structcell.html">cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a></td></tr>
+<tr class="memdesc:a96c147e49dab6490bd3d8b0d84adc127"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointeur sur une cellule <br/></td></tr>
+<tr class="separator:a96c147e49dab6490bd3d8b0d84adc127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b42016953c97cc112789647f24683a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b42016953c97cc112789647f24683a6"></a>
+typedef struct <a class="el" href="structgraphe.html">graphe</a>&#160;</td><td class="memItemRight" valign="bottom"><b>graphe</b></td></tr>
+<tr class="separator:a0b42016953c97cc112789647f24683a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a0df101cc17e6e374ee7863a3cdfaaf43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a0df101cc17e6e374ee7863a3cdfaaf43">AfficheEnsemble</a> (boolean *s, int n)</td></tr>
+<tr class="memdesc:a0df101cc17e6e374ee7863a3cdfaaf43"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche à l'écran l'ensemble representé par le tableau de booléens s.  <a href="#a0df101cc17e6e374ee7863a3cdfaaf43">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a0df101cc17e6e374ee7863a3cdfaaf43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06806cdd432a009c0b0a661f9dc9648a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a06806cdd432a009c0b0a661f9dc9648a">AfficheListe</a> (<a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> p)</td></tr>
+<tr class="memdesc:a06806cdd432a009c0b0a661f9dc9648a"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche le contenu de la liste p.  <a href="#a06806cdd432a009c0b0a661f9dc9648a">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a06806cdd432a009c0b0a661f9dc9648a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2027b6e939f212769dcaf2a064ffb327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a2027b6e939f212769dcaf2a064ffb327">AfficheSuccesseurs</a> (<a class="el" href="structgraphe.html">graphe</a> *g)</td></tr>
+<tr class="memdesc:a2027b6e939f212769dcaf2a064ffb327"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche le graphe dans sa représentation "listes de successeurs".  <a href="#a2027b6e939f212769dcaf2a064ffb327">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a2027b6e939f212769dcaf2a064ffb327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e036fb3ab8c0915e26216c7b818192d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a6e036fb3ab8c0915e26216c7b818192d">AfficheArcs</a> (<a class="el" href="structgraphe.html">graphe</a> *g)</td></tr>
+<tr class="memdesc:a6e036fb3ab8c0915e26216c7b818192d"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche le graphe dans sa représentation "listes d'arcs".  <a href="#a6e036fb3ab8c0915e26216c7b818192d">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a6e036fb3ab8c0915e26216c7b818192d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac605c2c2285dae810e6614179fb3dfd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#ac605c2c2285dae810e6614179fb3dfd3">AfficheValeursSommets</a> (<a class="el" href="structgraphe.html">graphe</a> *g)</td></tr>
+<tr class="memdesc:ac605c2c2285dae810e6614179fb3dfd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche les valeurs associées aux sommets.  <a href="#ac605c2c2285dae810e6614179fb3dfd3">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:ac605c2c2285dae810e6614179fb3dfd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc984605d374a6bc081c8470068fc2dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#afc984605d374a6bc081c8470068fc2dd">PSGraphe</a> (<a class="el" href="structgraphe.html">graphe</a> *g, char *filename, double r, double t, double marge)</td></tr>
+<tr class="memdesc:afc984605d374a6bc081c8470068fc2dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">génère une figure PostScript d'après la représentation "successeurs" du graphe g.  <a href="#afc984605d374a6bc081c8470068fc2dd">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:afc984605d374a6bc081c8470068fc2dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b6637e3a889de0e9bb647b9eb5e723d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a6b6637e3a889de0e9bb647b9eb5e723d">EPSGraphe</a> (<a class="el" href="structgraphe.html">graphe</a> *g, char *filename, double r, double t, double marge, int noms_sommets, int v_sommets, int col_sommets, int v_arcs)</td></tr>
+<tr class="memdesc:a6b6637e3a889de0e9bb647b9eb5e723d"><td class="mdescLeft">&#160;</td><td class="mdescRight">génère une figure PostScript d'après la représentation "successeurs" du graphe g.  <a href="#a6b6637e3a889de0e9bb647b9eb5e723d">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a6b6637e3a889de0e9bb647b9eb5e723d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeabb3f14b04ec9dd4f2631c38b0e1cf7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#aeabb3f14b04ec9dd4f2631c38b0e1cf7">AutoNomsSommets</a> (<a class="el" href="structgraphe.html">graphe</a> *g, int mode)</td></tr>
+<tr class="memdesc:aeabb3f14b04ec9dd4f2631c38b0e1cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">génère automatiquement des noms pour les sommets du graphe g.  <a href="#aeabb3f14b04ec9dd4f2631c38b0e1cf7">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:aeabb3f14b04ec9dd4f2631c38b0e1cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a1187a88985c8ec5980493247c055d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a4a1187a88985c8ec5980493247c055d5">PlongementCirculaire</a> (<a class="el" href="structgraphe.html">graphe</a> *g, double r)</td></tr>
+<tr class="memdesc:a4a1187a88985c8ec5980493247c055d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">affecte à chaque sommet des coordonnées (x,y) régulierement réparties sur un cercle.  <a href="#a4a1187a88985c8ec5980493247c055d5">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a4a1187a88985c8ec5980493247c055d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f41165adc2a27d6f5a8c177e70cc532"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a6f41165adc2a27d6f5a8c177e70cc532">PlongementRadial</a> (<a class="el" href="structgraphe.html">graphe</a> *g, int c)</td></tr>
+<tr class="memdesc:a6f41165adc2a27d6f5a8c177e70cc532"><td class="mdescLeft">&#160;</td><td class="mdescRight">répartit les sommets de g sur des cercles concentriques en fonction de leur rang, avec le sommet c au centre.  <a href="#a6f41165adc2a27d6f5a8c177e70cc532">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a6f41165adc2a27d6f5a8c177e70cc532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a415c74181c0ab890ba34221914d83c56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a415c74181c0ab890ba34221914d83c56">AlloueCell</a> (<a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *plibre)</td></tr>
+<tr class="memdesc:a415c74181c0ab890ba34221914d83c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">retire la premiere cellule de la liste pointée par plibre et retourne un pointeur sur cette cellule.  <a href="#a415c74181c0ab890ba34221914d83c56">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a415c74181c0ab890ba34221914d83c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cf3c1079b390e12f8a49b9f8d1106a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a3cf3c1079b390e12f8a49b9f8d1106a1">LibereCell</a> (<a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *plibre, <a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> p)</td></tr>
+<tr class="memdesc:a3cf3c1079b390e12f8a49b9f8d1106a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">insère la cellule p au début de la liste pointée par 'plibre'.  <a href="#a3cf3c1079b390e12f8a49b9f8d1106a1">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a3cf3c1079b390e12f8a49b9f8d1106a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeefd01df94910dc47101c896d70091f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#aeefd01df94910dc47101c896d70091f2">RetireTete</a> (<a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *plibre, <a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *pliste)</td></tr>
+<tr class="memdesc:aeefd01df94910dc47101c896d70091f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">retire la première cellule de la liste 'pliste'. La cellule est chaînee à la liste 'plibre'.  <a href="#aeefd01df94910dc47101c896d70091f2">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:aeefd01df94910dc47101c896d70091f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c9e2ce4aa6988793f9d2708491e6b8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a4c9e2ce4aa6988793f9d2708491e6b8a">AjouteTete</a> (<a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *plibre, <a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *pliste, int a, TYP_VARC v)</td></tr>
+<tr class="memdesc:a4c9e2ce4aa6988793f9d2708491e6b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute une cellule contenant le sommet 'a' et la valeur 'v' en tête de la liste 'pliste'. La cellule est prise dans la liste 'plibre'.  <a href="#a4c9e2ce4aa6988793f9d2708491e6b8a">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a4c9e2ce4aa6988793f9d2708491e6b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c038f370bd0436a250f59898976586d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a5c038f370bd0436a250f59898976586d">EstDansListe</a> (<a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> p, int a)</td></tr>
+<tr class="memdesc:a5c038f370bd0436a250f59898976586d"><td class="mdescLeft">&#160;</td><td class="mdescRight">retourne 1 si le sommet 'a' se trouve dans la liste 'p', 0 sinon.  <a href="#a5c038f370bd0436a250f59898976586d">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a5c038f370bd0436a250f59898976586d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02f0b0e9d279fb9cf696143134c80ac3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a02f0b0e9d279fb9cf696143134c80ac3">InitGraphe</a> (int nsom, int nmaxarc)</td></tr>
+<tr class="memdesc:a02f0b0e9d279fb9cf696143134c80ac3"><td class="mdescLeft">&#160;</td><td class="mdescRight">alloue la memoire nécessaire pour représenter un graphe a 'nsom' sommets, possédant au maximum 'nmaxarc' arcs. Retourne un pointeur sur la structure allouée.  <a href="#a02f0b0e9d279fb9cf696143134c80ac3">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a02f0b0e9d279fb9cf696143134c80ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3b77f1c084064fc16c3978b84652fd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#ad3b77f1c084064fc16c3978b84652fd6">TermineGraphe</a> (<a class="el" href="structgraphe.html">graphe</a> *g)</td></tr>
+<tr class="memdesc:ad3b77f1c084064fc16c3978b84652fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">libère la memoire occupée par le graphe g.  <a href="#ad3b77f1c084064fc16c3978b84652fd6">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:ad3b77f1c084064fc16c3978b84652fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb96540c40d3c727d55dfef10c376257"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#afb96540c40d3c727d55dfef10c376257">ReadGraphe</a> (char *filename)</td></tr>
+<tr class="memdesc:afb96540c40d3c727d55dfef10c376257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lit les données d'un graphe dans le fichier filename, retourne un pointeur sur la structure graphe construite.  <a href="#afb96540c40d3c727d55dfef10c376257">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:afb96540c40d3c727d55dfef10c376257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa725a0c0ac21a284740ec2e747ce4e78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#aa725a0c0ac21a284740ec2e747ce4e78">AjouteArc</a> (<a class="el" href="structgraphe.html">graphe</a> *g, int i, int s)</td></tr>
+<tr class="memdesc:aa725a0c0ac21a284740ec2e747ce4e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute l'arc (i,s) au graphe g (application gamma seulement).  <a href="#aa725a0c0ac21a284740ec2e747ce4e78">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:aa725a0c0ac21a284740ec2e747ce4e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4ed4faf4dabe968c427d09b941144ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#ac4ed4faf4dabe968c427d09b941144ff">AjouteArcValue</a> (<a class="el" href="structgraphe.html">graphe</a> *g, int i, int s, TYP_VARC v)</td></tr>
+<tr class="memdesc:ac4ed4faf4dabe968c427d09b941144ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoute l'arc (i,s) au graphe g (application gamma seulement).  <a href="#ac4ed4faf4dabe968c427d09b941144ff">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:ac4ed4faf4dabe968c427d09b941144ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa05a785186861df7841cbedab5b0d68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#aaa05a785186861df7841cbedab5b0d68">RetireArc</a> (<a class="el" href="structgraphe.html">graphe</a> *g, int i, int s)</td></tr>
+<tr class="memdesc:aaa05a785186861df7841cbedab5b0d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">retire l'arc (i,s) du graphe g (application gamma seulement), si celui-ci etait présent. Sinon, pas d'action.  <a href="#aaa05a785186861df7841cbedab5b0d68">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:aaa05a785186861df7841cbedab5b0d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add88bab986e801ad28ab70bb889de499"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#add88bab986e801ad28ab70bb889de499">PopSuccesseur</a> (<a class="el" href="structgraphe.html">graphe</a> *g, int i)</td></tr>
+<tr class="memdesc:add88bab986e801ad28ab70bb889de499"><td class="mdescLeft">&#160;</td><td class="mdescRight">retire un arc (i,s) du graphe g (application gamma seulement), et retourne le sommet s  <a href="#add88bab986e801ad28ab70bb889de499">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:add88bab986e801ad28ab70bb889de499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab34642fac9bcd82ce1cf89e51c5bd185"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#ab34642fac9bcd82ce1cf89e51c5bd185">EstSuccesseur</a> (<a class="el" href="structgraphe.html">graphe</a> *g, int i, int s)</td></tr>
+<tr class="memdesc:ab34642fac9bcd82ce1cf89e51c5bd185"><td class="mdescLeft">&#160;</td><td class="mdescRight">retourne 1 si le sommet 's' est un successeur du sommet 'i', 0 sinon.  <a href="#ab34642fac9bcd82ce1cf89e51c5bd185">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:ab34642fac9bcd82ce1cf89e51c5bd185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8080cb9ab5c9d6c599c4462ad1fc5662"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphes_8h.html#a8080cb9ab5c9d6c599c4462ad1fc5662">GrapheAleatoire</a> (int nsom, int narc)</td></tr>
+<tr class="memdesc:a8080cb9ab5c9d6c599c4462ad1fc5662"><td class="mdescLeft">&#160;</td><td class="mdescRight">retourne un graphe aléatoire à 'nsom' sommets et 'narc' arcs. Le graphe est antisymétrique et sans boucle. Le nombre d'arcs doit être &lt;= nsom (nsom - 1) / 2. Les arcs sont pondérés (valeur aléatoire entre 0.0 et 1.0).  <a href="#a8080cb9ab5c9d6c599c4462ad1fc5662">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:a8080cb9ab5c9d6c599c4462ad1fc5662"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70d7c1126e7dae17dff5fee8f41b68c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a70d7c1126e7dae17dff5fee8f41b68c9"></a>
+<a class="el" href="structgraphe.html">graphe</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Symetrique</b> (<a class="el" href="structgraphe.html">graphe</a> *g)</td></tr>
+<tr class="separator:a70d7c1126e7dae17dff5fee8f41b68c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description dÃ©taillÃ©e</h2>
+<div class="textblock"><p>structures de base pour la manipulation de graphes </p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a6e036fb3ab8c0915e26216c7b818192d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AfficheArcs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affiche le graphe dans sa représentation "listes d'arcs". </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée) : un graphe. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structgraphe.html#a442aba1881dde703a8fafabffcf34ab6">graphe::narc</a>, <a class="el" href="structgraphe.html#a2ccd3a8ad2147ffcf9227ecf80ee61cd">graphe::queue</a>, <a class="el" href="structgraphe.html#aa290d2bcdd766c2cf7257d013de6ffbe">graphe::tete</a>, et <a class="el" href="structgraphe.html#ac91962a6b1b6d38091ca73d25c9648a6">graphe::v_arcs</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0df101cc17e6e374ee7863a3cdfaaf43"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AfficheEnsemble </td>
+          <td>(</td>
+          <td class="paramtype">boolean *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affiche à l'écran l'ensemble representé par le tableau de booléens s. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>(entrée) : un tableau de valeurs booléennes. </td></tr>
+    <tr><td class="paramname">n</td><td>(entrée) : la taille du tableau. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a06806cdd432a009c0b0a661f9dc9648a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AfficheListe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a>&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affiche le contenu de la liste p. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>(entrée) : une liste chaînee de successeurs. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">cell::next</a>, et <a class="el" href="structcell.html#ad90e3f26bbcaa7eadfd446448a9ce787">cell::som</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphes_8h.html#a2027b6e939f212769dcaf2a064ffb327">AfficheSuccesseurs()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2027b6e939f212769dcaf2a064ffb327"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AfficheSuccesseurs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affiche le graphe dans sa représentation "listes de successeurs". </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée) : un graphe. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="graph__print_8c.html#a06806cdd432a009c0b0a661f9dc9648a">AfficheListe()</a>, <a class="el" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a>, et <a class="el" href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">graphe::nsom</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac605c2c2285dae810e6614179fb3dfd3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AfficheValeursSommets </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affiche les valeurs associées aux sommets. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée) : un graphe. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">graphe::nsom</a>, et <a class="el" href="structgraphe.html#ab412d179e1f13120d9c7914f2812d785">graphe::v_sommets</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa725a0c0ac21a284740ec2e747ce4e78"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AjouteArc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajoute l'arc (i,s) au graphe g (application gamma seulement). </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée/sortie) : un graphe. </td></tr>
+    <tr><td class="paramname">i</td><td>(entrée) : extrémité initiale de l'arc. </td></tr>
+    <tr><td class="paramname">s</td><td>(entrée) : extrémité finale de l'arc. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="graph__basic_8c.html#a4c9e2ce4aa6988793f9d2708491e6b8a">AjouteTete()</a>, <a class="el" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a>, <a class="el" href="structgraphe.html#a0bb08cf408114b7af6da45b1c2805fb5">graphe::libre</a>, et <a class="el" href="structgraphe.html#a442aba1881dde703a8fafabffcf34ab6">graphe::narc</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphes_8h.html#a8080cb9ab5c9d6c599c4462ad1fc5662">GrapheAleatoire()</a>, et <a class="el" href="graphes_8h.html#afb96540c40d3c727d55dfef10c376257">ReadGraphe()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac4ed4faf4dabe968c427d09b941144ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AjouteArcValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TYP_VARC&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajoute l'arc (i,s) au graphe g (application gamma seulement). </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée/sortie) : un graphe. </td></tr>
+    <tr><td class="paramname">i</td><td>(entrée) : extrémité initiale de l'arc. </td></tr>
+    <tr><td class="paramname">s</td><td>(entrée) : extrémité finale de l'arc. </td></tr>
+    <tr><td class="paramname">v</td><td>(entrée) : une valeur pour l'arc. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="graph__basic_8c.html#a4c9e2ce4aa6988793f9d2708491e6b8a">AjouteTete()</a>, <a class="el" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a>, <a class="el" href="structgraphe.html#a0bb08cf408114b7af6da45b1c2805fb5">graphe::libre</a>, et <a class="el" href="structgraphe.html#a442aba1881dde703a8fafabffcf34ab6">graphe::narc</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphes_8h.html#afb96540c40d3c727d55dfef10c376257">ReadGraphe()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4c9e2ce4aa6988793f9d2708491e6b8a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AjouteTete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *&#160;</td>
+          <td class="paramname"><em>plibre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *&#160;</td>
+          <td class="paramname"><em>pliste</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TYP_VARC&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajoute une cellule contenant le sommet 'a' et la valeur 'v' en tête de la liste 'pliste'. La cellule est prise dans la liste 'plibre'. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plibre</td><td>(entrée) : pointeur sur une liste chaînee de cellules libres. </td></tr>
+    <tr><td class="paramname">pliste</td><td>(entrée) : pointeur sur une liste. </td></tr>
+    <tr><td class="paramname">a</td><td>(entrée) : un sommet. </td></tr>
+    <tr><td class="paramname">v</td><td>(entrée) : une valeur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="graph__basic_8c.html#a415c74181c0ab890ba34221914d83c56">AlloueCell()</a>, <a class="el" href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">cell::next</a>, <a class="el" href="structcell.html#ad90e3f26bbcaa7eadfd446448a9ce787">cell::som</a>, et <a class="el" href="structcell.html#af7a1cb961336e3ee2358b261511c03fe">cell::v_arc</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphes_8h.html#aa725a0c0ac21a284740ec2e747ce4e78">AjouteArc()</a>, et <a class="el" href="graphes_8h.html#ac4ed4faf4dabe968c427d09b941144ff">AjouteArcValue()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a415c74181c0ab890ba34221914d83c56"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> AlloueCell </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *&#160;</td>
+          <td class="paramname"><em>plibre</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retire la premiere cellule de la liste pointée par plibre et retourne un pointeur sur cette cellule. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plibre</td><td>(entrée) : pointeur sur une liste chaînee de cellules libres. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>pointeur sur une cellule. </dd></dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">cell::next</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphes_8h.html#a4c9e2ce4aa6988793f9d2708491e6b8a">AjouteTete()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeabb3f14b04ec9dd4f2631c38b0e1cf7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AutoNomsSommets </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>génère automatiquement des noms pour les sommets du graphe g. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée) : un graphe. </td></tr>
+    <tr><td class="paramname">mode</td><td>(entrée) : 1 pour que les noms soient les indices des sommets, 2 pour que les noms soient les valeurs associées aux sommets, 3 pour des noms composes de l'indice et de la valeur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structgraphe.html#a13210a3e7f1113a95bf70d1fdcf4dbed">graphe::nomsommet</a>, <a class="el" href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">graphe::nsom</a>, et <a class="el" href="structgraphe.html#ab412d179e1f13120d9c7914f2812d785">graphe::v_sommets</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6b6637e3a889de0e9bb647b9eb5e723d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EPSGraphe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>marge</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>noms_sommets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v_sommets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col_sommets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v_arcs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>génère une figure PostScript d'après la représentation "successeurs" du graphe g. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée) : un graphe. </td></tr>
+    <tr><td class="paramname">filename</td><td>(entrée) : nom du fichier postscript à générer. </td></tr>
+    <tr><td class="paramname">r</td><td>(entrée) : rayon des cercles qui représentent les sommets (0 pour ne pas les dessiner). </td></tr>
+    <tr><td class="paramname">t</td><td>(entrée) : taille (demi-longueur) des flèches pour les arcs (0 pour ne pas les dessiner). </td></tr>
+    <tr><td class="paramname">marge</td><td>(entrée) : marge en x et en y. </td></tr>
+    <tr><td class="paramname">noms_sommets</td><td>(entrée) : booléen indiquant s'il faut écrire les noms des sommets. </td></tr>
+    <tr><td class="paramname">v_sommets</td><td>(entrée) : booléen indiquant s'il faut écrire les valeurs des sommets. </td></tr>
+    <tr><td class="paramname">col_sommets</td><td>(entrée) : booléen indiquant s'il faut colorier les sommets dont la valeur est non nulle. </td></tr>
+    <tr><td class="paramname">v_arcs</td><td>(entrée) : booléen indiquant s'il faut écrire les valeurs des arcs. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a>, <a class="el" href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">cell::next</a>, <a class="el" href="structgraphe.html#a13210a3e7f1113a95bf70d1fdcf4dbed">graphe::nomsommet</a>, <a class="el" href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">graphe::nsom</a>, <a class="el" href="structcell.html#ad90e3f26bbcaa7eadfd446448a9ce787">cell::som</a>, <a class="el" href="structcell.html#af7a1cb961336e3ee2358b261511c03fe">cell::v_arc</a>, <a class="el" href="structgraphe.html#ab412d179e1f13120d9c7914f2812d785">graphe::v_sommets</a>, <a class="el" href="structgraphe.html#a623b2899086945d40f8543b7717d2a06">graphe::x</a>, et <a class="el" href="structgraphe.html#afad97ec21aad980df295938d2eb02ae0">graphe::y</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5c038f370bd0436a250f59898976586d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EstDansListe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a>&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retourne 1 si le sommet 'a' se trouve dans la liste 'p', 0 sinon. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>(entrée) : une liste chaînee de successeurs. </td></tr>
+    <tr><td class="paramname">a</td><td>(entrée) : un sommet. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>booléen. </dd></dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">cell::next</a>, et <a class="el" href="structcell.html#ad90e3f26bbcaa7eadfd446448a9ce787">cell::som</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphes_8h.html#ab34642fac9bcd82ce1cf89e51c5bd185">EstSuccesseur()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab34642fac9bcd82ce1cf89e51c5bd185"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EstSuccesseur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retourne 1 si le sommet 's' est un successeur du sommet 'i', 0 sinon. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée) : un graphe. </td></tr>
+    <tr><td class="paramname">i</td><td>(entrée) : un sommet de g. </td></tr>
+    <tr><td class="paramname">s</td><td>(entrée) : un sommet de g. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>booléen. </dd></dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="graph__basic_8c.html#a5c038f370bd0436a250f59898976586d">EstDansListe()</a>, et <a class="el" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphes_8h.html#a8080cb9ab5c9d6c599c4462ad1fc5662">GrapheAleatoire()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8080cb9ab5c9d6c599c4462ad1fc5662"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgraphe.html">graphe</a>* GrapheAleatoire </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nsom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>narc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retourne un graphe aléatoire à 'nsom' sommets et 'narc' arcs. Le graphe est antisymétrique et sans boucle. Le nombre d'arcs doit être &lt;= nsom (nsom - 1) / 2. Les arcs sont pondérés (valeur aléatoire entre 0.0 et 1.0). </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nsom</td><td>(entrée) : nombre de sommets. </td></tr>
+    <tr><td class="paramname">narc</td><td>(entrée) : nombre d'arcs. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un graphe. </dd></dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>la méthode employée ici est naïve, tres inefficace du point de vue temps de calcul et ne garantit aucune propriété statistique. </dd></dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="graph__basic_8c.html#aa725a0c0ac21a284740ec2e747ce4e78">AjouteArc()</a>, <a class="el" href="graph__basic_8c.html#ab34642fac9bcd82ce1cf89e51c5bd185">EstSuccesseur()</a>, <a class="el" href="graph__basic_8c.html#a650cedf3601a32b43e01a3fcd1cf946a">InitGraphe()</a>, <a class="el" href="structgraphe.html#a2ccd3a8ad2147ffcf9227ecf80ee61cd">graphe::queue</a>, <a class="el" href="graph__basic_8c.html#aaa05a785186861df7841cbedab5b0d68">RetireArc()</a>, <a class="el" href="structgraphe.html#aa290d2bcdd766c2cf7257d013de6ffbe">graphe::tete</a>, et <a class="el" href="structgraphe.html#ac91962a6b1b6d38091ca73d25c9648a6">graphe::v_arcs</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a02f0b0e9d279fb9cf696143134c80ac3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgraphe.html">graphe</a>* InitGraphe </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nsom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nmaxarc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>alloue la memoire nécessaire pour représenter un graphe a 'nsom' sommets, possédant au maximum 'nmaxarc' arcs. Retourne un pointeur sur la structure allouée. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nsom</td><td>(entrée) : nombre de sommets. </td></tr>
+    <tr><td class="paramname">nmaxarc</td><td>(entrée) : nombre maximum d'arcs. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un graphe. </dd></dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a>, <a class="el" href="structgraphe.html#a0bb08cf408114b7af6da45b1c2805fb5">graphe::libre</a>, <a class="el" href="structgraphe.html#a442aba1881dde703a8fafabffcf34ab6">graphe::narc</a>, <a class="el" href="structgraphe.html#acc91a9d1e36b356fbf1fef2743981021">graphe::nmaxarc</a>, <a class="el" href="structgraphe.html#a13210a3e7f1113a95bf70d1fdcf4dbed">graphe::nomsommet</a>, <a class="el" href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">graphe::nsom</a>, <a class="el" href="structgraphe.html#a2ccd3a8ad2147ffcf9227ecf80ee61cd">graphe::queue</a>, <a class="el" href="structgraphe.html#adfcaacbf446eda605091714f5ef281f7">graphe::reserve</a>, <a class="el" href="structgraphe.html#aa290d2bcdd766c2cf7257d013de6ffbe">graphe::tete</a>, <a class="el" href="structgraphe.html#ac91962a6b1b6d38091ca73d25c9648a6">graphe::v_arcs</a>, <a class="el" href="structgraphe.html#ab412d179e1f13120d9c7914f2812d785">graphe::v_sommets</a>, <a class="el" href="structgraphe.html#a623b2899086945d40f8543b7717d2a06">graphe::x</a>, et <a class="el" href="structgraphe.html#afad97ec21aad980df295938d2eb02ae0">graphe::y</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphes_8h.html#a8080cb9ab5c9d6c599c4462ad1fc5662">GrapheAleatoire()</a>, et <a class="el" href="graphes_8h.html#afb96540c40d3c727d55dfef10c376257">ReadGraphe()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3cf3c1079b390e12f8a49b9f8d1106a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LibereCell </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *&#160;</td>
+          <td class="paramname"><em>plibre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a>&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>insère la cellule p au début de la liste pointée par 'plibre'. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plibre</td><td>(entrée) : pointeur sur une liste chaînee de cellules libres. </td></tr>
+    <tr><td class="paramname">p</td><td>(entrée) : pointeur sur une cellule. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">cell::next</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphes_8h.html#aeefd01df94910dc47101c896d70091f2">RetireTete()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4a1187a88985c8ec5980493247c055d5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlongementCirculaire </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>affecte à chaque sommet des coordonnées (x,y) régulierement réparties sur un cercle. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée/sortie) : un graphe. </td></tr>
+    <tr><td class="paramname">r</td><td>(entrée) : le rayon du cercle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">graphe::nsom</a>, <a class="el" href="structgraphe.html#a623b2899086945d40f8543b7717d2a06">graphe::x</a>, et <a class="el" href="structgraphe.html#afad97ec21aad980df295938d2eb02ae0">graphe::y</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f41165adc2a27d6f5a8c177e70cc532"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlongementRadial </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>répartit les sommets de g sur des cercles concentriques en fonction de leur rang, avec le sommet c au centre. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée/sortie) : un graphe. </td></tr>
+    <tr><td class="paramname">c</td><td>(entrée) : le sommet à placer au centre. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a>, <a class="el" href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">cell::next</a>, <a class="el" href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">graphe::nsom</a>, <a class="el" href="structcell.html#ad90e3f26bbcaa7eadfd446448a9ce787">cell::som</a>, <a class="el" href="structgraphe.html#a623b2899086945d40f8543b7717d2a06">graphe::x</a>, et <a class="el" href="structgraphe.html#afad97ec21aad980df295938d2eb02ae0">graphe::y</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="add88bab986e801ad28ab70bb889de499"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PopSuccesseur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retire un arc (i,s) du graphe g (application gamma seulement), et retourne le sommet s </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée/sortie) : un graphe. </td></tr>
+    <tr><td class="paramname">i</td><td>(entrée) : un sommet de g. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>le sommet i doit avoir au moins un successeur (pas de vérification) </dd></dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a>, <a class="el" href="structgraphe.html#a0bb08cf408114b7af6da45b1c2805fb5">graphe::libre</a>, <a class="el" href="graph__basic_8c.html#aeefd01df94910dc47101c896d70091f2">RetireTete()</a>, et <a class="el" href="structcell.html#ad90e3f26bbcaa7eadfd446448a9ce787">cell::som</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afc984605d374a6bc081c8470068fc2dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PSGraphe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>marge</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>génère une figure PostScript d'après la représentation "successeurs" du graphe g. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée) : un graphe. </td></tr>
+    <tr><td class="paramname">filename</td><td>(entrée) : nom du fichier postscript à générer. </td></tr>
+    <tr><td class="paramname">r</td><td>(entrée) : rayon des cercles qui représentent les sommets (0 pour ne pas les dessiner). </td></tr>
+    <tr><td class="paramname">t</td><td>(entrée) : taille (demi-longueur) des flèches pour les arcs (0 pour ne pas les dessiner). </td></tr>
+    <tr><td class="paramname">marge</td><td>(entrée) : marge en x et en y. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a>, <a class="el" href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">cell::next</a>, <a class="el" href="structgraphe.html#a13210a3e7f1113a95bf70d1fdcf4dbed">graphe::nomsommet</a>, <a class="el" href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">graphe::nsom</a>, <a class="el" href="structcell.html#ad90e3f26bbcaa7eadfd446448a9ce787">cell::som</a>, <a class="el" href="structgraphe.html#a623b2899086945d40f8543b7717d2a06">graphe::x</a>, et <a class="el" href="structgraphe.html#afad97ec21aad980df295938d2eb02ae0">graphe::y</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb96540c40d3c727d55dfef10c376257"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgraphe.html">graphe</a>* ReadGraphe </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lit les données d'un graphe dans le fichier filename, retourne un pointeur sur la structure graphe construite. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>(entrée) : nom du fichier graphe. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un graphe. </dd></dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="graph__basic_8c.html#aa725a0c0ac21a284740ec2e747ce4e78">AjouteArc()</a>, <a class="el" href="graph__basic_8c.html#ac4ed4faf4dabe968c427d09b941144ff">AjouteArcValue()</a>, <a class="el" href="graph__basic_8c.html#a650cedf3601a32b43e01a3fcd1cf946a">InitGraphe()</a>, <a class="el" href="structgraphe.html#a13210a3e7f1113a95bf70d1fdcf4dbed">graphe::nomsommet</a>, <a class="el" href="structgraphe.html#a623b2899086945d40f8543b7717d2a06">graphe::x</a>, et <a class="el" href="structgraphe.html#afad97ec21aad980df295938d2eb02ae0">graphe::y</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa05a785186861df7841cbedab5b0d68"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RetireArc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retire l'arc (i,s) du graphe g (application gamma seulement), si celui-ci etait présent. Sinon, pas d'action. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée/sortie) : un graphe. </td></tr>
+    <tr><td class="paramname">i</td><td>(entrée) : un sommet de g. </td></tr>
+    <tr><td class="paramname">s</td><td>(entrée) : un sommet de g. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a>, <a class="el" href="structgraphe.html#a0bb08cf408114b7af6da45b1c2805fb5">graphe::libre</a>, <a class="el" href="structgraphe.html#a442aba1881dde703a8fafabffcf34ab6">graphe::narc</a>, et <a class="el" href="graph__basic_8c.html#aeefd01df94910dc47101c896d70091f2">RetireTete()</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphes_8h.html#a8080cb9ab5c9d6c599c4462ad1fc5662">GrapheAleatoire()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeefd01df94910dc47101c896d70091f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RetireTete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *&#160;</td>
+          <td class="paramname"><em>plibre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="graphes_8h.html#a96c147e49dab6490bd3d8b0d84adc127">pcell</a> *&#160;</td>
+          <td class="paramname"><em>pliste</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retire la première cellule de la liste 'pliste'. La cellule est chaînee à la liste 'plibre'. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plibre</td><td>(entrée) : pointeur sur une liste chaînee de cellules libres. </td></tr>
+    <tr><td class="paramname">pliste</td><td>(entrée) : pointeur sur une liste. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="graph__basic_8c.html#a3cf3c1079b390e12f8a49b9f8d1106a1">LibereCell()</a>, et <a class="el" href="structcell.html#a2f9c7a2efcdc3d026190df2056c614f3">cell::next</a>.</p>
+
+<p>RÃ©fÃ©rencÃ© par <a class="el" href="graphes_8h.html#add88bab986e801ad28ab70bb889de499">PopSuccesseur()</a>, et <a class="el" href="graphes_8h.html#aaa05a785186861df7841cbedab5b0d68">RetireArc()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3b77f1c084064fc16c3978b84652fd6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TermineGraphe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgraphe.html">graphe</a> *&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>libère la memoire occupée par le graphe g. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>(entrée) : un graphe. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>RÃ©fÃ©rences <a class="el" href="structgraphe.html#a4a9c4bf60f5ca3c66beb7eddc2476fcd">graphe::gamma</a>, <a class="el" href="structgraphe.html#a13210a3e7f1113a95bf70d1fdcf4dbed">graphe::nomsommet</a>, <a class="el" href="structgraphe.html#ad440c787de4c14e8dde771a4cf4f2b1a">graphe::nsom</a>, <a class="el" href="structgraphe.html#a2ccd3a8ad2147ffcf9227ecf80ee61cd">graphe::queue</a>, <a class="el" href="structgraphe.html#adfcaacbf446eda605091714f5ef281f7">graphe::reserve</a>, <a class="el" href="structgraphe.html#aa290d2bcdd766c2cf7257d013de6ffbe">graphe::tete</a>, <a class="el" href="structgraphe.html#ac91962a6b1b6d38091ca73d25c9648a6">graphe::v_arcs</a>, et <a class="el" href="structgraphe.html#ab412d179e1f13120d9c7914f2812d785">graphe::v_sommets</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+GÃ©nÃ©rÃ© le Mercredi 26 Avril 2017 11:34:07 pour Graphes par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

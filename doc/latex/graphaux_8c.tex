@@ -1,0 +1,337 @@
+\section{RÃ©fÃ©rence du fichier graphaux.\-c}
+\label{graphaux_8c}\index{graphaux.\-c@{graphaux.\-c}}
+
+
+fonctions auxiliaires  
+
+
+{\ttfamily \#include \char`\"{}graphaux.\-h\char`\"{}}\\*
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Lifo} $\ast$ {\bf Cree\-Lifo\-Vide} (int taillemax)
+\begin{DoxyCompactList}\small\item\em alloue une liste vide. \end{DoxyCompactList}\item 
+void {\bf Lifo\-Flush} ({\bf Lifo} $\ast$L)
+\begin{DoxyCompactList}\small\item\em ré-\/initialise L (tous les éléments présents sont retirés). \end{DoxyCompactList}\item 
+boolean {\bf Lifo\-Vide} ({\bf Lifo} $\ast$L)
+\begin{DoxyCompactList}\small\item\em teste si la liste {\bfseries est} vide. \end{DoxyCompactList}\item 
+int {\bf Lifo\-Pop} ({\bf Lifo} $\ast$L)
+\begin{DoxyCompactList}\small\item\em retire de la liste {\bfseries L} la valeur se trouvant au début, et retourne cette valeur. \end{DoxyCompactList}\item 
+void {\bf Lifo\-Push} ({\bf Lifo} $\ast$L, int V)
+\begin{DoxyCompactList}\small\item\em insère au début de la liste {\bfseries L} la valeur {\bfseries V} \end{DoxyCompactList}\item 
+void {\bf Lifo\-Print} ({\bf Lifo} $\ast$L)
+\begin{DoxyCompactList}\small\item\em affiche le contenu de la liste {\bfseries L}. \end{DoxyCompactList}\item 
+void {\bf Lifo\-Print\-Line} ({\bf Lifo} $\ast$L)
+\begin{DoxyCompactList}\small\item\em affiche le contenu de la liste {\bfseries L}, suivi d'un retour ligne. \end{DoxyCompactList}\item 
+void {\bf Lifo\-Termine} ({\bf Lifo} $\ast$L)
+\begin{DoxyCompactList}\small\item\em récupère l'espace mémoire occupé par la liste {\bfseries L}. \end{DoxyCompactList}\item 
+int {\bfseries Partitionner} (int $\ast$A, Type\-Cle $\ast$T, int p, int r)\label{graphaux_8c_add230566a804d8cf979eecd04528dc25}
+
+\item 
+int {\bfseries Partition\-Stochastique} (int $\ast$A, Type\-Cle $\ast$T, int p, int r)\label{graphaux_8c_a1d467fc0d9b6700e6a1ad49f16776a42}
+
+\item 
+void {\bf Tri\-Rapide\-Stochastique} (int $\ast$A, Type\-Cle $\ast$T, int p, int r)
+\begin{DoxyCompactList}\small\item\em tri par ordre croissant des valeurs du tableau {\bfseries T}. Le tri s'effectue sur un tableau {\bfseries A} contenant les index des elements de {\bfseries T}, l'indice {\bfseries p} (compris) a l'indice {\bfseries r} (compris). \end{DoxyCompactList}\item 
+void {\bf start\-\_\-chrono} ({\bf chrono} $\ast$tp)
+\begin{DoxyCompactList}\small\item\em démarre le chronométrage \end{DoxyCompactList}\item 
+int {\bf read\-\_\-chrono} ({\bf chrono} $\ast$tp)
+\begin{DoxyCompactList}\small\item\em lecture du chronomètre \end{DoxyCompactList}\item 
+void {\bfseries E\-P\-S\-Header} (F\-I\-L\-E $\ast$fd, double figure\-\_\-width, double figure\-\_\-height, double line\-\_\-width, int font\-\_\-size)\label{graphaux_8c_ae5d19aadbaeb415f3ca7307e674a8fba}
+
+\item 
+void {\bfseries P\-S\-Header} (F\-I\-L\-E $\ast$fd, double figure\-\_\-width, double figure\-\_\-height, double line\-\_\-width, int font\-\_\-size)\label{graphaux_8c_adbb85415edf96dbaf9d54b87993d28b8}
+
+\item 
+void {\bfseries P\-S\-Move} (F\-I\-L\-E $\ast$fd, double x, double y)\label{graphaux_8c_a05e6c20ecd4e0e7faf22019e10b00a32}
+
+\item 
+void {\bfseries P\-S\-Draw} (F\-I\-L\-E $\ast$fd, double x, double y)\label{graphaux_8c_a1a69bc6cb7191bca9652006bea16b100}
+
+\item 
+void {\bfseries P\-S\-Line} (F\-I\-L\-E $\ast$fd, double xd, double yd, double xf, double yf)\label{graphaux_8c_a30cc386213b9fa21e7f05da92272234b}
+
+\item 
+void {\bfseries P\-S\-Drawcircle} (F\-I\-L\-E $\ast$fd, double x, double y, double r)\label{graphaux_8c_afdad42035aa96edf80017e557d62b184}
+
+\item 
+void {\bfseries P\-S\-Drawdisc} (F\-I\-L\-E $\ast$fd, double x, double y, double r)\label{graphaux_8c_af1a4288e8518574d4d0987e604b299a1}
+
+\item 
+void {\bfseries P\-S\-String} (F\-I\-L\-E $\ast$fd, double x, double y, char $\ast$s)\label{graphaux_8c_addeb324f5d97db8d0a5d7e7492b27c64}
+
+\item 
+void {\bfseries P\-S\-Footer} (F\-I\-L\-E $\ast$fd)\label{graphaux_8c_ad33c4353b9a1deaf524de4b3f3c9cfe5}
+
+\item 
+boolean $\ast$ {\bf Ensemble\-Vide} (int n)
+\begin{DoxyCompactList}\small\item\em alloue et initialise un tableau de {\bfseries n} booléens, représentant l'ensemble vide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description dÃ©taillÃ©e}
+fonctions auxiliaires 
+
+\subsection{Documentation des fonctions}
+\index{graphaux.\-c@{graphaux.\-c}!Cree\-Lifo\-Vide@{Cree\-Lifo\-Vide}}
+\index{Cree\-Lifo\-Vide@{Cree\-Lifo\-Vide}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{Cree\-Lifo\-Vide}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lifo} $\ast$ Cree\-Lifo\-Vide (
+\begin{DoxyParamCaption}
+\item[{int}]{taillemax}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_a1be8fbc5499e73a7bc6fd3be8a03b351}
+
+
+alloue une liste vide. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em taillemax} & (entrée) \-: taille maxi de la liste. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+une liste \doxyref{Lifo}{p.}{structLifo}. 
+\end{DoxyReturn}
+
+
+RÃ©fÃ©rences Lifo\-::\-Max, et Lifo\-::\-Sp.
+
+\index{graphaux.\-c@{graphaux.\-c}!Ensemble\-Vide@{Ensemble\-Vide}}
+\index{Ensemble\-Vide@{Ensemble\-Vide}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{Ensemble\-Vide}]{\setlength{\rightskip}{0pt plus 5cm}boolean $\ast$ Ensemble\-Vide (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_a453fc4a7761383d7b2fcb7212857c009}
+
+
+alloue et initialise un tableau de {\bfseries n} booléens, représentant l'ensemble vide. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em n} & (entrée) \-: taille du tableau booléen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un tableau de {\bfseries n} booléens, tous égaux à F\-A\-L\-S\-E. 
+\end{DoxyReturn}
+\index{graphaux.\-c@{graphaux.\-c}!Lifo\-Flush@{Lifo\-Flush}}
+\index{Lifo\-Flush@{Lifo\-Flush}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{Lifo\-Flush}]{\setlength{\rightskip}{0pt plus 5cm}void Lifo\-Flush (
+\begin{DoxyParamCaption}
+\item[{{\bf Lifo} $\ast$}]{L}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_a754f7c8e5d4346779f4c9ae142cb27e3}
+
+
+ré-\/initialise L (tous les éléments présents sont retirés). 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em L} & (entrée) \-: une liste \doxyref{Lifo}{p.}{structLifo}. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences Lifo\-::\-Sp.
+
+\index{graphaux.\-c@{graphaux.\-c}!Lifo\-Pop@{Lifo\-Pop}}
+\index{Lifo\-Pop@{Lifo\-Pop}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{Lifo\-Pop}]{\setlength{\rightskip}{0pt plus 5cm}int Lifo\-Pop (
+\begin{DoxyParamCaption}
+\item[{{\bf Lifo} $\ast$}]{L}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_a07205206ad48e803c517d1950c96f82f}
+
+
+retire de la liste {\bfseries L} la valeur se trouvant au début, et retourne cette valeur. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em L} & (entrée) \-: une liste \doxyref{Lifo}{p.}{structLifo}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la valeur se trouvant en début de liste. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Avertissement}
+si la liste {\bfseries L} est vide, la fonction système {\bfseries exit} est appelée. 
+\end{DoxyWarning}
+
+
+RÃ©fÃ©rences Lifo\-::\-Pts, et Lifo\-::\-Sp.
+
+\index{graphaux.\-c@{graphaux.\-c}!Lifo\-Print@{Lifo\-Print}}
+\index{Lifo\-Print@{Lifo\-Print}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{Lifo\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void Lifo\-Print (
+\begin{DoxyParamCaption}
+\item[{{\bf Lifo} $\ast$}]{L}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_a6f01ccde5db31004a4b0f4aaddcd05ac}
+
+
+affiche le contenu de la liste {\bfseries L}. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em L} & (entrée) \-: une liste \doxyref{Lifo}{p.}{structLifo}. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences Lifo\-Vide(), Lifo\-::\-Pts, et Lifo\-::\-Sp.
+
+\index{graphaux.\-c@{graphaux.\-c}!Lifo\-Print\-Line@{Lifo\-Print\-Line}}
+\index{Lifo\-Print\-Line@{Lifo\-Print\-Line}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{Lifo\-Print\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void Lifo\-Print\-Line (
+\begin{DoxyParamCaption}
+\item[{{\bf Lifo} $\ast$}]{L}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_a19d5267b26b98d4c5e77ca754c4ca680}
+
+
+affiche le contenu de la liste {\bfseries L}, suivi d'un retour ligne. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em L} & (entrée) \-: une liste \doxyref{Lifo}{p.}{structLifo}. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences Lifo\-Vide(), Lifo\-::\-Pts, et Lifo\-::\-Sp.
+
+\index{graphaux.\-c@{graphaux.\-c}!Lifo\-Push@{Lifo\-Push}}
+\index{Lifo\-Push@{Lifo\-Push}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{Lifo\-Push}]{\setlength{\rightskip}{0pt plus 5cm}void Lifo\-Push (
+\begin{DoxyParamCaption}
+\item[{{\bf Lifo} $\ast$}]{L, }
+\item[{int}]{V}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_a8bd11f6c1d3585c6322139421f48cd43}
+
+
+insère au début de la liste {\bfseries L} la valeur {\bfseries V} 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em L} & (entrée) \-: une liste \doxyref{Lifo}{p.}{structLifo}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Avertissement}
+si la liste {\bfseries L} est pleine, la fonction système {\bfseries exit} est appelée. 
+\end{DoxyWarning}
+
+
+RÃ©fÃ©rences Lifo\-::\-Max, Lifo\-::\-Pts, et Lifo\-::\-Sp.
+
+\index{graphaux.\-c@{graphaux.\-c}!Lifo\-Termine@{Lifo\-Termine}}
+\index{Lifo\-Termine@{Lifo\-Termine}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{Lifo\-Termine}]{\setlength{\rightskip}{0pt plus 5cm}void Lifo\-Termine (
+\begin{DoxyParamCaption}
+\item[{{\bf Lifo} $\ast$}]{L}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_ad3e1fc1ffe735864f9d8f28edb57bdd7}
+
+
+récupère l'espace mémoire occupé par la liste {\bfseries L}. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em L} & (entrée) \-: une liste \doxyref{Lifo}{p.}{structLifo}. \\
+\hline
+\end{DoxyParams}
+\index{graphaux.\-c@{graphaux.\-c}!Lifo\-Vide@{Lifo\-Vide}}
+\index{Lifo\-Vide@{Lifo\-Vide}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{Lifo\-Vide}]{\setlength{\rightskip}{0pt plus 5cm}boolean Lifo\-Vide (
+\begin{DoxyParamCaption}
+\item[{{\bf Lifo} $\ast$}]{L}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_ac84f5beb3bebee3bc1fb515b255d2326}
+
+
+teste si la liste {\bfseries est} vide. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em L} & (entrée) \-: une liste \doxyref{Lifo}{p.}{structLifo}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+T\-R\-U\-E si la liste {\bfseries L} est vide, F\-A\-L\-S\-E sinon. 
+\end{DoxyReturn}
+
+
+RÃ©fÃ©rences Lifo\-::\-Sp.
+
+
+
+RÃ©fÃ©rencÃ© par Lifo\-Print(), et Lifo\-Print\-Line().
+
+\index{graphaux.\-c@{graphaux.\-c}!read\-\_\-chrono@{read\-\_\-chrono}}
+\index{read\-\_\-chrono@{read\-\_\-chrono}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{read\-\_\-chrono}]{\setlength{\rightskip}{0pt plus 5cm}int read\-\_\-chrono (
+\begin{DoxyParamCaption}
+\item[{{\bf chrono} $\ast$}]{tp}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_ad91e383a1998c46a6abfaf0da6efeb97}
+
+
+lecture du chronomètre 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em tp} & (entrée) \-: date du début du chronométrage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+nombre de microsecondes écoulées depuis le début 
+\end{DoxyReturn}
+\index{graphaux.\-c@{graphaux.\-c}!start\-\_\-chrono@{start\-\_\-chrono}}
+\index{start\-\_\-chrono@{start\-\_\-chrono}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{start\-\_\-chrono}]{\setlength{\rightskip}{0pt plus 5cm}void start\-\_\-chrono (
+\begin{DoxyParamCaption}
+\item[{{\bf chrono} $\ast$}]{tp}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_ac0575887e627821f85201f80952382d0}
+
+
+démarre le chronométrage 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em tp} & (sortie) \-: date du début du chronométrage \\
+\hline
+\end{DoxyParams}
+\index{graphaux.\-c@{graphaux.\-c}!Tri\-Rapide\-Stochastique@{Tri\-Rapide\-Stochastique}}
+\index{Tri\-Rapide\-Stochastique@{Tri\-Rapide\-Stochastique}!graphaux.c@{graphaux.\-c}}
+\subsubsection[{Tri\-Rapide\-Stochastique}]{\setlength{\rightskip}{0pt plus 5cm}void Tri\-Rapide\-Stochastique (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{A, }
+\item[{Type\-Cle $\ast$}]{T, }
+\item[{int}]{p, }
+\item[{int}]{r}
+\end{DoxyParamCaption}
+)}\label{graphaux_8c_a144bc0607e030c4981e9800e20947bfa}
+
+
+tri par ordre croissant des valeurs du tableau {\bfseries T}. Le tri s'effectue sur un tableau {\bfseries A} contenant les index des elements de {\bfseries T}, l'indice {\bfseries p} (compris) a l'indice {\bfseries r} (compris). 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em A} & (entrée/sortie) \-: un tableau d'entiers \\
+\hline
+{\em T} & (entrée) \-: un tableau de valeurs de type Type\-Cle. \\
+\hline
+{\em p} & (entrée) \-: indice du début de la zone à trier. \\
+\hline
+{\em r} & (entrée) \-: indice de fin de la zone à trier. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences Tri\-Rapide\-Stochastique().
+
+
+
+RÃ©fÃ©rencÃ© par Tri\-Rapide\-Stochastique().
+

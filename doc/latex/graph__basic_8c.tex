@@ -1,0 +1,450 @@
+\section{RÃ©fÃ©rence du fichier graph\-\_\-basic.\-c}
+\label{graph__basic_8c}\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}}
+
+
+fonctions de base pour la manipulation de graphes  
+
+
+{\ttfamily \#include \char`\"{}graphaux.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}graphes.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries T\-A\-I\-L\-L\-E\-B\-U\-F}~4096\label{graph__basic_8c_a421981164a06f23b024b959421d602b0}
+
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf pcell} {\bf Alloue\-Cell} ({\bf pcell} $\ast$plibre)
+\begin{DoxyCompactList}\small\item\em retire la premiere cellule de la liste pointée par plibre et retourne un pointeur sur cette cellule. \end{DoxyCompactList}\item 
+void {\bf Libere\-Cell} ({\bf pcell} $\ast$plibre, {\bf pcell} p)
+\begin{DoxyCompactList}\small\item\em insère la cellule p au début de la liste pointée par 'plibre'. \end{DoxyCompactList}\item 
+void {\bf Retire\-Tete} ({\bf pcell} $\ast$plibre, {\bf pcell} $\ast$pliste)
+\begin{DoxyCompactList}\small\item\em retire la première cellule de la liste 'pliste'. La cellule est chaînee à la liste 'plibre'. \end{DoxyCompactList}\item 
+void {\bf Ajoute\-Tete} ({\bf pcell} $\ast$plibre, {\bf pcell} $\ast$pliste, int a, T\-Y\-P\-\_\-\-V\-A\-R\-C v)
+\begin{DoxyCompactList}\small\item\em ajoute une cellule contenant le sommet 'a' et la valeur 'v' en tête de la liste 'pliste'. La cellule est prise dans la liste 'plibre'. \end{DoxyCompactList}\item 
+int {\bf Est\-Dans\-Liste} ({\bf pcell} p, int a)
+\begin{DoxyCompactList}\small\item\em retourne 1 si le sommet 'a' se trouve dans la liste 'p', 0 sinon. \end{DoxyCompactList}\item 
+{\bf graphe} $\ast$ {\bf Init\-Graphe} (int nsom, int nmaxarc)
+\begin{DoxyCompactList}\small\item\em alloue la memoire nécessaire pour représenter un graphe a 'nsom' sommets, possédant au maximum 'nmaxarc' arcs. Retourne un pointeur sur la structure allouée. \end{DoxyCompactList}\item 
+void {\bf Termine\-Graphe} ({\bf graphe} $\ast$g)
+\begin{DoxyCompactList}\small\item\em libère la memoire occupée par le graphe g. \end{DoxyCompactList}\item 
+{\bf graphe} $\ast$ {\bf Read\-Graphe} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Lit les données d'un graphe dans le fichier filename, retourne un pointeur sur la structure graphe construite. \end{DoxyCompactList}\item 
+void {\bf Ajoute\-Arc} ({\bf graphe} $\ast$g, int i, int s)
+\begin{DoxyCompactList}\small\item\em ajoute l'arc (i,s) au graphe g (application gamma seulement). \end{DoxyCompactList}\item 
+void {\bf Ajoute\-Arc\-Value} ({\bf graphe} $\ast$g, int i, int s, T\-Y\-P\-\_\-\-V\-A\-R\-C v)
+\begin{DoxyCompactList}\small\item\em ajoute l'arc (i,s) au graphe g (application gamma seulement). \end{DoxyCompactList}\item 
+void {\bf Retire\-Arc} ({\bf graphe} $\ast$g, int i, int s)
+\begin{DoxyCompactList}\small\item\em retire l'arc (i,s) du graphe g (application gamma seulement), si celui-\/ci etait présent. Sinon, pas d'action. \end{DoxyCompactList}\item 
+int {\bf Pop\-Successeur} ({\bf graphe} $\ast$g, int i)
+\begin{DoxyCompactList}\small\item\em retire un arc (i,s) du graphe g (application gamma seulement), et retourne le sommet s \end{DoxyCompactList}\item 
+int {\bf Est\-Successeur} ({\bf graphe} $\ast$g, int i, int s)
+\begin{DoxyCompactList}\small\item\em retourne 1 si le sommet 's' est un successeur du sommet 'i', 0 sinon. \end{DoxyCompactList}\item 
+{\bf graphe} $\ast$ {\bf Graphe\-Aleatoire} (int nsom, int narc)
+\begin{DoxyCompactList}\small\item\em retourne un graphe aléatoire à 'nsom' sommets et 'narc' arcs. Le graphe est antisymétrique et sans boucle. Le nombre d'arcs doit être $<$= nsom (nsom -\/ 1) / 2. Les arcs sont pondérés (valeur aléatoire entre 0.\-0 et 1.\-0). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description dÃ©taillÃ©e}
+fonctions de base pour la manipulation de graphes 
+
+\subsection{Documentation des fonctions}
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Ajoute\-Arc@{Ajoute\-Arc}}
+\index{Ajoute\-Arc@{Ajoute\-Arc}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Ajoute\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}void Ajoute\-Arc (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g, }
+\item[{int}]{i, }
+\item[{int}]{s}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_aa725a0c0ac21a284740ec2e747ce4e78}
+
+
+ajoute l'arc (i,s) au graphe g (application gamma seulement). 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée/sortie) \-: un graphe. \\
+\hline
+{\em i} & (entrée) \-: extrémité initiale de l'arc. \\
+\hline
+{\em s} & (entrée) \-: extrémité finale de l'arc. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences Ajoute\-Tete(), graphe\-::gamma, graphe\-::libre, et graphe\-::narc.
+
+
+
+RÃ©fÃ©rencÃ© par Graphe\-Aleatoire(), et Read\-Graphe().
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Ajoute\-Arc\-Value@{Ajoute\-Arc\-Value}}
+\index{Ajoute\-Arc\-Value@{Ajoute\-Arc\-Value}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Ajoute\-Arc\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Ajoute\-Arc\-Value (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g, }
+\item[{int}]{i, }
+\item[{int}]{s, }
+\item[{T\-Y\-P\-\_\-\-V\-A\-R\-C}]{v}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_ac4ed4faf4dabe968c427d09b941144ff}
+
+
+ajoute l'arc (i,s) au graphe g (application gamma seulement). 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée/sortie) \-: un graphe. \\
+\hline
+{\em i} & (entrée) \-: extrémité initiale de l'arc. \\
+\hline
+{\em s} & (entrée) \-: extrémité finale de l'arc. \\
+\hline
+{\em v} & (entrée) \-: une valeur pour l'arc. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences Ajoute\-Tete(), graphe\-::gamma, graphe\-::libre, et graphe\-::narc.
+
+
+
+RÃ©fÃ©rencÃ© par Read\-Graphe().
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Ajoute\-Tete@{Ajoute\-Tete}}
+\index{Ajoute\-Tete@{Ajoute\-Tete}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Ajoute\-Tete}]{\setlength{\rightskip}{0pt plus 5cm}void Ajoute\-Tete (
+\begin{DoxyParamCaption}
+\item[{{\bf pcell} $\ast$}]{plibre, }
+\item[{{\bf pcell} $\ast$}]{pliste, }
+\item[{int}]{a, }
+\item[{T\-Y\-P\-\_\-\-V\-A\-R\-C}]{v}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_a4c9e2ce4aa6988793f9d2708491e6b8a}
+
+
+ajoute une cellule contenant le sommet 'a' et la valeur 'v' en tête de la liste 'pliste'. La cellule est prise dans la liste 'plibre'. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em plibre} & (entrée) \-: pointeur sur une liste chaînee de cellules libres. \\
+\hline
+{\em pliste} & (entrée) \-: pointeur sur une liste. \\
+\hline
+{\em a} & (entrée) \-: un sommet. \\
+\hline
+{\em v} & (entrée) \-: une valeur. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences Alloue\-Cell(), cell\-::next, cell\-::som, et cell\-::v\-\_\-arc.
+
+
+
+RÃ©fÃ©rencÃ© par Ajoute\-Arc(), et Ajoute\-Arc\-Value().
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Alloue\-Cell@{Alloue\-Cell}}
+\index{Alloue\-Cell@{Alloue\-Cell}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Alloue\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pcell} Alloue\-Cell (
+\begin{DoxyParamCaption}
+\item[{{\bf pcell} $\ast$}]{plibre}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_a415c74181c0ab890ba34221914d83c56}
+
+
+retire la premiere cellule de la liste pointée par plibre et retourne un pointeur sur cette cellule. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em plibre} & (entrée) \-: pointeur sur une liste chaînee de cellules libres. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+pointeur sur une cellule. 
+\end{DoxyReturn}
+
+
+RÃ©fÃ©rences cell\-::next.
+
+
+
+RÃ©fÃ©rencÃ© par Ajoute\-Tete().
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Est\-Dans\-Liste@{Est\-Dans\-Liste}}
+\index{Est\-Dans\-Liste@{Est\-Dans\-Liste}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Est\-Dans\-Liste}]{\setlength{\rightskip}{0pt plus 5cm}int Est\-Dans\-Liste (
+\begin{DoxyParamCaption}
+\item[{{\bf pcell}}]{p, }
+\item[{int}]{a}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_a5c038f370bd0436a250f59898976586d}
+
+
+retourne 1 si le sommet 'a' se trouve dans la liste 'p', 0 sinon. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em p} & (entrée) \-: une liste chaînee de successeurs. \\
+\hline
+{\em a} & (entrée) \-: un sommet. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+booléen. 
+\end{DoxyReturn}
+
+
+RÃ©fÃ©rences cell\-::next, et cell\-::som.
+
+
+
+RÃ©fÃ©rencÃ© par Est\-Successeur().
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Est\-Successeur@{Est\-Successeur}}
+\index{Est\-Successeur@{Est\-Successeur}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Est\-Successeur}]{\setlength{\rightskip}{0pt plus 5cm}int Est\-Successeur (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g, }
+\item[{int}]{i, }
+\item[{int}]{s}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_ab34642fac9bcd82ce1cf89e51c5bd185}
+
+
+retourne 1 si le sommet 's' est un successeur du sommet 'i', 0 sinon. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée) \-: un graphe. \\
+\hline
+{\em i} & (entrée) \-: un sommet de g. \\
+\hline
+{\em s} & (entrée) \-: un sommet de g. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+booléen. 
+\end{DoxyReturn}
+
+
+RÃ©fÃ©rences Est\-Dans\-Liste(), et graphe\-::gamma.
+
+
+
+RÃ©fÃ©rencÃ© par Graphe\-Aleatoire().
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Graphe\-Aleatoire@{Graphe\-Aleatoire}}
+\index{Graphe\-Aleatoire@{Graphe\-Aleatoire}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Graphe\-Aleatoire}]{\setlength{\rightskip}{0pt plus 5cm}{\bf graphe} $\ast$ Graphe\-Aleatoire (
+\begin{DoxyParamCaption}
+\item[{int}]{nsom, }
+\item[{int}]{narc}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_a84e6122143e38ec5c15a3b76afd13f26}
+
+
+retourne un graphe aléatoire à 'nsom' sommets et 'narc' arcs. Le graphe est antisymétrique et sans boucle. Le nombre d'arcs doit être $<$= nsom (nsom -\/ 1) / 2. Les arcs sont pondérés (valeur aléatoire entre 0.\-0 et 1.\-0). 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em nsom} & (entrée) \-: nombre de sommets. \\
+\hline
+{\em narc} & (entrée) \-: nombre d'arcs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un graphe. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Avertissement}
+la méthode employée ici est naïve, tres inefficace du point de vue temps de calcul et ne garantit aucune propriété statistique. 
+\end{DoxyWarning}
+
+
+RÃ©fÃ©rences Ajoute\-Arc(), Est\-Successeur(), Init\-Graphe(), graphe\-::queue, Retire\-Arc(), graphe\-::tete, et graphe\-::v\-\_\-arcs.
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Init\-Graphe@{Init\-Graphe}}
+\index{Init\-Graphe@{Init\-Graphe}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Init\-Graphe}]{\setlength{\rightskip}{0pt plus 5cm}{\bf graphe} $\ast$ Init\-Graphe (
+\begin{DoxyParamCaption}
+\item[{int}]{nsom, }
+\item[{int}]{nmaxarc}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_a650cedf3601a32b43e01a3fcd1cf946a}
+
+
+alloue la memoire nécessaire pour représenter un graphe a 'nsom' sommets, possédant au maximum 'nmaxarc' arcs. Retourne un pointeur sur la structure allouée. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em nsom} & (entrée) \-: nombre de sommets. \\
+\hline
+{\em nmaxarc} & (entrée) \-: nombre maximum d'arcs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un graphe. 
+\end{DoxyReturn}
+
+
+RÃ©fÃ©rences graphe\-::gamma, graphe\-::libre, graphe\-::narc, graphe\-::nmaxarc, graphe\-::nomsommet, graphe\-::nsom, graphe\-::queue, graphe\-::reserve, graphe\-::tete, graphe\-::v\-\_\-arcs, graphe\-::v\-\_\-sommets, graphe\-::x, et graphe\-::y.
+
+
+
+RÃ©fÃ©rencÃ© par Graphe\-Aleatoire(), et Read\-Graphe().
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Libere\-Cell@{Libere\-Cell}}
+\index{Libere\-Cell@{Libere\-Cell}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Libere\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}void Libere\-Cell (
+\begin{DoxyParamCaption}
+\item[{{\bf pcell} $\ast$}]{plibre, }
+\item[{{\bf pcell}}]{p}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_a3cf3c1079b390e12f8a49b9f8d1106a1}
+
+
+insère la cellule p au début de la liste pointée par 'plibre'. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em plibre} & (entrée) \-: pointeur sur une liste chaînee de cellules libres. \\
+\hline
+{\em p} & (entrée) \-: pointeur sur une cellule. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences cell\-::next.
+
+
+
+RÃ©fÃ©rencÃ© par Retire\-Tete().
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Pop\-Successeur@{Pop\-Successeur}}
+\index{Pop\-Successeur@{Pop\-Successeur}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Pop\-Successeur}]{\setlength{\rightskip}{0pt plus 5cm}int Pop\-Successeur (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g, }
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_add88bab986e801ad28ab70bb889de499}
+
+
+retire un arc (i,s) du graphe g (application gamma seulement), et retourne le sommet s 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée/sortie) \-: un graphe. \\
+\hline
+{\em i} & (entrée) \-: un sommet de g. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Avertissement}
+le sommet i doit avoir au moins un successeur (pas de vérification) 
+\end{DoxyWarning}
+
+
+RÃ©fÃ©rences graphe\-::gamma, graphe\-::libre, Retire\-Tete(), et cell\-::som.
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Read\-Graphe@{Read\-Graphe}}
+\index{Read\-Graphe@{Read\-Graphe}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Read\-Graphe}]{\setlength{\rightskip}{0pt plus 5cm}{\bf graphe} $\ast$ Read\-Graphe (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_a654dd4987d8a94b10af7bd239b9360d1}
+
+
+Lit les données d'un graphe dans le fichier filename, retourne un pointeur sur la structure graphe construite. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em filename} & (entrée) \-: nom du fichier graphe. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un graphe. 
+\end{DoxyReturn}
+
+
+RÃ©fÃ©rences Ajoute\-Arc(), Ajoute\-Arc\-Value(), Init\-Graphe(), graphe\-::nomsommet, graphe\-::x, et graphe\-::y.
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Retire\-Arc@{Retire\-Arc}}
+\index{Retire\-Arc@{Retire\-Arc}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Retire\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}void Retire\-Arc (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g, }
+\item[{int}]{i, }
+\item[{int}]{s}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_aaa05a785186861df7841cbedab5b0d68}
+
+
+retire l'arc (i,s) du graphe g (application gamma seulement), si celui-\/ci etait présent. Sinon, pas d'action. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée/sortie) \-: un graphe. \\
+\hline
+{\em i} & (entrée) \-: un sommet de g. \\
+\hline
+{\em s} & (entrée) \-: un sommet de g. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences graphe\-::gamma, graphe\-::libre, graphe\-::narc, et Retire\-Tete().
+
+
+
+RÃ©fÃ©rencÃ© par Graphe\-Aleatoire().
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Retire\-Tete@{Retire\-Tete}}
+\index{Retire\-Tete@{Retire\-Tete}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Retire\-Tete}]{\setlength{\rightskip}{0pt plus 5cm}void Retire\-Tete (
+\begin{DoxyParamCaption}
+\item[{{\bf pcell} $\ast$}]{plibre, }
+\item[{{\bf pcell} $\ast$}]{pliste}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_aeefd01df94910dc47101c896d70091f2}
+
+
+retire la première cellule de la liste 'pliste'. La cellule est chaînee à la liste 'plibre'. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em plibre} & (entrée) \-: pointeur sur une liste chaînee de cellules libres. \\
+\hline
+{\em pliste} & (entrée) \-: pointeur sur une liste. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences Libere\-Cell(), et cell\-::next.
+
+
+
+RÃ©fÃ©rencÃ© par Pop\-Successeur(), et Retire\-Arc().
+
+\index{graph\-\_\-basic.\-c@{graph\-\_\-basic.\-c}!Termine\-Graphe@{Termine\-Graphe}}
+\index{Termine\-Graphe@{Termine\-Graphe}!graph_basic.c@{graph\-\_\-basic.\-c}}
+\subsubsection[{Termine\-Graphe}]{\setlength{\rightskip}{0pt plus 5cm}void Termine\-Graphe (
+\begin{DoxyParamCaption}
+\item[{{\bf graphe} $\ast$}]{g}
+\end{DoxyParamCaption}
+)}\label{graph__basic_8c_ad3b77f1c084064fc16c3978b84652fd6}
+
+
+libère la memoire occupée par le graphe g. 
+
+
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em g} & (entrée) \-: un graphe. \\
+\hline
+\end{DoxyParams}
+
+
+RÃ©fÃ©rences graphe\-::gamma, graphe\-::nomsommet, graphe\-::nsom, graphe\-::queue, graphe\-::reserve, graphe\-::tete, graphe\-::v\-\_\-arcs, et graphe\-::v\-\_\-sommets.
+
