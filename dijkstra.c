@@ -27,7 +27,7 @@ graphe * Sym(graphe * g)
       for(p= g->gamma[i]; p != NULL; p = p->next){
           j = p->som; // j est un successeur de i dans g
 		  if(EstSuccesseur(g, i, j))
-		      AjouteArc(g_1, j, i);
+		      AjouteArcValue(g_1, j, i,p->v_arc);
       } 
   }
   return g_1;
@@ -44,13 +44,12 @@ graphe * Sym(graphe * g)
 */
 /* ====================================================================== */
 graphe* PCC(graphe* g, int d, int a){
-	graphe *chemin = InitGraphe(g->nsom, g->nmaxarc);
+	graphe *chemin;
 	pcell p;
 	int n = g->nsom;
 	int i,y;
 	int k = 1;
-	int* x = (int*)malloc((n+1)*sizeof(int));
-	x[1] = d;
+	int xk = d;
 	//pour l'extraction de sommet
 	int min,x_min;
 	//Pour le calcul du chemin
@@ -72,12 +71,12 @@ graphe* PCC(graphe* g, int d, int a){
 	}
 	pi[d]=0;
 	
-	while( k < n && pi[x[k]] < INF){
-		for(p = g->gamma[x[k]]; p != NULL; p = p->next){
+	while( k < n && pi[xk] < INF){
+		for(p = g->gamma[xk]; p != NULL; p = p->next){
 			y = p->som;
 			if(S[y] == 1)
 				continue;
-			pi[y] = (pi[y] < pi[x[k]] + p->v_arc) ? pi[y] : pi[x[k]] + p->v_arc; 
+			pi[y] = (pi[y] < pi[xk] + p->v_arc) ? pi[y] : pi[xk] + p->v_arc; 
 		}
 		
 		min = INF; x_min = 0;
@@ -90,8 +89,8 @@ graphe* PCC(graphe* g, int d, int a){
 			}
 		}
 		k++;
-		x[k] = x_min;
-		S[x[k]] = 1; // Union
+		xk = x_min;
+		S[xk] = 1; // Union
 		//S'arreter si on est arrivé à a
 		if(x_min == a)
 			break;
@@ -105,19 +104,15 @@ graphe* PCC(graphe* g, int d, int a){
 	
 	while( s != d){
 		new_s = -1;
-		min = INF;
 		for(p = g_sym->gamma[s]; p != NULL; p = p->next){
 			y = p->som;
-			if(pi[y] < min){
-				min = pi[y];
+			if(pi[s]-pi[y] == p->v_arc)
 				new_s = y;
-			}
 		}
 		AjouteArc(chemin, s, new_s);
 		s = new_s;
 	}
 
-	free(x);
 	free(S);
 	free(pi);
 	return Sym(chemin);
@@ -134,6 +129,21 @@ void printChemin(graphe* g,int d, int a){
 
 }
 
+void copyGrapheParams(graphe* dest, graphe* src){
+
+	dest->x = (double*)malloc(src->nsom*sizeof(double));
+	memcpy(dest->x, src->x, src->nsom*sizeof(double));	
+	
+	dest->y = (double*)malloc(src->nsom*sizeof(double));
+	memcpy(dest->y, src->y, src->nsom*sizeof(double));	
+
+	dest->v_arcs = (long int*)malloc(src->nmaxarc*sizeof(TYP_VARC));
+	memcpy(dest->v_arcs, src->v_arcs, src->nmaxarc*sizeof(TYP_VARC));	
+
+	dest->v_sommets = (long int*)malloc(src->nsom*sizeof(TYP_VSOM));
+	memcpy(dest->v_sommets, src->v_sommets, src->nsom*sizeof(TYP_VSOM));	
+
+}
 
 int main(int argc, char **argv){
 	graphe *g;
@@ -152,8 +162,15 @@ int main(int argc, char **argv){
     chemin = PCC(g, d, a);
     
 	printChemin(chemin, d, a);
+
+	copyGrapheParams(chemin, g);
+	//chemin->x = g->x;
+	//chemin->y = g->y ;	
+//	chemin->v_arcs = g->v_arcs ;	
+//	chemin->v_sommets = g->v_sommets ;
 	
-	EPSGraphe(chemin,"out.eps", 3,0,60,0,0,0,0);
+    sprintf(buf, "%s_out.eps", argv[1]);     /* construit le nom du fichier PostScript */
+	EPSGraphe(chemin, buf, 3,0,60,0,0,0,0);
 	
 	
 	TermineGraphe(g);
