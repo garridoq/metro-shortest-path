@@ -1,5 +1,5 @@
-SRC=graph_basic.c graph_print.c graphaux.c
-OBJ=graph_basic.o graph_print.o graphaux.o
+SRC=graph_basic.c graph_print.c graphaux.c dijkstra.c
+OBJ=graph_basic.o graph_print.o graphaux.o dijkstra.o
 
 CC = g++
 CCFLAGS = -g -DLINUX
@@ -16,6 +16,9 @@ clean:
 
 .c.exe:	
 	$(CC) $(CCFLAGS) $< $(OBJ) -lm -o $@
+
+dijkstra.o : graphes.h graphaux.h dijkstra.c
+	$(CC) $(CCFLAGS) -c dijkstra.c
 
 graphaux.o:	graphes.h graphaux.h graphaux.c
 	$(CC) $(CCFLAGS) -c graphaux.c

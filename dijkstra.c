@@ -2,9 +2,11 @@
 #include <stdio.h>
 #include "graphaux.h"
 #include "graphes.h"
+#include "dijkstra.h"
 
 #define INF 2147483647
-#define USAGE "lit un graphe dans le fichier <filename> et calcule le plus court chemin du début à la fin"
+#define EXPLORE 1
+#define ALL 0
 /* ====================================================================== */
 /*! \fn graphe * Sym(graphe * g)
     \param g (entrée) : un graphe.
@@ -34,6 +36,8 @@ graphe * Sym(graphe * g)
 } /* Sym() */
 
 void copyGrapheParams(graphe* dest, graphe* src){
+	int i;
+	int l;
 
 	dest->x = (double*)malloc(src->nsom*sizeof(double));
 	memcpy(dest->x, src->x, src->nsom*sizeof(double));	
@@ -46,7 +50,13 @@ void copyGrapheParams(graphe* dest, graphe* src){
 
 	dest->v_sommets = (long int*)malloc(src->nsom*sizeof(TYP_VSOM));
 	memcpy(dest->v_sommets, src->v_sommets, src->nsom*sizeof(TYP_VSOM));	
-
+	
+	dest->nomsommet = (char **)malloc(src->nsom*sizeof(char*));
+	for(i = 0; i < src->nsom; i++){
+		l = strlen(src->nomsommet[i]);
+		dest->nomsommet[i] = (char *)malloc((l+1)*sizeof(char));
+		memcpy(dest->nomsommet[i], src->nomsommet[i], (l+1)*sizeof(char));
+	}
 }
 
 
@@ -86,6 +96,7 @@ graphe* exploredSommets(graphe *g, int *S){
 
 
 	graphe* g_expl = InitGraphe(n_som, n_som);
+	g_expl->nomsommet = (char **)malloc(n_som*sizeof(char*));
 	j = 0; //indice de nos sommet dans le nouveau graphe
 	for(i = 0; i < g->nsom; ++i){
 		//Si le sommet a été exploré
@@ -96,6 +107,13 @@ graphe* exploredSommets(graphe *g, int *S){
 			if((p = g->gamma[i]) != NULL){ //Si nous avons un successeur
 				y = p->som;
 				AjouteArcValue(g_expl, j, corresp[y], p->v_arc );
+				g_expl->nomsommet[j] = (char*)malloc((strlen(g->nomsommet[i])+1)*sizeof(char));
+				memcpy(g_expl->nomsommet[j], g->nomsommet[i], (strlen(g->nomsommet[i])+1)*sizeof(char));
+
+			}
+			else{
+				g_expl->nomsommet[j] = (char*)malloc(sizeof(char));
+				g_expl->nomsommet[j][0] = '\0';
 			}
 			j++;
 		}
@@ -113,7 +131,7 @@ graphe* exploredSommets(graphe *g, int *S){
     \brief retourne un plus court chemin de d vers a dans g .
 */
 /* ====================================================================== */
-graphe* PCC(graphe* g, int d, int a){
+graphe* PCC(graphe* g, int d, int a, int mode){
 	graphe *chemin;
 	pcell p;
 	int n = g->nsom;
@@ -184,8 +202,14 @@ graphe* PCC(graphe* g, int d, int a){
 	}
 	chemin = Sym(chemin);
 	copyGrapheParams(chemin, g);
+	
+	if(mode == EXPLORE){
+		chemin = exploredSommets(chemin, S);
+	}
+	
 	free(pi);
-	return exploredSommets(chemin, S);
+	free(S);
+	return chemin;
 }
 
 void printChemin(graphe* g,int d, int a){
@@ -196,30 +220,4 @@ void printChemin(graphe* g,int d, int a){
 		x = g->gamma[x]->som;
 	}
 	printf("%d\n",a);
-
-}
-
-int main(int argc, char **argv){
-	graphe *g;
-	graphe *chemin;
-	char buf[256];
-
-    if (argc != 4)
-    {
-      fprintf(stderr, "usage: %s <filename>\n%s\n", argv[0], USAGE);
-      exit(0);
-    }
-	int d = atoi(argv[2]);
-	int a = atoi(argv[3]);
-
-    g = ReadGraphe(argv[1]);  /* lit le graphe a partir du fichier */
-    chemin = PCC(g, d, a);
-	
-    sprintf(buf, "%s_out.eps", argv[1]);     /* construit le nom du fichier PostScript */
-	EPSGraphe(chemin, buf, 3,0,60,0,0,0,0);
-	
-	TermineGraphe(g);
-	TermineGraphe(chemin);
-
-	return 0;
 }

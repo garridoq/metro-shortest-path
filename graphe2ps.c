@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
   g = ReadGraphe(argv[1]);                 /* lit le graphe a partir du fichier */
   sprintf(buf, "%s.eps", argv[1]);         /* construit le nom du fichier PostScript */
-  EPSGraphe(g, buf, 3, 0, 60, 0, 0, 0, 0); /* genere une figure en PostScript */
+  EPSGraphe(g, buf, 3, 0, 60, 1, 0, 0, 0); /* genere une figure en PostScript */
 
   TermineGraphe(g);
 
