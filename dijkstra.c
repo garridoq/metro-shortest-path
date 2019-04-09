@@ -33,6 +33,76 @@ graphe * Sym(graphe * g)
   return g_1;
 } /* Sym() */
 
+void copyGrapheParams(graphe* dest, graphe* src){
+
+	dest->x = (double*)malloc(src->nsom*sizeof(double));
+	memcpy(dest->x, src->x, src->nsom*sizeof(double));	
+	
+	dest->y = (double*)malloc(src->nsom*sizeof(double));
+	memcpy(dest->y, src->y, src->nsom*sizeof(double));	
+
+	dest->v_arcs = (long int*)malloc(src->nmaxarc*sizeof(TYP_VARC));
+	memcpy(dest->v_arcs, src->v_arcs, src->nmaxarc*sizeof(TYP_VARC));	
+
+	dest->v_sommets = (long int*)malloc(src->nsom*sizeof(TYP_VSOM));
+	memcpy(dest->v_sommets, src->v_sommets, src->nsom*sizeof(TYP_VSOM));	
+
+}
+
+
+/*======================================================================= */
+/*
+Retourne un chemin avec uniquement les sommets explorés.
+
+*/
+/*======================================================================= */
+graphe* exploredSommets(graphe *g, int *S){
+	int n_som = 0;
+	int i = 0;
+	pcell p;
+	int y, j;
+
+	//Calcul du nombre de sommets explorés
+	for(i = 0; i < g->nsom; ++i){
+		if(S[i] == 1){
+			n_som++;
+		}
+	}
+	
+
+	//Table de correspondance entre les sommets des graphes
+	int* corresp = (int*)malloc(g->nsom*sizeof(int));
+	j = 0;
+	for(i = 0; i < g->nsom ; ++i){
+		
+		if(S[i] == 1){
+			corresp[i] = j;
+			j++;
+		}
+		else{
+			corresp[i] = -1;
+		}
+	}
+
+
+	graphe* g_expl = InitGraphe(n_som, n_som);
+	j = 0; //indice de nos sommet dans le nouveau graphe
+	for(i = 0; i < g->nsom; ++i){
+		//Si le sommet a été exploré
+		if(S[i] == 1){
+			g_expl->x[j] = g->x[i];
+			g_expl->y[j] = g->y[i];
+			//Nous savons que nous avons au plus un successeur dans un chemin donné
+			if((p = g->gamma[i]) != NULL){ //Si nous avons un successeur
+				y = p->som;
+				AjouteArcValue(g_expl, j, corresp[y], p->v_arc );
+			}
+			j++;
+		}
+	}
+	return g_expl;
+}
+
 /* ====================================================================== */
 /*! \fn graphe * PCC(graphe * g, int d, int a)
     \param g (entrée) : un graphe valué (réseau). La longueur de chaque arc doit 
@@ -112,10 +182,10 @@ graphe* PCC(graphe* g, int d, int a){
 		AjouteArc(chemin, s, new_s);
 		s = new_s;
 	}
-
-	free(S);
+	chemin = Sym(chemin);
+	copyGrapheParams(chemin, g);
 	free(pi);
-	return Sym(chemin);
+	return exploredSommets(chemin, S);
 }
 
 void printChemin(graphe* g,int d, int a){
@@ -126,22 +196,6 @@ void printChemin(graphe* g,int d, int a){
 		x = g->gamma[x]->som;
 	}
 	printf("%d\n",a);
-
-}
-
-void copyGrapheParams(graphe* dest, graphe* src){
-
-	dest->x = (double*)malloc(src->nsom*sizeof(double));
-	memcpy(dest->x, src->x, src->nsom*sizeof(double));	
-	
-	dest->y = (double*)malloc(src->nsom*sizeof(double));
-	memcpy(dest->y, src->y, src->nsom*sizeof(double));	
-
-	dest->v_arcs = (long int*)malloc(src->nmaxarc*sizeof(TYP_VARC));
-	memcpy(dest->v_arcs, src->v_arcs, src->nmaxarc*sizeof(TYP_VARC));	
-
-	dest->v_sommets = (long int*)malloc(src->nsom*sizeof(TYP_VSOM));
-	memcpy(dest->v_sommets, src->v_sommets, src->nsom*sizeof(TYP_VSOM));	
 
 }
 
@@ -160,18 +214,9 @@ int main(int argc, char **argv){
 
     g = ReadGraphe(argv[1]);  /* lit le graphe a partir du fichier */
     chemin = PCC(g, d, a);
-    
-	printChemin(chemin, d, a);
-
-	copyGrapheParams(chemin, g);
-	//chemin->x = g->x;
-	//chemin->y = g->y ;	
-//	chemin->v_arcs = g->v_arcs ;	
-//	chemin->v_sommets = g->v_sommets ;
 	
     sprintf(buf, "%s_out.eps", argv[1]);     /* construit le nom du fichier PostScript */
 	EPSGraphe(chemin, buf, 3,0,60,0,0,0,0);
-	
 	
 	TermineGraphe(g);
 	TermineGraphe(chemin);
