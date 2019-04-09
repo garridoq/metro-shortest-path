@@ -22,7 +22,7 @@ int main(int argc, char **argv){
     g = ReadGraphe(argv[1]);  /* lit le graphe a partir du fichier */
     chemin = PCC(g, d, a, 1);
 	
-    sprintf(buf, "%s_out.eps", argv[1]);     /* construit le nom du fichier PostScript */
+    sprintf(buf, "%s_%s_%s_out.eps", argv[1], argv[2], argv[3]);     /* construit le nom du fichier PostScript */
 	EPSGraphe(chemin, buf, 3,0,60,1,0,0,0);
 	
 	TermineGraphe(g);

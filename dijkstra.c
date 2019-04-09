@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 #include "graphaux.h"
 #include "graphes.h"
 #include "dijkstra.h"
@@ -59,6 +60,9 @@ void copyGrapheParams(graphe* dest, graphe* src){
 	}
 }
 
+int distance(graphe* g, int a, int b){
+	return hypot(g->x[a] - g->x[b], g->y[a] - g->y[b]); 
+}
 
 /*======================================================================= */
 /*
@@ -78,7 +82,7 @@ graphe* exploredSommets(graphe *g, int *S){
 			n_som++;
 		}
 	}
-	
+	printf("%d sommets parcourus",n_som);
 
 	//Table de correspondance entre les sommets des graphes
 	int* corresp = (int*)malloc(g->nsom*sizeof(int));
@@ -139,7 +143,7 @@ graphe* PCC(graphe* g, int d, int a, int mode){
 	int k = 1;
 	int xk = d;
 	//pour l'extraction de sommet
-	int min,x_min;
+	int min,x_min, heuristique;
 	//Pour le calcul du chemin
 	int s, new_s, j;
 	
@@ -171,8 +175,10 @@ graphe* PCC(graphe* g, int d, int a, int mode){
 		for(i = 0; i < n; ++i){
 			if(S[i] == 1)
 				continue;
-			if(pi[i] < min){
-				min = pi[i];
+			heuristique = (pi[i] < INF) ? pi[i] + distance(g, i, a) : pi[i] ;
+			//heuristique = pi[i];
+			if(heuristique  < min){ //heuristique
+				min = heuristique;
 				x_min = i;
 			}
 		}
