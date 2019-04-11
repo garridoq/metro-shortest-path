@@ -4,6 +4,7 @@
 #include "graphaux.h"
 #include "graphes.h"
 #include "dijkstra.h"
+#include "priority_queue.h"
 
 #define INF 2147483647
 #define EXPLORE 1
@@ -61,7 +62,7 @@ void copyGrapheParams(graphe* dest, graphe* src){
 }
 
 int distance(graphe* g, int a, int b){
-	return hypot(g->x[a] - g->x[b], g->y[a] - g->y[b]); 
+	return hypot(g->x[a] - g->x[b], g->y[a] - g->y[b])*25.7/10; 
 }
 
 /*======================================================================= */
@@ -217,6 +218,89 @@ graphe* PCC(graphe* g, int d, int a, int mode){
 	free(S);
 	return chemin;
 }
+
+graphe* PCC_pq(graphe* g, int d, int a, int mode){
+	graphe *chemin;
+	pcell p;
+	int n = g->nsom;
+	int i,y;
+	int k = 1;
+	int xk = d;
+	//pour l'extraction de sommet
+	int min,x_min, heuristique;
+	pqueue* pq = pqueueInit(n*n);
+	//Pour le calcul du chemin
+	int s, new_s, j;
+	
+
+	// On utilise un tableau pour représenter un ensemble de sommet
+	// ainsi S = {1,3,6} sera représenté par
+	// S = [0,1,0,1,0,0,1]
+	int* S = (int*)malloc(n*sizeof(int));
+	for(i=0; i < n; ++i){
+		S[i] = 0;
+	}
+	S[d] = 1;
+
+	int* pi = (int*)malloc(n*sizeof(int));
+	for(i=0; i < n; ++i){
+		pi[i] = INF;
+	}
+	pi[d]=0;
+	
+	while( k < n && pi[xk] < INF){
+		for(p = g->gamma[xk]; p != NULL; p = p->next){
+			y = p->som;
+			if(S[y] == 1)
+				continue;
+			
+			if(pi[y] < pi[xk] + p->v_arc){
+				heuristique = (pi[y] < INF) ? pi[y] + distance(g, y, a) : pi[y] ;
+				decreaseKey(pq, y, heuristique);
+			}
+			else{
+				pi[y] = pi[xk] + p->v_arc;
+				heuristique = (pi[y] < INF) ? pi[y] + distance(g, y, a) : pi[y] ;
+				minInsert(pq, y, heuristique);
+			}	
+		}
+		x_min = extractMin(pq);
+		k++;
+		xk = x_min;
+		S[xk] = 1; // Union
+		//S'arreter si on est arrivé à a
+		if(x_min == a)
+			break;
+
+	}
+	//Récupération du chemin
+	//On calcule le symmétrique pour avoir les prédécesseurs
+	graphe* g_sym = Sym(g);
+	chemin = InitGraphe(n,n);
+	s = a;
+	
+	while( s != d){
+		new_s = -1;
+		for(p = g_sym->gamma[s]; p != NULL; p = p->next){
+			y = p->som;
+			if(pi[s]-pi[y] == p->v_arc)
+				new_s = y;
+		}
+		AjouteArc(chemin, s, new_s);
+		s = new_s;
+	}
+	chemin = Sym(chemin);
+	copyGrapheParams(chemin, g);
+	
+	if(mode == EXPLORE){
+		chemin = exploredSommets(chemin, S);
+	}
+	
+	free(pi);
+	free(S);
+	return chemin;
+}
+
 
 void printChemin(graphe* g,int d, int a){
 	int x = d;

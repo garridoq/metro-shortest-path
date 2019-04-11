@@ -104,6 +104,7 @@ int extractMin(pqueue* q){
 
 void printPqueue(pqueue* q){
 	int i;
+	printf("Currently fileld at %d / %d",q->nb_elt, q->max_size);
 	printf("Elements:\n[");
 	for(i = 0; i < q->nb_elt; ++i){
 		printf("%d, ",q->elements[i]);
