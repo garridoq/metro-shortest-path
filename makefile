@@ -1,5 +1,5 @@
-SRC=graph_basic.c graph_print.c graphaux.c dijkstra.c heap.c
-OBJ=graph_basic.o graph_print.o graphaux.o dijkstra.o heap.o
+SRC=graph_basic.c graph_print.c graphaux.c dijkstra.c heap.c priority_queue.c
+OBJ=graph_basic.o graph_print.o graphaux.o dijkstra.o heap.o priority_queue.o
 
 CC = g++
 CCFLAGS = -g -DLINUX
@@ -22,6 +22,9 @@ dijkstra.o : graphes.h graphaux.h dijkstra.c
 
 heap.o : heap.c
 	$(CC) $(CCFLAGS) -c heap.c
+
+priority_queue.o : priority_queue.c
+	$(CC) $(CCFLAGS) -c priority_queue.c
 
 graphaux.o:	graphes.h graphaux.h graphaux.c
 	$(CC) $(CCFLAGS) -c graphaux.c

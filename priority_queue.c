@@ -42,54 +42,54 @@ int parent(int i){
 }
 
 
-void maxHeapify(pqueue* q, int i){
+void minHeapify(pqueue* q, int i){
 	int l = left(i);
 	int r = right(i);
 	//printf("l: %d, r: %d \n",l,r);
-	int largest;
-	if(l <= q->nb_elt &&  q->keys[l] > q->keys[i])
-		largest = l;
+	int smallest;
+	if(l <= q->nb_elt &&  q->keys[l] < q->keys[i])
+		smallest = l;
 	else
-		largest = i;
-	if( r <= q->nb_elt && q->keys[r] > q->keys[largest])
-		largest = r;
-	if( largest != i){
-		swap(q, i, largest);
-		maxHeapify(q, largest);
+		smallest = i;
+	if( r <= q->nb_elt && q->keys[r] < q->keys[smallest])
+		smallest = r;
+	if( smallest != i){
+		swap(q, i, smallest);
+		minHeapify(q, smallest);
 	}
 }
 
-void increaseKey(pqueue *q, int x ,int k){
+void decreaseKey(pqueue *q, int x ,int k){
 	int i = x;
-	if(k < q->keys[i]){
-		printf("New key is smaller than current key\n");
+	if(k > q->keys[i]){
+		printf("New key is bigger than current key\n");
 		return;
 	}
 	q->keys[i] = k;
-	while(i > 0 && q->keys[parent(i)] < q->keys[i]){
+	while(i > 0 && q->keys[parent(i)] > q->keys[i]){
 		swap(q, i, parent(i));
 		i = parent(i);
 	}
 
 }
 
-void maxInsert(pqueue* q, int elt, int key){
+void minInsert(pqueue* q, int elt, int key){
 	if(q->nb_elt == q->max_size){
 		printf("Priority queue is full\n");
 		return;
 	}	
 	q->elements[q->nb_elt] = elt;
-	q->keys[q->nb_elt] = -1;
+	q->keys[q->nb_elt] = INF;
 	q->nb_elt++;
 
-	increaseKey(q, q->nb_elt - 1, key);
+	decreaseKey(q, q->nb_elt - 1, key);
 }
 
-int getMax(pqueue* q){
+int getMin(pqueue* q){
 	return q->elements[0];
 }
 
-int extractMax(pqueue* q){
+int extractMin(pqueue* q){
 	if(q->nb_elt < 1){
 		printf("Underflow\n");
 		return -1;
@@ -98,7 +98,7 @@ int extractMax(pqueue* q){
 	q->elements[0] = q->elements[q->nb_elt-1];
     q->keys[0] = q->keys[q->nb_elt-1];
 	q->nb_elt--;
-	maxHeapify(q, 0);
+	minHeapify(q, 0);
 	return max;
 }
 
