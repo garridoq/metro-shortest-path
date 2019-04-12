@@ -18,7 +18,7 @@ pqueue* pqueueInit(int max_size){
 	q->max_size = max_size;
 	q->nb_elt = 0;
 	q->elements = (int *)malloc(max_size*sizeof(int));
-	q->keys = (int *)malloc(max_size*sizeof(int));
+	q->keys = (double *)malloc(max_size*sizeof(double));
 	return q;
 }
 
@@ -59,7 +59,7 @@ void minHeapify(pqueue* q, int i){
 	}
 }
 
-void decreaseKey(pqueue *q, int x ,int k){
+void decreaseKey(pqueue *q, int x ,double k){
 	int i = x;
 	if(k > q->keys[i]){
 		printf("New key is bigger than current key\n");
@@ -73,7 +73,7 @@ void decreaseKey(pqueue *q, int x ,int k){
 
 }
 
-void minInsert(pqueue* q, int elt, int key){
+void minInsert(pqueue* q, int elt, double key){
 	if(q->nb_elt == q->max_size){
 		printf("Priority queue is full\n");
 		return;
@@ -104,7 +104,6 @@ int extractMin(pqueue* q){
 
 void printPqueue(pqueue* q){
 	int i;
-	printf("Currently fileld at %d / %d",q->nb_elt, q->max_size);
 	printf("Elements:\n[");
 	for(i = 0; i < q->nb_elt; ++i){
 		printf("%d, ",q->elements[i]);
@@ -113,7 +112,8 @@ void printPqueue(pqueue* q){
 	
 	printf("Keys:\n[");
 	for(i = 0; i < q->nb_elt; ++i){
-		printf("%d, ",q->keys[i]);
+		printf("%f, ",q->keys[i]);
 	}	
 	printf("]\n");
 }
+

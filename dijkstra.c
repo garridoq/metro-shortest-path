@@ -61,7 +61,7 @@ void copyGrapheParams(graphe* dest, graphe* src){
 	}
 }
 
-int distance(graphe* g, int a, int b){
+double distance(graphe* g, int a, int b){
 	return hypot(g->x[a] - g->x[b], g->y[a] - g->y[b])*25.7/10; 
 }
 
@@ -144,7 +144,8 @@ graphe* PCC(graphe* g, int d, int a, int mode){
 	int k = 1;
 	int xk = d;
 	//pour l'extraction de sommet
-	int min,x_min, heuristique;
+	int min,x_min; 
+	double heuristique;
 	//Pour le calcul du chemin
 	int s, new_s, j;
 	
@@ -227,8 +228,9 @@ graphe* PCC_pq(graphe* g, int d, int a, int mode){
 	int k = 1;
 	int xk = d;
 	//pour l'extraction de sommet
-	int min,x_min, heuristique;
-	pqueue* pq = pqueueInit(n*n);
+	int min,x_min;
+	double heuristique;
+	pqueue* pq = pqueueInit(g->narc);
 	//Pour le calcul du chemin
 	int s, new_s, j;
 	
@@ -251,18 +253,13 @@ graphe* PCC_pq(graphe* g, int d, int a, int mode){
 	while( k < n && pi[xk] < INF){
 		for(p = g->gamma[xk]; p != NULL; p = p->next){
 			y = p->som;
-			if(S[y] == 1)
+			if(S[y] == 1)//Si y déjà retiré de la file
 				continue;
 			
-			if(pi[y] < pi[xk] + p->v_arc){
-				heuristique = (pi[y] < INF) ? pi[y] + distance(g, y, a) : pi[y] ;
-				decreaseKey(pq, y, heuristique);
-			}
-			else{
-				pi[y] = pi[xk] + p->v_arc;
-				heuristique = (pi[y] < INF) ? pi[y] + distance(g, y, a) : pi[y] ;
-				minInsert(pq, y, heuristique);
-			}	
+			pi[y] = (pi[y] < pi[xk] + p->v_arc) ? pi[y] : pi[xk] + p->v_arc; 
+			heuristique = (pi[y] < INF) ? pi[y] + distance(g, y, a) : pi[y] ;
+			minInsert(pq, y, heuristique);
+								
 		}
 		x_min = extractMin(pq);
 		k++;

@@ -14,7 +14,7 @@ clean:
 
 .SUFFIXES:	.exe
 
-.c.exe:	
+.c.exe: $(OBJ)	
 	$(CC) $(CCFLAGS) $< $(OBJ) -lm -o $@
 
 dijkstra.o : graphes.h graphaux.h dijkstra.c

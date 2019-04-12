@@ -8,7 +8,7 @@
 typedef struct pqueue pqueue;
 struct pqueue{
 	int* elements;
-	int* keys;
+	double* keys;
 	int max_size;
 	int nb_elt;
 };
@@ -24,10 +24,10 @@ void minHeapify(pqueue* q, int i);
 void printPqueue(pqueue* q);
 
 //priority queue operations
-void minInsert(pqueue* q, int elt, int key);
+void minInsert(pqueue* q, int elt, double key);
 int getMin(pqueue* q);
 int extractMin(pqueue* q);
-void decreaseKey(pqueue* q, int x, int k);
+void decreaseKey(pqueue* q, int x, double k);
 
 
 
