@@ -9,12 +9,13 @@ typedef struct pqueue pqueue;
 struct pqueue{
 	int* elements;
 	double* keys;
+	int* indices;
 	int max_size;
 	int nb_elt;
 };
 
 //heap and general operations
-void swap(pqueue* q, int i,int j);
+void hswap(pqueue* q, int i,int j);
 pqueue* pqueueInit(int max_size);
 void deletePqueue(pqueue* q);
 int left(int i);

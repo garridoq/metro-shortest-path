@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "heap.h"
 
-void swap(int* tab, int i, int j){
+void hswap(int* tab, int i, int j){
 	int temp = tab[j];
 	tab[j] = tab[i];
 	tab[i] = temp;
@@ -48,7 +48,7 @@ void maxHeapify(heap* h, int i){
 	if( r <= h->nb_elt && h->elements[r] > h->elements[largest])
 		largest = r;
 	if( largest != i){
-		swap(h->elements, i, largest);
+		hswap(h->elements, i, largest);
 		maxHeapify(h, largest);
 	}
 }
@@ -75,7 +75,7 @@ void insert(heap* h, int elt){
 	h->nb_elt++;
 	i = h->nb_elt - 1;
 	while(i > 0 && h->elements[hparent(i)] < h->elements[i]){
-		swap(h->elements, i, hparent(i));
+		hswap(h->elements, i, hparent(i));
 		i = hparent(i);
 	}
 }

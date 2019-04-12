@@ -27,7 +27,8 @@ int main(int argc, char **argv){
 
     sprintf(buf, "%s_%s_%s_out.eps", argv[1], argv[2], argv[3]);     /* construit le nom du fichier PostScript */
 	EPSGraphe(chemin, buf, 3,0,60,1,0,0,0);
-	
+
+	g = ReadGraphe(argv[1]);	
 	start_chrono(&Chrono1);
 	chemin = PCC_pq(g, d, a, 1);
 	printf("Temps écoulé :%d us\n",read_chrono(&Chrono1));

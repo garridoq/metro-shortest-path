@@ -4,6 +4,9 @@
 #include "priority_queue.h"
 
 void swap(pqueue* q, int i, int j){
+	q->indices[q->elements[j]] = i;
+	q->indices[q->elements[i]] = j;
+	
 	int temp = q->elements[j];
 	q->elements[j] = q->elements[i];
 	q->elements[i] = temp;
@@ -11,6 +14,7 @@ void swap(pqueue* q, int i, int j){
 	temp = q->keys[j];
 	q->keys[j] = q->keys[i];
 	q->keys[i] = temp;
+	
 }
 
 pqueue* pqueueInit(int max_size){
@@ -18,6 +22,10 @@ pqueue* pqueueInit(int max_size){
 	q->max_size = max_size;
 	q->nb_elt = 0;
 	q->elements = (int *)malloc(max_size*sizeof(int));
+	q->indices = (int *)malloc(max_size*sizeof(int));
+	for(int i = 0; i < max_size; ++i){
+		q->indices[i] = -1;
+	}
 	q->keys = (double *)malloc(max_size*sizeof(double));
 	return q;
 }
@@ -60,6 +68,7 @@ void minHeapify(pqueue* q, int i){
 }
 
 void decreaseKey(pqueue *q, int x ,double k){
+	
 	int i = x;
 	if(k > q->keys[i]){
 		printf("New key is bigger than current key\n");
@@ -80,6 +89,7 @@ void minInsert(pqueue* q, int elt, double key){
 	}	
 	q->elements[q->nb_elt] = elt;
 	q->keys[q->nb_elt] = INF;
+	q->indices[elt] = q->nb_elt;
 	q->nb_elt++;
 
 	decreaseKey(q, q->nb_elt - 1, key);
@@ -97,6 +107,8 @@ int extractMin(pqueue* q){
 	int max = q->elements[0];
 	q->elements[0] = q->elements[q->nb_elt-1];
     q->keys[0] = q->keys[q->nb_elt-1];
+	q->indices[max] = -1; //On enleve l'elt du tableau
+	q->indices[q->elements[0]] = 0;
 	q->nb_elt--;
 	minHeapify(q, 0);
 	return max;
@@ -104,6 +116,9 @@ int extractMin(pqueue* q){
 
 void printPqueue(pqueue* q){
 	int i;
+
+	printf("====================================\n");
+	printf("Elements : %d/%d\n",q->nb_elt, q->max_size);
 	printf("Elements:\n[");
 	for(i = 0; i < q->nb_elt; ++i){
 		printf("%d, ",q->elements[i]);
@@ -115,5 +130,12 @@ void printPqueue(pqueue* q){
 		printf("%f, ",q->keys[i]);
 	}	
 	printf("]\n");
+/*	
+	printf("Indices:\n[");
+	for(i = 0; i < q->max_size; ++i){
+		printf("%d, ",q->indices[i]);
+	}	
+	printf("]\n");
+*/
 }
 

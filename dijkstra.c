@@ -230,7 +230,7 @@ graphe* PCC_pq(graphe* g, int d, int a, int mode){
 	//pour l'extraction de sommet
 	int min,x_min;
 	double heuristique;
-	pqueue* pq = pqueueInit(g->narc);
+	pqueue* pq = pqueueInit(n);
 	//Pour le calcul du chemin
 	int s, new_s, j;
 	
@@ -258,9 +258,14 @@ graphe* PCC_pq(graphe* g, int d, int a, int mode){
 			
 			pi[y] = (pi[y] < pi[xk] + p->v_arc) ? pi[y] : pi[xk] + p->v_arc; 
 			heuristique = (pi[y] < INF) ? pi[y] + distance(g, y, a) : pi[y] ;
-			minInsert(pq, y, heuristique);
-								
+			if(pq->indices[y] == -1){// si y pas dans la file
+				minInsert(pq, y, heuristique);
+			}
+			else if(heuristique < pq->keys[pq->indices[y]]){
+				decreaseKey(pq, pq->indices[y], heuristique);
+			}				
 		}
+		//printPqueue(pq);
 		x_min = extractMin(pq);
 		k++;
 		xk = x_min;
