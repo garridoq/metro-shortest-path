@@ -71,7 +71,7 @@ Retourne un chemin avec uniquement les sommets explorés.
 
 */
 /*======================================================================= */
-graphe* exploredSommets(graphe *g, int *S){
+graphe* exploredSommets(graphe *g, int *S, int a){
 	int n_som = 0;
 	int i = 0;
 	pcell p;
@@ -83,7 +83,7 @@ graphe* exploredSommets(graphe *g, int *S){
 			n_som++;
 		}
 	}
-	printf("%d sommets parcourus",n_som);
+	printf("%d sommets parcourus\n",n_som);
 
 	//Table de correspondance entre les sommets des graphes
 	int* corresp = (int*)malloc(g->nsom*sizeof(int));
@@ -103,6 +103,7 @@ graphe* exploredSommets(graphe *g, int *S){
 	graphe* g_expl = InitGraphe(n_som, n_som);
 	g_expl->nomsommet = (char **)malloc(n_som*sizeof(char*));
 	j = 0; //indice de nos sommet dans le nouveau graphe
+	
 	for(i = 0; i < g->nsom; ++i){
 		//Si le sommet a été exploré
 		if(S[i] == 1){
@@ -114,7 +115,6 @@ graphe* exploredSommets(graphe *g, int *S){
 				AjouteArcValue(g_expl, j, corresp[y], p->v_arc );
 				g_expl->nomsommet[j] = (char*)malloc((strlen(g->nomsommet[i])+1)*sizeof(char));
 				memcpy(g_expl->nomsommet[j], g->nomsommet[i], (strlen(g->nomsommet[i])+1)*sizeof(char));
-
 			}
 			else{
 				g_expl->nomsommet[j] = (char*)malloc(sizeof(char));
@@ -123,6 +123,9 @@ graphe* exploredSommets(graphe *g, int *S){
 			j++;
 		}
 	}
+	//ajout du nom au point d'arrivée
+	g_expl->nomsommet[corresp[a]] = (char*)malloc((strlen(g->nomsommet[a])+1)*sizeof(char));
+	memcpy(g_expl->nomsommet[corresp[a]], g->nomsommet[a], (strlen(g->nomsommet[a])+1)*sizeof(char));
 	return g_expl;
 }
 
@@ -210,9 +213,10 @@ graphe* PCC(graphe* g, int d, int a, int mode){
 	}
 	chemin = Sym(chemin);
 	copyGrapheParams(chemin, g);
+	printChemin(chemin,d,a);	
 	
 	if(mode == EXPLORE){
-		chemin = exploredSommets(chemin, S);
+		chemin = exploredSommets(chemin, S, a);
 	}
 	
 	free(pi);
@@ -291,15 +295,18 @@ graphe* PCC_pq(graphe* g, int d, int a, int mode){
 		AjouteArc(chemin, s, new_s);
 		s = new_s;
 	}
+	
+	
 	chemin = Sym(chemin);
 	copyGrapheParams(chemin, g);
-	
+	printChemin(chemin,d,a);	
+
 	if(mode == EXPLORE){
-		chemin = exploredSommets(chemin, S);
+		chemin = exploredSommets(chemin, S, a);
 	}
-	
 	free(pi);
 	free(S);
+	deletePqueue(pq);
 	return chemin;
 }
 
@@ -308,8 +315,8 @@ void printChemin(graphe* g,int d, int a){
 	int x = d;
 	printf("Chemin le plus court de %d à %d:\n",d,a);
 	while(x != a){
-		printf("%d->",x);
+		printf("%s->",g->nomsommet[x]);
 		x = g->gamma[x]->som;
 	}
-	printf("%d\n",a);
+	printf("%s\n",g->nomsommet[a]);
 }

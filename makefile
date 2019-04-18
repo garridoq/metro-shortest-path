@@ -2,7 +2,7 @@ SRC=graph_basic.c graph_print.c graphaux.c dijkstra.c heap.c priority_queue.c
 OBJ=graph_basic.o graph_print.o graphaux.o dijkstra.o heap.o priority_queue.o
 
 CC = gcc
-CCFLAGS = -g -DLINUX
+CCFLAGS = -g -DLINUX 
 
 obj:	$(OBJ)
 
