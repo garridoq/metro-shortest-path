@@ -147,7 +147,7 @@ void PSGraphe(graphe * g, char *filename, double r, double t, double marge)
     if (g->x[i] < xmin) xmin = g->x[i]; else if (g->x[i] > xmax) xmax = g->x[i];
     if (g->y[i] < ymin) ymin = g->y[i]; else if (g->y[i] > ymax) ymax = g->y[i];
   }
-  EPSHeader(fd, xmax - xmin + 2.0 * marge, ymax - ymin + 2.0 * marge, 1.0, 14);
+  EPSHeader(fd, xmax - xmin + 2.0 * marge, ymax - ymin + 2.0 * marge, 1.0, 10);
   
   /* dessine les sommets */
   for (i = 0; i < n; i++) 
@@ -249,7 +249,7 @@ void EPSGraphe(graphe * g, char *filename, double r, double t, double marge, int
     if (g->x[i] < xmin) xmin = g->x[i]; else if (g->x[i] > xmax) xmax = g->x[i];
     if (g->y[i] < ymin) ymin = g->y[i]; else if (g->y[i] > ymax) ymax = g->y[i];
   }
-  EPSHeader(fd, xmax - xmin + 2.0 * marge, ymax - ymin + 2.0 * marge, 1.0, 14);
+  EPSHeader(fd, xmax - xmin + 2.0 * marge, ymax - ymin + 2.0 * marge, 1.0, 10);
   
   /* dessine les sommets */
   for (i = 0; i < n; i++) 
