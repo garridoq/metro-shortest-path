@@ -4,12 +4,14 @@
 \contentsline {subsection}{\numberline {1.2}Utilisation}{2}{subsection.1.2}
 \contentsline {section}{\numberline {2}Algorithme de Dijkstra}{4}{section.2}
 \contentsline {subsection}{\numberline {2.1}Impl\IeC {\'e}mentation}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}R\IeC {\'e}sultats}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.2}R\IeC {\'e}cup\IeC {\'e}ration du plus court chemin}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}R\IeC {\'e}sultats}{5}{subsection.2.3}
 \contentsline {section}{\numberline {3}Strat\IeC {\'e}gie A*}{6}{section.3}
 \contentsline {subsection}{\numberline {3.1}Choix de l'heuristique}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Impl\IeC {\'e}mentation de l'algorithme}{6}{subsection.3.2}
-\contentsline {section}{\numberline {4}Tas Binaire}{7}{section.4}
-\contentsline {subsection}{\numberline {4.1}Impl\IeC {\'e}mentation classique}{7}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Impl\IeC {\'e}mentation pour notre probl\IeC {\`e}me}{7}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Autre structures de donn\IeC {\'e}es possibles}{7}{subsection.4.3}
-\contentsline {section}{\numberline {5}Affichage des chemins}{8}{section.5}
+\contentsline {subsection}{\numberline {3.2}Impl\IeC {\'e}mentation de l'algorithme}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}R\IeC {\'e}sultats}{8}{subsection.3.3}
+\contentsline {section}{\numberline {4}Tas Binaire}{10}{section.4}
+\contentsline {subsection}{\numberline {4.1}Impl\IeC {\'e}mentation classique}{10}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Impl\IeC {\'e}mentation pour notre probl\IeC {\`e}me}{11}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}R\IeC {\'e}sultats}{12}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Autre structures de donn\IeC {\'e}es possibles}{12}{subsection.4.4}
