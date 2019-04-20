@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[pdftex]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{titling}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\theauthor}
+\fancyhead[RE,LO]{\thetitle}
+\fancyfoot[CE,CO]{\leftmark}
+\fancyfoot[LE,RO]{\thepage}
+
+\usepackage[thinlines]{easytable}
+
+\title{Atelier d'approfondissement en informatique: Graphes et Algorithmes}
+\author{Quentin Garrido}
+\date{21 avril 2019}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\pagebreak
+
+%=============================================================================%
+\section{Introduction}
+
+\pagebreak
+%=============================================================================%
+\section{Dijkstra}
+
+\begin{algorithm}
+\caption{Algorithme de Dijkstra}\label{dijkstra}
+\begin{algorithmic}[1]
+\Procedure{DIJKSTRA}{$E, \Gamma, l, i \in E$}
+	\State S = \{i\}, $\pi(i)$ = 0, k = 1, $x_1$ = i
+	\ForAll{$x \in E$\textbackslash$ \{i\}$}
+		\State $\pi(x) = \infty$
+	\EndFor
+	
+	\While{$k < n$ et $\pi(x_k) < \infty$ }
+		\ForAll{$y \in \Gamma(x_k) $ tel que $y \not\in S$}
+			\State $\pi(y) = $ min[$\pi(y), \pi(x_k) + l(x_k, y)$]
+		\EndFor
+		\State Extraire $x \not\in S$ tel que $\pi(x)$=min$\{\pi(y), y \not\in S\}$
+		\State k = k + 1, $x_k = x$, S = S $\bigcup \{x_k\}$
+	\EndWhile
+	
+	\State \textbf{return} $\pi$, S
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\pagebreak
+%=============================================================================%
+\section{Stratégie A*}
+
+\subsection{Choix de l'heuristique}
+
+\subsection{Implémentation de l'algorithme}
+
+\begin{algorithm}
+\caption{Algorithme A*}\label{astar}
+\begin{algorithmic}[1]
+\Procedure{heuristique}{$E,i \in E, a \in E$} \Comment{a est notre point d'arrivée}
+	\State \textbf{return} distance\_euclidienne(i, a)
+\EndProcedure
+\\
+\Procedure{A*}{$E, \Gamma, l, i \in E$}
+	\State S = \{i\}, $\pi(i)$ = 0, k = 1, $x_1$ = i
+	\ForAll{$x \in E$\textbackslash$ \{i\}$}
+		\State $\pi(x) = \infty$
+	\EndFor
+	
+	\While{$k < n$ et $\pi(x_k) < \infty$ }
+		\ForAll{$y \in \Gamma(x_k) $ tel que $y \not\in S$}
+			\State $\pi(y) = $ min[$\pi(y), \pi(x_k) + l(x_k, y)$]
+		\EndFor
+		\State Extraire $x \not\in S$ tel que $\pi(x)$=min$\{\pi(y)+$heuristique(y)$, y \not\in S\}$
+		\State k = k + 1, $x_k = x$, S = S $\bigcup \{x_k\}$
+	\EndWhile
+	
+	\State \textbf{return} $\pi$, S
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\pagebreak
+%=============================================================================%
+\section{Tas Binaire}
+
+\subsection{Implémentation classique}
+
+\subsection{Implémentation pour notre problème}
+
+\subsection{Autre structures de données possibles}
+
+\pagebreak
+%=============================================================================%
+\section{Affichage des chemins}
+
+\end{document}

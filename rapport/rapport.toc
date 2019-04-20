@@ -1,0 +1,11 @@
+\babel@toc {french}{}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Dijkstra}{3}{section.2}
+\contentsline {section}{\numberline {3}Strat\IeC {\'e}gie A*}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Choix de l'heuristique}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Impl\IeC {\'e}mentation de l'algorithme}{4}{subsection.3.2}
+\contentsline {section}{\numberline {4}Tas Binaire}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}Impl\IeC {\'e}mentation classique}{5}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Impl\IeC {\'e}mentation pour notre probl\IeC {\`e}me}{5}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Autre structures de donn\IeC {\'e}es possibles}{5}{subsection.4.3}
+\contentsline {section}{\numberline {5}Affichage des chemins}{6}{section.5}
