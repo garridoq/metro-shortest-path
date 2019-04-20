@@ -46,7 +46,7 @@ int right(int i){
 }
 
 int parent(int i){
-	return i >> 1;
+	return (i-1) >> 1;
 }
 
 

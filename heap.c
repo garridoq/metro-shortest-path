@@ -32,7 +32,7 @@ int hright(int i){
 }
 
 int hparent(int i){
-	return i >> 1;
+	return (i-1) >> 1;
 }
 
 

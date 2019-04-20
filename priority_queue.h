@@ -15,7 +15,7 @@ struct pqueue{
 };
 
 //heap and general operations
-void hswap(pqueue* q, int i,int j);
+void swap(pqueue* q, int i,int j);
 pqueue* pqueueInit(int max_size);
 void deletePqueue(pqueue* q);
 int left(int i);
