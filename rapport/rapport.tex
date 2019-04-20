@@ -407,7 +407,7 @@ pouvons le voir sur le schéma suivant:
 Pour chaque noeud (indicé i), nous pouvons obtenir son parent et ses enfants
 de la manière suivante:\\
 \begin{itemize}
-	\item parent(i)  = $\lfloor \frac{i}{2}  \rfloor$
+	\item parent(i)  = $\lfloor \frac{i-1}{2}  \rfloor$
 	\item gauche(i) = $i \times 2 + 1$
 	\item droite(i) = $i \times 2 + 2 $\\ 
 \end{itemize}
@@ -499,8 +499,33 @@ temps constant.
 
 \subsection{Résultats}
 
+En rajoutant cette file de priorité nous trouvons toujours les bons chemins les plus courts, cependant
+bien plus rapidement, voici un tableau récapitulatif sur certains trajets :\\
+
+\begin{center}
+\begin{tabular}{| c | c | c | c | c |}
+	\hline
+	 Départ & Arrivée & Temps sans file (en $\mu s$)& Temps avec file (en $\mu s$) & rapport \\ \hline
+	 130 & 212 & 650 & 530 & 1.22 \\ \hline
+	 146 & 212 & 1050 & 500 & 2.1 \\ \hline
+	 1 & 256 & 1090 & 550 & 1.98\\ \hline
+	 27 & 244 & 2000 & 800 & 2.5\\ \hline
+	 200 & 201 & 2500 & 750 & 3.33 \\ \hline
+\end{tabular}
+\end{center}
+
+Ces résultats ont été obtenus en réalisant 3 fois chaque mesure puis en prenant la moyenne des
+trois essais.\\
+
+Comme nous pouvons le voir le temps est toujours meilleur avec la file de priorité, en moyenne nous
+sommes environ deux fois plus rapides que sans, avec des cas extrèmes où nous sommes à peine plus
+rapides et d'autres où nous sommes plus de trois fois plus rapides.\\
+
+
 
 \subsection{Autre structures de données possibles}
 
+
+\section{Conclusion}
 
 \end{document}
