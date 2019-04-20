@@ -134,9 +134,55 @@ l'appartenance avant de l'insérer ou non.\\
 
 \subsection{Résultats}
 
-Considérons un trajets des stations Grande arche de la Défense (130) à Place d'Italie (244).
-Nous trouvons alors le chemin le plus court suivant:
+Considérons un trajets des stations Alexandre Dumas (1) à Porte Dauphine (256).
+Nous trouvons alors le chemin le plus court suivant:\\
 
+Alexandre Dumas
+$->$ Philippe-Auguste
+$->$ Père Lachaise
+$->$ Ménilmontant
+$->$ Couronnes
+$->$ Belleville
+$->$ Colonel Fabien
+$->$ Jaurès
+$->$ Stalingrad
+$->$ La Chapelle
+$->$ Barbès Rochechouart
+$->$ Anvers
+$->$ Pigalle
+$->$ Blanche
+$->$ Place de Clichy
+$->$ Rome
+$->$ Villiers
+$->$ Monceau
+$->$ Courcelles
+$->$ Ternes
+$->$ Charles de Gaulle, Étoile
+$->$ Victor Hugo
+$->$ Porte Dauphine\\
+
+Nous pouvons observer ce chemin avec la figure suivante. Les chaînes forment le plus court
+chemin et les sommets sont uniquement ceux visités. Nous en avons visité 329 sur 376.\\
+
+\begin{figure}[!hbt]
+	\centering
+		\includegraphics[width=0.7\textwidth]{dijkstra_1_256.eps}
+	\caption{Graphe de référence du métro}
+	\label{dijkstra_1}
+\end{figure}
+
+Comme nous pouvons le voir nous avons parcouru des sommets qui nous éloignaient grandement du résultat
+uniquement car le coût pour y aller était plus faible (cf ligne 10 de l'algorithme).\\
+Cet effet est exacerbé ici car le trajet que nous avons choisi est particulièrement long.\\
+Ce constat reste le même sur tous les trajets, sauf sur ceux très courts.\\
+
+Bien que le chemin que nous trouvions ne paraisse pas optimal, nous l'avons vérifié via
+le service Vianavigo de la RATP, où nous trouvons le même chemin. Cela est du au fait que
+les deux stations sont sur la même ligne et donc que nous avons aucun changement à faire,
+d'où la plus courte durée du trajet.\\\\
+Nous avons vérifié plusieurs autres trajets de la même manière avec le même résultat à chaque
+fois, ainsi notre implémentation semble être correcte, à condition que l'algorithme
+utilisé par la RATP pour Vianavigo soit correct, ce que nous pouvons affirmer être vrai.
 
 
 \pagebreak

@@ -224,6 +224,92 @@ graphe* PCC(graphe* g, int d, int a, int mode){
 	return chemin;
 }
 
+graphe* PCC_d(graphe* g, int d, int a, int mode){
+	graphe *chemin;
+	pcell p;
+	int n = g->nsom;
+	int i,y;
+	int k = 1;
+	int xk = d;
+	//pour l'extraction de sommet
+	int min,x_min; 
+	double heuristique;
+	//Pour le calcul du chemin
+	int s, new_s, j;
+	
+
+	// On utilise un tableau pour représenter un ensemble de sommet
+	// ainsi S = {1,3,6} sera représenté par
+	// S = [0,1,0,1,0,0,1]
+	int* S = (int*)malloc(n*sizeof(int));
+	for(i=0; i < n; ++i){
+		S[i] = 0;
+	}
+	S[d] = 1;
+
+	int* pi = (int*)malloc(n*sizeof(int));
+	for(i=0; i < n; ++i){
+		pi[i] = INF;
+	}
+	pi[d]=0;
+	
+	while( k < n && pi[xk] < INF){
+		for(p = g->gamma[xk]; p != NULL; p = p->next){
+			y = p->som;
+			if(S[y] == 1)
+				continue;
+			pi[y] = (pi[y] < pi[xk] + p->v_arc) ? pi[y] : pi[xk] + p->v_arc; 
+		}
+		
+		min = INF; x_min = 0;
+		for(i = 0; i < n; ++i){
+			if(S[i] == 1)
+				continue;
+			heuristique = pi[i]; 
+			if(heuristique  < min){ //heuristique
+				min = heuristique;
+				x_min = i;
+			}
+		}
+		k++;
+		xk = x_min;
+		S[xk] = 1; // Union
+		//S'arreter si on est arrivé à a
+		if(x_min == a)
+			break;
+
+	}
+	//Récupération du chemin
+	//On calcule le symmétrique pour avoir les prédécesseurs
+	graphe* g_sym = Sym(g);
+	chemin = InitGraphe(n,n);
+	s = a;
+	
+	while( s != d){
+		new_s = -1;
+		for(p = g_sym->gamma[s]; p != NULL; p = p->next){
+			y = p->som;
+			if(pi[s]-pi[y] == p->v_arc)
+				new_s = y;
+		}
+		AjouteArc(chemin, s, new_s);
+		s = new_s;
+	}
+	chemin = Sym(chemin);
+	copyGrapheParams(chemin, g);
+	printChemin(chemin,d,a);	
+	
+	if(mode == EXPLORE){
+		chemin = exploredSommets(chemin, S, a);
+	}
+	
+	free(pi);
+	free(S);
+	return chemin;
+}
+
+
+
 graphe* PCC_pq(graphe* g, int d, int a, int mode){
 	graphe *chemin;
 	pcell p;

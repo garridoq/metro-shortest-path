@@ -19,27 +19,52 @@ int main(int argc, char **argv){
 	int d = atoi(argv[2]);
 	int a = atoi(argv[3]);
 
+	//A*
+	printf("===================================================\n");
+	printf("=                      A*                         =\n");
+	printf("===================================================\n");
     g = ReadGraphe(argv[1]);  /* lit le graphe a partir du fichier */
     
 	start_chrono(&Chrono1);
 	chemin = PCC(g, d, a, 1);
-	printf("Temps écoulé :%d us\n",read_chrono(&Chrono1));
+	printf("Temps écoulé :%d us\n\n",read_chrono(&Chrono1));
 
     sprintf(buf, "%s_%s_%s_out.eps", argv[1], argv[2], argv[3]);     /* construit le nom du fichier PostScript */
 	EPSGraphe(chemin, buf, 3,0,60,1,0,0,0);
 	TermineGraphe(chemin);
 	TermineGraphe(g);
 
+
+	//A* + file de priorité
+	printf("===================================================\n");
+	printf("=            A* avec file de priorité             =\n");
+	printf("===================================================\n");
 	g = ReadGraphe(argv[1]);	
 	start_chrono(&Chrono1);
 	chemin = PCC_pq(g, d, a, 1);
-	printf("Temps écoulé :%d us\n",read_chrono(&Chrono1));
+	printf("Temps écoulé :%d us\n\n",read_chrono(&Chrono1));
 
     sprintf(buf, "%s_%s_%s_out_pq.eps", argv[1], argv[2], argv[3]);     /* construit le nom du fichier PostScript */
 	EPSGraphe(chemin, buf, 3,0,60,1,0,0,0);
 	
 	TermineGraphe(g);
 	TermineGraphe(chemin);
+
+	//Dijkstra
+	printf("===================================================\n");
+	printf("=                     Dijkstra                    =\n");
+	printf("===================================================\n");
+	g = ReadGraphe(argv[1]);	
+	start_chrono(&Chrono1);
+	chemin = PCC_d(g, d, a, 1);
+	printf("Temps écoulé :%d us\n\n",read_chrono(&Chrono1));
+
+    sprintf(buf, "%s_%s_%s_out_d.eps", argv[1], argv[2], argv[3]);     /* construit le nom du fichier PostScript */
+	EPSGraphe(chemin, buf, 3,0,60,1,0,0,0);
+	
+	TermineGraphe(g);
+	TermineGraphe(chemin);
+
 
 	return 0;
 }
