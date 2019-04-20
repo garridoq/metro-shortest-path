@@ -74,7 +74,7 @@ Voici la liste des fichiers de test et leur utilisation:
 
 À titre de référence, voici à quoi ressemble le graphe entier du réseau de métro, que nous
 utiliserons par la suite:
-Les stations sont réprésentées par les sommets et nous avons une chaîne entre deux sommets
+Les stations sont réprésentées par les sommets et nous avons une arc entre deux sommets
 si ils sont reliés par le métro.
 
 \begin{figure}[!hbt]
@@ -161,7 +161,7 @@ $->$ Charles de Gaulle, Étoile
 $->$ Victor Hugo
 $->$ Porte Dauphine\\
 
-Nous pouvons observer ce chemin avec la figure suivante. Les chaînes forment le plus court
+Nous pouvons observer ce chemin avec la figure suivante. Les arcs forment le plus court
 chemin et les sommets sont uniquement ceux visités. Nous en avons visité 329 sur 376.\\
 
 \begin{figure}[!hbt]
@@ -189,17 +189,56 @@ utilisé par la RATP pour Vianavigo soit correct, ce que nous pouvons affirmer �
 %=============================================================================%
 \section{Stratégie A*}
 
+Pour utiliser la stratégie A* nous allons appliquer une heuristique lors du choix du prochain
+sommet à étudier, ce qui correspond à la ligne 10 de l'algorithme de Dijkstra.\\
+En effet nous avons pu voir que choisir toujours le somemt avec le plus court chemin vers lui
+se révèle sous optimal car nous allons partir dans des directions qui nous éloignent de l'arrivée.\\
+Nous allons donc essayer de choisir une heuristique qui va nous permettre d'explorer moins de sommets.
+
 \subsection{Choix de l'heuristique}
+
+Dans notre cas, la durée de trajet entre deux stations correspond au poids de l'arc. Cette valeur
+est calculée pour un métro se déplaçant en moyenne à 10 $m.s^{-1}$ et une unité dans notre graphe
+correspond à 25.7 m.\\
+
+L'heuristique choisie repose sur le fait que s'éloigner de l'arrivée est contre productif, et que
+nous voulons privilégier les stations nous rapprochant de l'arrivée.\\
+Ainsi nous allons utiliser la distance euclidienne entre notre sommet actuel et l'arrivée.\\
+Nous possédons les coordonnées de tous les sommet mais il faut les covnertir en mètres en multipliant
+par 25.7 puis diviser par 10 pour obtenir une métrique comparable aux valeurs des arcs, et par 
+conséquent des longueurs de chemins.\\
+Cette heuristique devrait s'avérer bonne car très simple à calculer et elle représente le trajet à
+vol d'oiseau entre nos stations, ce qui est le résultat optimal peu importe le moyen de transport
+utilisé, aucun trajet ne peut être plus court que cela.\\
+
+\begin{algorithm}
+\caption{Heuristique}\label{astar}
+\begin{algorithmic}[1]
+\Procedure{heuristique}{$E,i \in E, a \in E$} \Comment{a est notre point d'arrivée}
+	\State \textbf{return} distance\_euclidienne(i, a) $\times \frac{25.7}{10}$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+Une seule question subsiste, il s'agit de l'optimalité de la solution. En effet si notre heuristique
+est trop `forte' par rapport aux valeurs des chemins nous n'explorerons jamais certains sommets
+qui nous donneraient un plus court chemin.\\
+L'algorithme A* trouvera une solution optimale si l'heuristique est admissible, c'est à dire si
+l'heuristique ne surestime jamais le coût pour atteindre l'arrivée.\\
+Dans notre cas, la distance euclidienne étant toujours la distance optimale (en supposant que nous sommes
+dans un plan, en réalité ce n'est pas le cas à cause de la courbure de la Terre, mais l'approximation
+est acceptable dans notre cas, Paris n'étant pas assez vaste pour que la courbure aie une grande influence)
+nous pouvons garantir l'optimalité de la solution trouvée.\\\\
+
+Nous pouvons bien voir qu'avec cette condition d'optimalité, l'algorithme de Dijkstra trouve une solution
+optimale car il correspond à avoir une heuristique toujorus égale à 0, or dans un réseau avec des arcs
+à valeur positive, un chemin est toujours plus long que 0.
 
 \subsection{Implémentation de l'algorithme}
 
 \begin{algorithm}
 \caption{Algorithme A*}\label{astar}
 \begin{algorithmic}[1]
-\Procedure{heuristique}{$E,i \in E, a \in E$} \Comment{a est notre point d'arrivée}
-	\State \textbf{return} distance\_euclidienne(i, a)
-\EndProcedure
-\\
 \Procedure{A*}{$E, \Gamma, l, i \in E$}
 	\State S = \{i\}, $\pi(i)$ = 0, k = 1, $x_1$ = i
 	\ForAll{$x \in E$\textbackslash$ \{i\}$}
