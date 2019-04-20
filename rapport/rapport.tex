@@ -34,17 +34,63 @@
 
 %=============================================================================%
 \section{Introduction}
+\subsection{Objectifs}
+
+L'objectif de ce projet est d'implémenter des algorithmes de recherche de plus courts
+chemins dans un graphe, et plus particulièrement dans un graphe représentant le réseau
+de métro de Paris.\\
+Nous implémenterons tout d'abord l'algorithme de Dijkstra, puis le modifierons pour
+qu'ils deviennent l'algorithme A* et nous optimiserons son temps d'éxécution grâce
+à des structures de données adaptées.
+
+\subsection{Utilisation}
+
+Tout le code source est disponible à l'adresse suivante: \textit{https://github.com/garridoq/metro-shortest-path}.\\
+
+Tout les éxécutables devraient vous être fournis dans le mail et devraient fonctionner sans devoir
+les recompiler. Dans le cas contraire voici la démarche à suivre:\\
+
+Un makefile est fourni pour la compilation, il servira à compiler les bibliothèques et les tests.
+Une fois le code source obtenu il faudra exécuter la commande suivante pour compiler les bibliothèques:
+\begin{lstlisting}[language=bash]
+	> make
+\end{lstlisting}
+
+Vous pourrez alors compiler tous les fichiers de tests de la manière suivante:
+\begin{lstlisting}[language=bash]
+	> make NOM.exe
+\end{lstlisting}
+Où NOM est le nom du fichier de test (pour test\_heap.c, il faudra entrer make test\_heap.exe).\\
+
+Voici la liste des fichiers de test et leur utilisation:
+\begin{itemize}
+	\item test\_heap:./test\_heap.exe , ce fichier permet de tester l'implémentation du tas
+		  binaire et de ses opérations primaires.
+	\item test\_dijkstra:./test\_dijkstra.exe GRAPH DEBUT FIN , ce fichier va récupérer
+		  le graphe dans le fichier GRAPH, puis calculer le plus court chemin de DEBUT à FIN
+		  en utilisant l'agorithme de Dijkstra, l'A* et A* avec une file de priorité.\\
+		  Un fichier EPS sera créé pour chaque algorithme.
+\end{itemize}
+
 
 \pagebreak
 %=============================================================================%
-\section{Dijkstra}
+\section{Algorithme de Dijkstra}
+
+Pour calculer le chemin de plus court d'un point D à A nous allons utiliser 
+la version suivante de l'algorithme de Dijkstra, adaptée depuis le cours de 
+l'unité Graphes et Algorithmes.\\
+
+Ici nous n'avons pas besoin de calculer les chemins de notre sommet de départ
+vers tous les autres sommets du graphe et nous nous arrêterons donc dès
+que nous atteignons notre sommet d'arrivée.
 
 \begin{algorithm}
 \caption{Algorithme de Dijkstra}\label{dijkstra}
 \begin{algorithmic}[1]
-\Procedure{DIJKSTRA}{$E, \Gamma, l, i \in E$}
-	\State S = \{i\}, $\pi(i)$ = 0, k = 1, $x_1$ = i
-	\ForAll{$x \in E$\textbackslash$ \{i\}$}
+\Procedure{DIJKSTRA}{$E, \Gamma, l, d \in E, a \in E$}
+	\State S = \{d\}, $\pi(d)$ = 0, k = 1, $x_1$ = d
+	\ForAll{$x \in E$\textbackslash$ \{d\}$}
 		\State $\pi(x) = \infty$
 	\EndFor
 	
@@ -54,12 +100,27 @@
 		\EndFor
 		\State Extraire $x \not\in S$ tel que $\pi(x)$=min$\{\pi(y), y \not\in S\}$
 		\State k = k + 1, $x_k = x$, S = S $\bigcup \{x_k\}$
+		\If{$x_k = a$}
+			\State \textbf{break}
+		\EndIf
 	\EndWhile
 	
 	\State \textbf{return} $\pi$, S
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
+
+Nous implémentons S avec un tableau de $n = \vert E\vert$ éléments, correspondants aux sommets 
+de notre graphe.\\
+Ainsi nous l'initialiserons entièrement à 0 et S = S $\bigcup \{x_k\}$
+correspondra à faire S[k] = 1.\\
+Bien que cette implémentation soit plus coûteuse en mémoire qu'une liste chaînée
+elle permettra d'implémenter l'appartenance à S en temps constant, opération très
+utilisée aux lignes 7 et 10.\\
+De plus l'ajout d'un élément sera aussi simplifiée car nous n'aurons pas à vérifier
+l'appartenance avant de l'insérer ou non.\\
+
+
 
 \pagebreak
 %=============================================================================%
