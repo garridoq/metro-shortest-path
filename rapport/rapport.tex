@@ -69,13 +69,25 @@ Voici la liste des fichiers de test et leur utilisation:
 	\item test\_dijkstra:./test\_dijkstra.exe GRAPH DEBUT FIN , ce fichier va récupérer
 		  le graphe dans le fichier GRAPH, puis calculer le plus court chemin de DEBUT à FIN
 		  en utilisant l'agorithme de Dijkstra, l'A* et A* avec une file de priorité.\\
-		  Un fichier EPS sera créé pour chaque algorithme.
+		  Un fichier EPS sera créé pour chaque algorithme.\\
 \end{itemize}
 
+À titre de référence, voici à quoi ressemble le graphe entier du réseau de métro, que nous
+utiliserons par la suite:
+Les stations sont réprésentées par les sommets et nous avons une chaîne entre deux sommets
+si ils sont reliés par le métro.
 
-\pagebreak
+\begin{figure}[!hbt]
+	\centering
+	\includegraphics[width=\textwidth]{metro.eps}
+	\caption{Graphe de référence du métro}
+	\label{metro}
+\end{figure}
+
+\clearpage
 %=============================================================================%
 \section{Algorithme de Dijkstra}
+\subsection{Implémentation}
 
 Pour calculer le chemin de plus court d'un point D à A nous allons utiliser 
 la version suivante de l'algorithme de Dijkstra, adaptée depuis le cours de 
@@ -117,8 +129,13 @@ correspondra à faire S[k] = 1.\\
 Bien que cette implémentation soit plus coûteuse en mémoire qu'une liste chaînée
 elle permettra d'implémenter l'appartenance à S en temps constant, opération très
 utilisée aux lignes 7 et 10.\\
-De plus l'ajout d'un élément sera aussi simplifiée car nous n'aurons pas à vérifier
+De plus l'ajout d'un élément sera aussi simplifié car nous n'aurons pas à vérifier
 l'appartenance avant de l'insérer ou non.\\
+
+\subsection{Résultats}
+
+Considérons un trajets des stations Grande arche de la Défense (130) à Place d'Italie (244).
+Nous trouvons alors le chemin le plus court suivant:
 
 
 
