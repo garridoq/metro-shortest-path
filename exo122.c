@@ -12,7 +12,7 @@
     \brief construit et retourne le graphe g_1 symétrique du graphe g. 
     \warning seule la représentation 'gamma' est utilisée. 
 */
-graphe * Syme(graphe * g)
+graphe * Sym2(graphe * g)
 /* ====================================================================== */
 {
   graphe *g_1;
@@ -33,6 +33,23 @@ graphe * Syme(graphe * g)
   return g_1;
 } /* Sym() */
 
+graphe * Sym1(graphe * g)
+/* ====================================================================== */
+{
+  graphe *g_1;
+  int nsom, narc, k, i, j;
+  pcell p;
+
+  nsom = g->nsom;
+  narc = g->narc;
+  g_1 = InitGraphe(nsom, narc);
+
+  for (i = 0; i < nsom; i++) /* pour tout i sommet de g */
+    for (j = 0; j < nsom; j++) /* pour tout j sommet de g */
+      if (EstSuccesseur(g, i, j))
+        AjouteArc(g_1, j, i);
+  return g_1;
+}
 /* ====================================================================== */
 int main(int argc, char **argv)
 /* ====================================================================== */
@@ -53,13 +70,19 @@ int main(int argc, char **argv)
 
   g = GrapheAleatoire(ns, na);   /* genere un graphe aleatoire antisymetrique sans boucle */
   start_chrono(&Chrono1);        /* top chrono : debut du traitement */
-  g_1 = Syme(g);                  /* traitement : calcule le symetrique de g */
+  g_1 = Sym1(g);                  /* traitement : calcule le symetrique de g */
   temps = read_chrono(&Chrono1); /* top chrono : fin du traitement */
+
+  printf("temps de traitement Version 1: %d microsecondes\n", temps);
+
+  start_chrono(&Chrono1);        /* top chrono : debut du traitement */
+  g_1 = Sym2(g);                  /* traitement : calcule le symetrique de g */
+  temps = read_chrono(&Chrono1); /* top chrono : fin du traitement */
+
+  printf("temps de traitement Version 2: %d microsecondes\n", temps);
 
   TermineGraphe(g);
   TermineGraphe(g_1);
-
-  printf("temps de traitement : %g secondes\n", ((double)temps)/1e6);
-
+  
   return 0;
 } /* main() */

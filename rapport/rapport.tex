@@ -91,6 +91,85 @@ si ils sont reliés par le métro.
 	\label{metro}
 \end{figure}
 
+
+\clearpage
+%=============================================================================%
+\section{Calcul du symmétrique}
+\subsection{Première version}
+
+Voici la première version de l'algorithme pour calculer le symmétrique d'un graphe (algorithme fourni):
+
+\begin{algorithm}
+\caption{Calcul de symmétrique 1}\label{sym1}
+\begin{algorithmic}[1]
+\Procedure{Sym1}{$E, \Gamma$}
+	
+	\ForAll{$x \in E$}
+		\State $\Gamma^{-1} = \emptyset$
+	\EndFor
+		
+	\ForAll{$x \in E$}
+		\ForAll{$y \in E$}
+			\If{$y \in \Gamma(x)$}
+				\State $\Gamma^{-1}(y) = \Gamma^{-1}(y) \bigcup \{x\}$
+			\EndIf
+		\EndFor
+	\EndFor
+	
+		\State \textbf{return} $\Gamma^{-1}$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+Cet algorithme est en $O(n + n\times n \times n) = O(n^3)$.\\
+Nous pouvons voir que cette version n'est pas efficace car nous regardons pour tous les sommets si
+ils sont des successeurs de $x$, ce qui est un test redondant étant donné que $\Gamma$ est fournie,
+nous pouvons directement obtenir les successeurs de $x$.
+
+\subsection{Version améliorée}
+
+En parcourant directement tous les successeurs de $x$ nous obtenons l'algorithme suivant:
+
+\begin{algorithm}
+\caption{Calcul de symmétrique 2}\label{sym2}
+\begin{algorithmic}[1]
+\Procedure{Sym2}{$E, \Gamma$}
+	
+	\ForAll{$x \in E$}
+		\State $\Gamma^{-1} = \emptyset$
+	\EndFor
+		
+	\ForAll{$x \in E$}
+		\ForAll{$y \in \Gamma(x)$}
+			\State $\Gamma^{-1}(y) = \Gamma^{-1}(y) \bigcup \{x\}$
+		\EndFor
+	\EndFor
+	
+		\State \textbf{return} $\Gamma^{-1}$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+La complexité de l'algorithme est désormais $O(n + m)$. Puisque $m < n^2$ nous pouvons être sûrs que 
+cette version sera toujours plus rapide que la précédente, voici des comparaisons des temps d'éxécution
+sur des graphes de tailles différentes:\\
+
+
+\begin{center}
+\begin{tabular}{| c | c | c | c | c |}
+	\hline
+	 Sommets & Arcs & Temps avec Sym1 (en $\mu s$)& Temps avec Sym2(en $\mu s$) & rapport \\ \hline
+	 100 & 500 & 150 & 20 & 7,5 \\ \hline
+	 100 & 4000 & 1000 & 350 & 2.78\\ \hline
+	 500 & 20000 & 29000 & 1800 & 16.11 \\ \hline
+	 500 & 120000 & 235000 & 73000 & 3.22 \\ \hline
+\end{tabular}
+\end{center}
+
+Comme nous pouvons la deuxième version est bien plus rapide que la première, d'autant plus lorsque
+$m << n^2$ et même quand $m$ se rapproche de $n^2$ nous sommes toujours bien plus rapide.\\
+Nous utiliserons donc cette deuxième version par la suire lorsque nous en aurons besoin.
+
 \clearpage
 %=============================================================================%
 \section{Algorithme de Dijkstra}

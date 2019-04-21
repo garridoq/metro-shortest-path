@@ -12,7 +12,7 @@
     \brief construit et retourne le graphe g_1 symétrique du graphe g. 
     \warning seule la représentation 'gamma' est utilisée. 
 */
-graphe * Syme(graphe * g)
+graphe * Sym1(graphe * g)
 /* ====================================================================== */
 {
   graphe *g_1;
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
   na = atoi(argv[2]);
 
   g = GrapheAleatoire(ns, na);   /* genere un graphe aleatoire antisymetrique sans boucle */
-  g_1 = Syme(g);                  /* traitement : calcule le symetrique de g */
+  g_1 = Sym1(g);                  /* traitement : calcule le symetrique de g */
   printf("graphe g :\n");
   AfficheSuccesseurs(g);         /* affiche les ensembles "successeurs" de g a l'ecran */
   printf("graphe g_1 :\n");
