@@ -53,7 +53,6 @@ int parent(int i){
 void minHeapify(pqueue* q, int i){
 	int l = left(i);
 	int r = right(i);
-	//printf("l: %d, r: %d \n",l,r);
 	int smallest;
 	if(l <= q->nb_elt &&  q->keys[l] < q->keys[i])
 		smallest = l;

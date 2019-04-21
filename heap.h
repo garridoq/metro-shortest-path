@@ -8,7 +8,7 @@ struct heap{
 	int nb_elt;
 };
 
-void swap(int* tab, int i,int j);
+void hswap(int* tab, int i,int j);
 heap* heapInit(int max_size);
 void deleteHeap(heap* h);
 int hleft(int i);

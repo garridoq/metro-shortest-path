@@ -231,7 +231,6 @@ graphe* PCC(graphe* g, int d, int a, int mode){
 			if(S[i] == 1)
 				continue;
 			heuristique = (pi[i] < INF) ? pi[i] + distance(g, i, a) : pi[i] ;
-			//heuristique = pi[i];
 			if(heuristique  < min){ //heuristique
 				min = heuristique;
 				x_min = i;
@@ -371,7 +370,6 @@ graphe* PCC_pq(graphe* g, int d, int a, int mode){
 				decreaseKey(pq, pq->indices[y], heuristique);
 			}				
 		}
-		//printPqueue(pq);
 		x_min = extractMin(pq);
 		k++;
 		xk = x_min;
