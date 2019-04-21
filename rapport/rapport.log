@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.2)  21 APR 2019 18:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.2)  21 APR 2019 18:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1442,33 +1442,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 574--577
 [13
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 595--607
+Underfull \hbox (badness 10000) in paragraph at lines 602--614
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 608--610
+Underfull \hbox (badness 10000) in paragraph at lines 615--617
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 620--627
+Underfull \hbox (badness 10000) in paragraph at lines 627--634
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 634.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 641.
 [15]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 634.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 641.
  (./rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 634.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 634.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 641.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 641.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: EEC135F4234180C08DDA357CCDC2B197;1115.
+(rerunfilecheck)             Checksum: F73D750D2020A5D7530DD25826A6948C;1116.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 634.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 641.
  ) 
 Here is how much of TeX's memory you used:
  11031 strings out of 492982
@@ -1491,7 +1491,7 @@ nts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on rapport.pdf (15 pages, 359442 bytes).
+Output written on rapport.pdf (15 pages, 359937 bytes).
 PDF statistics:
  325 PDF objects out of 1000 (max. 8388607)
  268 compressed objects within 3 object streams

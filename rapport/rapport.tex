@@ -283,7 +283,7 @@ est acceptable dans notre cas, Paris n'étant pas assez vaste pour que la courbu
 nous pouvons garantir l'optimalité de la solution trouvée.\\\\
 
 Nous pouvons bien voir qu'avec cette condition d'optimalité, l'algorithme de Dijkstra trouve une solution
-optimale car il correspond à avoir une heuristique toujorus égale à 0, or dans un réseau avec des arcs
+optimale car il correspond à avoir une heuristique toujours égale à 0, or dans un réseau avec des arcs
 à valeur positive, un chemin est toujours plus long que 0.
 
 \subsection{Implémentation de l'algorithme}
@@ -576,11 +576,13 @@ sommes environ 1.5 à 2 fois plus rapide avec que sans, avec des cas extrèmes o
 rapides et d'autres où nous sommes trois fois plus rapides.\\
 
 Cependant vu les durées d'éxécution qui ne sont même pas de l'ordre de la milliseconde, d'autres facteurs
-peuvent influencer nos résultats et bien que la conclusion reste la même, les rapports sont à prendre
-avec des pincettes, et plusieurs graphes plus grands nous permettraient de mieux estimer une amélioration
+peuvent influencer nos résultats. Notamment la partie de construction du chemin qui est prise en compte
+dans nos temps est très longue et ne dépend pas de l'algorithme utilisé pour le plus court chemin.
+Ainsi elle a plus d'influence sur le temps avec file de priorité. Bien que la conclusion reste la même, les rapports 
+sont à prendre avec des pincettes, et plusieurs graphes plus grands nous permettraient de mieux estimer une amélioration
 moyenne.
 
-\subsection{Autre structures de données possibles}
+\subsection{Autres structures de données possibles}
 
 Le tas binaire n'est pas la seule manière d'implémenter une file de priorité, et d'autres types
 de tas permettent d'obtenir des meilleures complexités sur certaines opération, voici
