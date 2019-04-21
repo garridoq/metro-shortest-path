@@ -12,7 +12,7 @@
     \brief construit et retourne le graphe g_1 symétrique du graphe g. 
     \warning seule la représentation 'gamma' est utilisée. 
 */
-graphe * Sym(graphe * g)
+graphe * Syme(graphe * g)
 /* ====================================================================== */
 {
   graphe *g_1;
@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 
   g = GrapheAleatoire(ns, na);   /* genere un graphe aleatoire antisymetrique sans boucle */
   start_chrono(&Chrono1);        /* top chrono : debut du traitement */
-  g_1 = Sym(g);                  /* traitement : calcule le symetrique de g */
+  g_1 = Syme(g);                  /* traitement : calcule le symetrique de g */
   temps = read_chrono(&Chrono1); /* top chrono : fin du traitement */
 
   TermineGraphe(g);
