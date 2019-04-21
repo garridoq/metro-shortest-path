@@ -37,6 +37,11 @@ graphe * Sym(graphe * g)
   return g_1;
 } /* Sym() */
 
+/*======================================================================= *//*
+
+Copie un graphe dans un autre
+
+*//*======================================================================= */
 void copyGrapheParams(graphe* dest, graphe* src){
 	int i;
 	int l;
@@ -61,10 +66,20 @@ void copyGrapheParams(graphe* dest, graphe* src){
 	}
 }
 
+/*======================================================================= *//*
+
+Fonction utilisée pour notre heuristique
+
+*//*======================================================================= */
 double distance(graphe* g, int a, int b){
 	return hypot(g->x[a] - g->x[b], g->y[a] - g->y[b])*25.7/10; 
 }
 
+/*======================================================================= *//*
+
+Retourne le plus court chemin de d à a dans un graphe g.
+
+*//*======================================================================= */
 graphe* getChemin(graphe *g, int*S, int*pi, int d, int a, int mode){
 	graphe* g_sym = Sym(g);
 	int n = g->nsom;
@@ -95,12 +110,11 @@ graphe* getChemin(graphe *g, int*S, int*pi, int d, int a, int mode){
 }
 
 
-/*======================================================================= */
-/*
+/*======================================================================= *//*
+
 Retourne un chemin avec uniquement les sommets explorés.
 
-*/
-/*======================================================================= */
+*//*======================================================================= */
 graphe* exploredSommets(graphe *g, int *S, int a){
 	int n_som = 0;
 	int i = 0;
@@ -159,6 +173,11 @@ graphe* exploredSommets(graphe *g, int *S, int a){
 	return g_expl;
 }
 
+/*======================================================================= *//*
+
+Calcule un plus court chemin avec A* sans file de priorité.
+
+*//*======================================================================= */
 /* ====================================================================== */
 /*! \fn graphe * PCC(graphe * g, int d, int a)
     \param g (entrée) : un graphe valué (réseau). La longueur de chaque arc doit 
@@ -232,7 +251,11 @@ graphe* PCC(graphe* g, int d, int a, int mode){
 	return chemin;
 }
 
+/*======================================================================= *//*
 
+Calcule un plus court chemin avec Dijkstra sans file de priorité.
+
+*//*======================================================================= */
 graphe* PCC_d(graphe* g, int d, int a, int mode){
 	graphe *chemin;
 	pcell p;
@@ -298,6 +321,11 @@ graphe* PCC_d(graphe* g, int d, int a, int mode){
 
 
 
+/*======================================================================= *//*
+
+Calcule un plus court chemin avec A* avec file de priorité.
+
+*//*======================================================================= */
 graphe* PCC_pq(graphe* g, int d, int a, int mode){
 	graphe *chemin;
 	pcell p;
@@ -363,6 +391,11 @@ graphe* PCC_pq(graphe* g, int d, int a, int mode){
 }
 
 
+/*======================================================================= *//*
+
+Affiche un chemin.
+
+*//*======================================================================= */
 void printChemin(graphe* g,int d, int a){
 	int x = d;
 	printf("Chemin le plus court de %d à %d:\n",d,a);
