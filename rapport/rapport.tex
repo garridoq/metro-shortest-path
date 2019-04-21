@@ -40,7 +40,7 @@ L'objectif de ce projet est d'implémenter des algorithmes de recherche de plus 
 chemins dans un graphe, et plus particulièrement dans un graphe représentant le réseau
 de métro de Paris.\\
 Nous implémenterons tout d'abord l'algorithme de Dijkstra, puis le modifierons pour
-qu'ils deviennent l'algorithme A* et nous optimiserons son temps d'éxécution grâce
+qu'il utilise la stratégie  A* et nous optimiserons son temps d'éxécution grâce
 à des structures de données adaptées.
 
 \subsection{Utilisation}
@@ -72,8 +72,15 @@ Voici la liste des fichiers de test et leur utilisation:
 		  Un fichier EPS sera créé pour chaque algorithme.\\
 \end{itemize}
 
-À titre de référence, voici à quoi ressemble le graphe entier du réseau de métro, que nous
-utiliserons par la suite:
+Afin de trouver le numéro de station associé à un nom vous pouvez utiliser la commande suivante:
+\begin{lstlisting}[language=bash]
+	> cat GRAPHE | grep -iF NOM
+\end{lstlisting}
+La recherche n'est pas sensible à la casse mais l'est aux accents. Vous obtiendrez alors
+toutes les stations contenant NOM et leur numéro associé.\\
+
+À titre de référence, voici sur la filgure~\ref{metro} à quoi ressemble le graphe entier du réseau de métro, que nous
+utiliserons par la suite:\\
 Les stations sont réprésentées par les sommets et nous avons une arc entre deux sommets
 si ils sont reliés par le métro.
 
@@ -89,7 +96,7 @@ si ils sont reliés par le métro.
 \section{Algorithme de Dijkstra}
 \subsection{Implémentation}
 
-Pour calculer le chemin de plus court d'un point D à A nous allons utiliser 
+Pour calculer le chemin le plus court d'un point D à A nous allons utiliser 
 la version suivante de l'algorithme de Dijkstra, adaptée depuis le cours de 
 l'unité Graphes et Algorithmes.\\
 
@@ -194,7 +201,7 @@ $->$ Charles de Gaulle, Étoile
 $->$ Victor Hugo
 $->$ Porte Dauphine\\
 
-Nous pouvons observer ce chemin avec la figure suivante. Les arcs forment le plus court
+Nous pouvons observer ce chemin sur la figure~\ref{dijkstra_1}. Les arcs forment le plus court
 chemin et les sommets sont uniquement ceux visités. Nous en avons visité 329 sur 376.\\
 
 \begin{figure}[!hbt]
@@ -210,7 +217,7 @@ Cet effet est exacerbé ici car le trajet que nous avons choisi est particulièr
 Ce constat reste le même sur tous les trajets, sauf sur ceux très courts.\\
 
 Bien que le chemin que nous trouvions ne paraisse pas optimal, nous l'avons vérifié via
-le service Vianavigo de la RATP, où nous trouvons le même chemin. Cela est du au fait que
+le service Vianavigo de la RATP, où nous trouvons le même chemin. Cela est dû au fait que
 les deux stations sont sur la même ligne et donc que nous avons aucun changement à faire,
 d'où la plus courte durée du trajet.\\\\
 Nous avons vérifié plusieurs autres trajets de la même manière avec le même résultat à chaque
@@ -222,10 +229,22 @@ utilisé par la RATP pour Vianavigo soit correct, ce que nous pouvons affirmer �
 \section{Stratégie A*}
 
 Pour utiliser la stratégie A* nous allons appliquer une heuristique lors du choix du prochain
-sommet à étudier, ce qui correspond à la ligne 10 de l'algorithme de Dijkstra.\\
+sommet à étudier dans l'algorithme de Dijkstra, ce qui correspond à la ligne 10 de l'algorithme.\\
 En effet nous avons pu voir que choisir toujours le somemt avec le plus court chemin vers lui
 se révèle sous optimal car nous allons partir dans des directions qui nous éloignent de l'arrivée.\\
-Nous allons donc essayer de choisir une heuristique qui va nous permettre d'explorer moins de sommets.
+Nous allons donc essayer de choisir une heuristique qui va nous permettre d'explorer moins de sommets.\\
+
+Le principe de la stratégie A* est le suivant:\\
+On considère $f(n)$ une estimation du  coût d'un plus court chemin de notre départ $d$ à notre arrviée $a$ passant par n.
+On a alors:
+\begin{gather*}
+		f(n) = g(n) + h(n)
+\end{gather*}
+g(n) est le coût d'un chemin optimal de $d$ à $n$, dans notre cas $\pi(n)$.\\
+h(n) est notre heuristique qui estimera le coût d'un chemin optimal de $n$ à $a$.\\
+
+Nous utiliserons alors cette fonction $f$ pour comparer deux sommet et savoir lequel
+nous allons étudier ensuite.
 
 \subsection{Choix de l'heuristique}
 
@@ -233,17 +252,16 @@ Dans notre cas, la durée de trajet entre deux stations correspond au poids de l
 est calculée pour un métro se déplaçant en moyenne à 10 $m.s^{-1}$ et une unité dans notre graphe
 correspond à 25.7 m.\\
 
-L'heuristique choisie repose sur le fait que s'éloigner de l'arrivée est contre productif, et que
-nous voulons privilégier les stations nous rapprochant de l'arrivée.\\
+L'heuristique que nous devons choisir doit estimer le plus court chemin du sommet courant à l'arrivée.
 Ainsi nous allons utiliser la distance euclidienne entre notre sommet actuel et l'arrivée.\\
-Nous possédons les coordonnées de tous les sommet mais il faut les covnertir en mètres en multipliant
-par 25.7 puis diviser par 10 pour obtenir une métrique comparable aux valeurs des arcs, et par 
+Nous possédons les coordonnées de tous les sommet mais il faut les convertir en mètres en multipliant
+par 25.7 puis diviser par 10 pour obtenir une valeur comparable aux valeurs des arcs, et par 
 conséquent des longueurs de chemins.\\
 Cette heuristique devrait s'avérer bonne car très simple à calculer et elle représente le trajet à
 vol d'oiseau entre nos stations, ce qui est le résultat optimal peu importe le moyen de transport
 utilisé, aucun trajet ne peut être plus court que cela.\\
 
-Notre heuristique est alors:\\
+Notre heuristique est alors:
 
 \begin{algorithm}
 \caption{Heuristique}\label{heuristique}
@@ -273,6 +291,9 @@ optimale car il correspond à avoir une heuristique toujorus égale à 0, or dan
 Pour implémenter la stratégie A* seules de très légères modifications de l'algorithme de Dijkstra sont
 nécessaires, il nous suffit de modifier le choix du prochain sommet à étudier à chaque étape.
 Nous obtenons alors:\\
+
+\clearpage
+
 
 \begin{algorithm}
 \caption{Algorithme A*}\label{astar}
@@ -326,7 +347,6 @@ l'arrivée, ce qui rend moins efficace notre heuristique.\\
 Afin de mieux se rendre compte des différences entre nos stratégies voici d'autres exemples
 d'éxécution :\\
 
-\clearpage
 
 \begin{figure}[!hbt]
 		\begin{minipage}{0.45\textwidth}
@@ -355,6 +375,7 @@ d'éxécution :\\
 		\label{vs_2}
 \end{figure}
 
+\clearpage
 
 \begin{figure}[!hbt]
 		\begin{minipage}{0.45\textwidth}
@@ -369,14 +390,47 @@ d'éxécution :\\
 		\label{vs_3}
 \end{figure}
 
-\pagebreak
+\begin{figure}[!hbt]
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.8\textwidth]{d_146_212.eps}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.8\textwidth]{as_146_212.eps}
+		\end{minipage}
+		\caption{Comparaison entre Dijkstra(à gauche) et A*(à droite) de 146 à 212}
+		\label{vs_3}
+\end{figure}
+
+
+Voici la comparaison des temps d'éxécution sur ces exemples:\\
+
+\begin{center}
+\begin{tabular}{| c | c | c | c | c |}
+	\hline
+	 Départ & Arrivée & Temps avec Dijkstra (en $\mu s$)& Temps avec A*(en $\mu s$) & rapport \\ \hline
+	 130 & 212 & 350 & 110 & 3.18 \\ \hline
+	 27 & 244 & 500 & 420 & 1.19\\ \hline
+	 200 & 201 & 600 & 530 & 1.13 \\ \hline
+	 146 & 212 & 230 & 170 & 1.35 \\ \hline
+\end{tabular}
+\end{center}
+
+Nous pouvons voir que comme sur notre autre exemple nous parcourons en général bien moins de 
+sommet mais le temps d'éxécution ne varie pas toujours autant que précédemment.\\
+Mais même dans le pire de nos exemples, nous avons quand même un gain de 13\%, ce qui
+reste intéressant.
+
+\clearpage
 %=============================================================================%
 \section{Tas Binaire}
 
 Que ce soit dans l'algorithme de Dijkstra ou dans la stratégie A*, une des opérations les 
 plus coûteuses reste la ligne 10, lorsque que nous calculons un minimum, cette opération
 s'effectue en $O(n)$.\\
-Cependant avec des structures de données adaptées cette opération peut devenir en $O(1)$
+Cependant avec des structures de données adaptées cette opération peut devenir en $O(1)$ (ou
+$O(log(n))$ si nous souhaitons extraire ce minimum)
 tout en gardant une compléxité en $O(log(n))$ pour les autres opérations. Une des structures
 permettant cela est le tas binaire, qui est relativement simple à implémenter.\\
 
@@ -405,7 +459,7 @@ pouvons le voir sur le schéma suivant:
 \end{figure}
 
 Pour chaque noeud (indicé i), nous pouvons obtenir son parent et ses enfants
-de la manière suivante:\\
+de la manière suivante:
 \begin{itemize}
 	\item parent(i)  = $\lfloor \frac{i-1}{2}  \rfloor$
 	\item gauche(i) = $i \times 2 + 1$
@@ -428,12 +482,12 @@ les tests via le fichier \textit{test\_heap.c}.
 Afin de pouvoir utiliser un tas binaire comme file de priorité il va falloir y apporter quelques
 modifications liées à notre problème.\\
 
-Nous allons utiliser deux tableaux, elements qui contient les sommets de notre graphe
-et keys qui contient les valeurs utilisées pour le tri dans le tas. Dans keys nous
+Nous allons utiliser deux tableaux, \textit{elements} qui contient les sommets de notre graphe
+et \textit{keys} qui contient les valeurs utilisées pour le tri dans le tas. Dans \textit{keys} nous
 stockerons le coût d'un plus court chemin vers notre sommet plus son heuristique.\\
 
-Un troisième tableau à $n$ éléments sera utilisé afin de savoir si un sommet est
-déjà présent et si il y est où se trouve-t-il, si il est absent nous utiliserons la valeur -1.
+Un troisième tableau à $n$ éléments, \textit{indice} sera utilisé afin de savoir si un sommet est
+déjà présent dans le tas et si il y est où se trouve-t-il, si il est absent nous utiliserons la valeur -1.
 Nous avons alors indice[i] = argument de i dans \textit{elements}.\\
 Ce tableau nous permettra de savoir si un sommet est dans le tas binaire en temps constant,
 ce qui nous sera utile pour savoir si nous allons devoir insérer un sommet ou juste 
@@ -451,7 +505,7 @@ Nous aurons aussi besoin des nouvelles fonctions suivantes:
 	\item extractMin(t): cette fonction va enlever l'élément minimal de la file de priorité
 			et le retourner.
 	\item decreaseKey(elt, key): cette fonction va baisser la valeur de la clef de l'élément \textit{elt}
-			pour y mettre la valeur \textit{key}. Elle s'effectue en temps constant grâce à notre 
+			pour y mettre la valeur \textit{key}. Elle s'effectue en temps logarithmique grâce à notre 
 			tableau \textit{indices}\\
 \end{itemize}
 
@@ -490,10 +544,10 @@ plus rapidement l'élément minimum:
 \end{algorithmic}
 \end{algorithm}
 
-En comparant à précédemment nous avons désormais \textsc{decreaseKey} qui est en $O(1)$
+En comparant à précédemment nous avons désormais \textsc{decreaseKey} qui est en $O(log(n))$
 \textsc{minInsert} qui est en $O(log(n))$ et \textsc{extractMin} en $O(1)$.\\
 Nous avions avant un calcul de minimum en $O(n)$.\\
-Malgré l'ajout d'une opération en temps logarithmique, nous devrions voir de grandes 
+Malgré l'ajout de deux opérations en temps logarithmique, nous devrions voir de grandes 
 améliorations de temps d'éxécution car nous avons transformé une opération en temps linéaire en
 temps constant.
 
@@ -506,11 +560,11 @@ bien plus rapidement, voici un tableau récapitulatif sur certains trajets :\\
 \begin{tabular}{| c | c | c | c | c |}
 	\hline
 	 Départ & Arrivée & Temps sans file (en $\mu s$)& Temps avec file (en $\mu s$) & rapport \\ \hline
-	 130 & 212 & 650 & 530 & 1.22 \\ \hline
-	 146 & 212 & 1050 & 500 & 2.1 \\ \hline
-	 1 & 256 & 1090 & 550 & 1.98\\ \hline
-	 27 & 244 & 2000 & 800 & 2.5\\ \hline
-	 200 & 201 & 2500 & 750 & 3.33 \\ \hline
+	 130 & 212 & 125 & 100 & 1.25 \\ \hline
+	 146 & 212 & 150 & 100 & 1.5 \\ \hline
+	 1 & 256 & 240 & 160 & 1.5\\ \hline
+	 27 & 244 & 450 & 170 & 2.65\\ \hline
+	 200 & 201 & 630 & 210 & 3 \\ \hline
 \end{tabular}
 \end{center}
 
@@ -518,14 +572,68 @@ Ces résultats ont été obtenus en réalisant 3 fois chaque mesure puis en pren
 trois essais.\\
 
 Comme nous pouvons le voir le temps est toujours meilleur avec la file de priorité, en moyenne nous
-sommes environ deux fois plus rapides que sans, avec des cas extrèmes où nous sommes à peine plus
-rapides et d'autres où nous sommes plus de trois fois plus rapides.\\
+sommes environ 1.5 à 2 fois plus rapide avec que sans, avec des cas extrèmes où nous sommes à peine plus
+rapides et d'autres où nous sommes trois fois plus rapides.\\
 
-
+Cependant vu les durées d'éxécution qui ne sont même pas de l'ordre de la milliseconde, d'autres facteurs
+peuvent influencer nos résultats et bien que la conclusion reste la même, les rapports sont à prendre
+avec des pincettes, et plusieurs graphes plus grands nous permettraient de mieux estimer une amélioration
+moyenne.
 
 \subsection{Autre structures de données possibles}
 
+Le tas binaire n'est pas la seule manière d'implémenter une file de priorité, et d'autres types
+de tas permettent d'obtenir des meilleures complexités sur certaines opération, voici
+un tableau récapitulatif pour certains types de tas:
 
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c |}
+	\hline
+		Tas & \textsc{getMin}  & \textsc{extractMin} & \textsc{insert} & \textsc{decreaseKey} & \textsc{merge} \\ \hline
+	Binaire & $\Theta(1) $ & $ \Theta(log(n)) $ & $O(log(n)) $  & $O(log(n)) $ & $\Theta(n) $ \\ \hline
+		Binomial & $\Theta(log(n)) $ & $\Theta(log(n)) $ & $\Theta(1)* $ & $\Theta(log(n)) $ & $ \Theta(log(n))$ \\ \hline
+		Fibonnaci & $\Theta(1) $ & $O(log(n)) $ & $ \Theta(1) $ & $ \Theta(1)* $ & $ \Theta(1) $ \\ \hline
+\end{tabular}	
+\\ * : Temps ammorti
+\end{center}
+
+Comme nous pouvons le voir, le tas binaire est largement battu théoriquement par les tas binomiaux ou de Fibonnaci,
+notamment pour l'opération \textsc{merge}.\\
+Cependant dans notre cas nous allons surtout nous intéresser aux opérations \textsc{extractMin}, \textsc{insert}
+et \textsc{decreaseKey} qui sont celles que nous allons utiliser pour notre problème.\\
+\textsc{ExtractMin} garde la même complexité peu importe la structure de données choisie.\\
+\textsc{Insert} passe en temps constant pour les tas binomiaux et de Fibonnaci, cependant cela ne sera rentable
+en pratique que si les constantes, masquées par l'étude asymptotique de la complexité, sont similaires.
+Or le tas binaire est très simple à implémenter, notamment face au tas de Fibonnaci qui lui est assez complexe
+à implémenter en pratique et où les cosntantes deviennent trop grande pour une utilisation pratique.\\
+Peu importe la taille, passer d'un temps linéaire à logarithmique est rentable, mais passer d'un temps
+logarithmique à linéaire ne l'est pas forcément, car le logarithme croît très lentement ($log(10^n) = n$).
+C'est là que la difficulté d'implémentation peut rentre cette amélioration théorique inutilisable en pratique.\\
+
+Le constat est le même pour \textsc{decreaseKey}, qui passe d'un temps logarithmique pour le tas binaire
+ou binomial à un temps constant pour le tas de Fibonnaci.\\
+
+Nous pouvons alors voir que dans notre cas, le tas de binaire est le bon compromis entre difficulté
+d'implémentation et complexité, cependant si nous avions dû fusionner des tas, il aurait été intéressant
+d'implémenter un tas binomial ou de Fibonnaci.
+
+
+
+\pagebreak
 \section{Conclusion}
+
+Nous avons pu voir qu'en partant de l'algorithme de Dijkstra, qui est l'algorithme de référence pour trouver
+un plus court chemin dans un réseau à longueurs positives, nous avons réussi à arriver à un résultat bien
+plus rapide grâce à la stratégie A* et à une file de priorité implémentée grâce à un tas binaire.\\
+Nous avons aussi pu nous rendre compte de la dualité qu'il existe entre mémoire et temps d'éxécution,
+en effet nous avons pu accélérer certaines opérations (appartenance à un tas binaire) en gardant des
+informations supplémentaires en mémoire. Et de manière analogue nous avons pu gagner en mémoire (taille
+maximale de notre tas binaire) en ayant un peu plus d'opérations à effectuer (appartenance au tas binaire).\\
+
+Ainsi beaucoup de solutions que nous avons apportées pour notre problème sont généralisables mais certaines
+moins que d'autres, car ici nous connaissions certaines informations très utiles (position dans l'espace
+de nos sommets pour notre heuristique) qui nous ont permis d'adapter une solution plus générale à notre
+problème. Ainsi avec d'autres informations nous aurions pu adapter encore différemment la méthode pour
+qu'elle fonctionne mieux sur un certain problème.
 
 \end{document}

@@ -65,6 +65,36 @@ double distance(graphe* g, int a, int b){
 	return hypot(g->x[a] - g->x[b], g->y[a] - g->y[b])*25.7/10; 
 }
 
+graphe* getChemin(graphe *g, int*S, int*pi, int d, int a, int mode){
+	graphe* g_sym = Sym(g);
+	int n = g->nsom;
+	graphe* chemin = InitGraphe(n,n);
+	int s = a;
+	int new_s, y;
+	pcell p;
+
+	while( s != d){
+		new_s = -1;
+		for(p = g_sym->gamma[s]; p != NULL; p = p->next){
+			y = p->som;
+			if(pi[s]-pi[y] == p->v_arc)
+				new_s = y;
+		}
+		AjouteArc(chemin, s, new_s);
+		s = new_s;
+	}
+	chemin = Sym(chemin);
+	copyGrapheParams(chemin, g);
+	printChemin(chemin,d,a);	
+	
+	if(mode == EXPLORE){
+		chemin = exploredSommets(chemin, S, a);
+	}
+
+	return chemin;
+}
+
+
 /*======================================================================= */
 /*
 Retourne un chemin avec uniquement les sommets explorés.
@@ -135,7 +165,8 @@ graphe* exploredSommets(graphe *g, int *S, int a){
                         se trouver dans le champ v_arc de la structure cell .
     \param d (entrée) : un sommet (départ).
     \param a (entrée) : un sommet (arrivée).
-    \return un plus court chemin de d vers a dans g , représenté par un graphe.
+    \param mode (entrée) : mode d'éxécution pour le chemin retourné (EXPLORE ou ALL)
+	\return un plus court chemin de d vers a dans g , représenté par un graphe.
     \brief retourne un plus court chemin de d vers a dans g .
 */
 /* ====================================================================== */
@@ -195,34 +226,12 @@ graphe* PCC(graphe* g, int d, int a, int mode){
 			break;
 
 	}
-	//Récupération du chemin
-	//On calcule le symmétrique pour avoir les prédécesseurs
-	graphe* g_sym = Sym(g);
-	chemin = InitGraphe(n,n);
-	s = a;
-	
-	while( s != d){
-		new_s = -1;
-		for(p = g_sym->gamma[s]; p != NULL; p = p->next){
-			y = p->som;
-			if(pi[s]-pi[y] == p->v_arc)
-				new_s = y;
-		}
-		AjouteArc(chemin, s, new_s);
-		s = new_s;
-	}
-	chemin = Sym(chemin);
-	copyGrapheParams(chemin, g);
-	printChemin(chemin,d,a);	
-	
-	if(mode == EXPLORE){
-		chemin = exploredSommets(chemin, S, a);
-	}
-	
+	chemin = getChemin(g, S, pi, d, a, mode);	
 	free(pi);
 	free(S);
 	return chemin;
 }
+
 
 graphe* PCC_d(graphe* g, int d, int a, int mode){
 	graphe *chemin;
@@ -279,29 +288,8 @@ graphe* PCC_d(graphe* g, int d, int a, int mode){
 			break;
 
 	}
-	//Récupération du chemin
-	//On calcule le symmétrique pour avoir les prédécesseurs
-	graphe* g_sym = Sym(g);
-	chemin = InitGraphe(n,n);
-	s = a;
 	
-	while( s != d){
-		new_s = -1;
-		for(p = g_sym->gamma[s]; p != NULL; p = p->next){
-			y = p->som;
-			if(pi[s]-pi[y] == p->v_arc)
-				new_s = y;
-		}
-		AjouteArc(chemin, s, new_s);
-		s = new_s;
-	}
-	chemin = Sym(chemin);
-	copyGrapheParams(chemin, g);
-	printChemin(chemin,d,a);	
-	
-	if(mode == EXPLORE){
-		chemin = exploredSommets(chemin, S, a);
-	}
+	chemin = getChemin(g, S, pi, d, a, mode);
 	
 	free(pi);
 	free(S);
@@ -365,31 +353,9 @@ graphe* PCC_pq(graphe* g, int d, int a, int mode){
 			break;
 
 	}
-	//Récupération du chemin
-	//On calcule le symmétrique pour avoir les prédécesseurs
-	graphe* g_sym = Sym(g);
-	chemin = InitGraphe(n,n);
-	s = a;
-	
-	while( s != d){
-		new_s = -1;
-		for(p = g_sym->gamma[s]; p != NULL; p = p->next){
-			y = p->som;
-			if(pi[s]-pi[y] == p->v_arc)
-				new_s = y;
-		}
-		AjouteArc(chemin, s, new_s);
-		s = new_s;
-	}
-	
-	
-	chemin = Sym(chemin);
-	copyGrapheParams(chemin, g);
-	printChemin(chemin,d,a);	
 
-	if(mode == EXPLORE){
-		chemin = exploredSommets(chemin, S, a);
-	}
+	chemin = getChemin(g, S, pi, d, a, mode);
+
 	free(pi);
 	free(S);
 	deletePqueue(pq);
